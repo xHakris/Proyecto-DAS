@@ -85,14 +85,14 @@ class _SideBarNavWidgetState extends State<SideBarNavWidget> {
                 children: [
                   if (Theme.of(context).brightness == Brightness.light)
                     Image.asset(
-                      'assets/images/noCode_UI_onLight@3x.png',
+                      'assets/images/LogoNew-03.png',
                       width: 130.0,
                       height: 40.0,
                       fit: BoxFit.fitWidth,
                     ),
                   if (Theme.of(context).brightness == Brightness.dark)
                     Image.asset(
-                      'assets/images/noCode_UI_onDark@3x.png',
+                      'assets/images/Imagen1.png',
                       width: 130.0,
                       height: 40.0,
                       fit: BoxFit.fitWidth,
@@ -152,7 +152,7 @@ class _SideBarNavWidgetState extends State<SideBarNavWidget> {
                         child: widget.twoIcon!,
                       ),
                       Text(
-                        'Courses',
+                        'Cursos',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
@@ -197,7 +197,7 @@ class _SideBarNavWidgetState extends State<SideBarNavWidget> {
                           child: widget.threeIcon!,
                         ),
                         Text(
-                          'Profile',
+                          'Perfil',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],

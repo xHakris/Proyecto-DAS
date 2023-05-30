@@ -214,7 +214,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'Your Courses',
+                                                'Tus Cursos',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineSmall,
@@ -236,7 +236,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                             onPressed: () {
                                               print('Button pressed ...');
                                             },
-                                            text: 'Add Course',
+                                            text: 'Agregar Curso',
                                             icon: Icon(
                                               Icons.add_rounded,
                                               size: 15.0,
