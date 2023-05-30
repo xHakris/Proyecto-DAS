@@ -102,7 +102,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               ),
                             ),
                             Text(
-                              'Get Started',
+                              'Empezemos',
                               style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                             Padding(
