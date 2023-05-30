@@ -96,7 +96,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Create Profile',
+                              'Crear Perfil',
                               style: FlutterFlowTheme.of(context).headlineSmall,
                             ),
                           ],
