@@ -97,7 +97,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                 },
               ),
               title: Text(
-                'Forgot Password',
+                'Has olvidado tu contraseña',
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
               actions: [],
@@ -155,7 +155,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               ),
                             ),
                             Text(
-                              'Forgot Password',
+                              'Has olvidado tu contraseña',
                               style: FlutterFlowTheme.of(context).headlineSmall,
                             ),
                           ],
@@ -169,7 +169,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 8.0, 16.0, 0.0),
                             child: Text(
-                              'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
+                              'Le enviaremos un correo electrónico con un enlace para restablecer su contraseña, ingrese el correo electrónico asociado con su cuenta a continuación.',
                               style: FlutterFlowTheme.of(context).bodySmall,
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
@@ -185,9 +185,10 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your email',
+                          labelText: 'Tu correo electrónico',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'Enter your email to recieve a linke...',
+                          hintText:
+                              'Ingrese su correo electrónico para recibir un enlace...',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -257,7 +258,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                             context: context,
                           );
                         },
-                        text: 'Send Reset Link',
+                        text: 'Enviar enlace de reinicio',
                         options: FFButtonOptions(
                           width: 230.0,
                           height: 50.0,

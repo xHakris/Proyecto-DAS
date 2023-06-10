@@ -218,7 +218,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         controller: _model.yourNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your Name',
+                          labelText: 'Tu nombre',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
@@ -268,7 +268,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         controller: _model.cityController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your City',
+                          labelText: 'Tu Ciudad',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
@@ -317,7 +317,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                       child: FlutterFlowDropDown<String>(
                         controller: _model.stateValueController ??=
                             FormFieldController<String>(
-                          _model.stateValue ??= 'State',
+                          _model.stateValue ??= 'Estado',
                         ),
                         options: [
                           'State',
@@ -377,7 +377,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         width: double.infinity,
                         height: 56.0,
                         textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                        hintText: 'Select State',
+                        hintText: 'Seleccione estado',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -404,7 +404,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'Your bio',
+                          hintText: 'Tu Biografía',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(

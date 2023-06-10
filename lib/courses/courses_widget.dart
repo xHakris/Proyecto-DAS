@@ -24,7 +24,6 @@ class _CoursesWidgetState extends State<CoursesWidget>
   late CoursesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
@@ -84,14 +83,13 @@ class _CoursesWidgetState extends State<CoursesWidget>
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -224,7 +222,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'Below you will find a summary of your courses.',
+                                                  'A continuación encontrará un resumen de sus cursos.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall,
@@ -285,7 +283,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 0.0, 0.0),
                                   child: Text(
-                                    'Your Top Classes',
+                                    'Tus mejores clases',
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
@@ -396,7 +394,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                             ),
                                                           ),
                                                           Text(
-                                                            'No-Code Platform Design',
+                                                            'Mundos Virtuales',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleMedium
@@ -418,7 +416,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                 ),
                                                           ),
                                                           Text(
-                                                            '12 Projects',
+                                                            '12 Proyectos',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -549,7 +547,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                       8.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '21 students',
+                                                            '21 estudiantes',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -694,7 +692,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                             ),
                                                           ),
                                                           Text(
-                                                            'Code for no-coders',
+                                                            'Inteligencia Artificial',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .titleMedium
@@ -721,7 +719,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                '12 Projects',
+                                                                '12 Proyectos',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -853,7 +851,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                       8.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '16 students',
+                                                            '16 estudiantes',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium

@@ -23,7 +23,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
   late ProfilePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
   var hasContainerTriggered1 = false;
   var hasContainerTriggered2 = false;
   final animationsMap = {
@@ -72,14 +71,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -199,7 +197,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Your Courses',
+                                              'Tus cursos',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineSmall,
@@ -208,7 +206,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
-                                                'Below you will find a summary of your courses',
+                                                'A continuación encontrará un resumen de sus cursos.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall,
@@ -220,7 +218,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Add Course',
+                                          text: 'Agregar curso',
                                           icon: Icon(
                                             Icons.add_rounded,
                                             size: 15.0,
@@ -270,7 +268,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 0.0, 0.0),
                                 child: Text(
-                                  'Account',
+                                  'Cuenta',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -339,7 +337,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  'Switch to Dark Mode',
+                                                  'Cambiar al modo oscuro',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall,
@@ -610,7 +608,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Country',
+                                            'Pais',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -674,7 +672,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Edit Profile',
+                                            'Editar perfil',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -747,7 +745,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Support',
+                                            'Soporte',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -811,7 +809,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Terms of Service',
+                                            'Términos de servicio',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
@@ -875,7 +873,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'Invite Friends',
+                                            'Invitar a amigos',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
                                           ),
