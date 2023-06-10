@@ -83,6 +83,8 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (responsiveVisibility(
                       context: context,
