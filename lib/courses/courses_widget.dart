@@ -547,7 +547,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                       8.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '21 estudiantes',
+                                                            '16 estudiantes',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -851,7 +851,7 @@ class _CoursesWidgetState extends State<CoursesWidget>
                                                                       8.0,
                                                                       0.0),
                                                           child: Text(
-                                                            '16 estudiantes',
+                                                            '21 estudiantes',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
