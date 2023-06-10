@@ -96,10 +96,6 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 ],
                               ),
                             ),
-                            Text(
-                              'Bienvenido',
-                              style: FlutterFlowTheme.of(context).displaySmall,
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
@@ -107,6 +103,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                 'Utilice el siguiente formulario para acceder a su cuenta.',
                                 style: FlutterFlowTheme.of(context).bodySmall,
                               ),
+                            ),
+                            Text(
+                              'Bienvenido!',
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
