@@ -218,13 +218,44 @@ class _SideBarNavWidgetState extends State<SideBarNavWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                         child: Icon(
-                          Icons.account_circle_outlined,
+                          Icons.supervised_user_circle_outlined,
                           color: FlutterFlowTheme.of(context).primaryText,
                           size: 24.0,
                         ),
                       ),
                       Text(
                         'Estudiantes',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+              child: Container(
+                width: double.infinity,
+                height: 48.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 4.0, 4.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                        child: Icon(
+                          Icons.account_circle_outlined,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 24.0,
+                        ),
+                      ),
+                      Text(
+                        'Perfil',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
