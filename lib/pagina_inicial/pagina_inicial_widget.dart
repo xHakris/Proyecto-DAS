@@ -5,25 +5,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bienvenida_model.dart';
-export 'bienvenida_model.dart';
+import 'pagina_inicial_model.dart';
+export 'pagina_inicial_model.dart';
 
-class BienvenidaWidget extends StatefulWidget {
-  const BienvenidaWidget({Key? key}) : super(key: key);
+class PaginaInicialWidget extends StatefulWidget {
+  const PaginaInicialWidget({Key? key}) : super(key: key);
 
   @override
-  _BienvenidaWidgetState createState() => _BienvenidaWidgetState();
+  _PaginaInicialWidgetState createState() => _PaginaInicialWidgetState();
 }
 
-class _BienvenidaWidgetState extends State<BienvenidaWidget> {
-  late BienvenidaModel _model;
+class _PaginaInicialWidgetState extends State<PaginaInicialWidget> {
+  late PaginaInicialModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BienvenidaModel());
+    _model = createModel(context, () => PaginaInicialModel());
   }
 
   @override

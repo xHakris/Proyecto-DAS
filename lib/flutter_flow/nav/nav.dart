@@ -117,9 +117,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProfilePageWidget(),
             ),
             FFRoute(
-              name: 'Bienvenida',
-              path: 'bienvenida',
-              builder: (context, params) => BienvenidaWidget(),
+              name: 'PaginaInicial',
+              path: 'paginaInicial',
+              builder: (context, params) => PaginaInicialWidget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigma',
+              path: 'iniciarSesionFigma',
+              builder: (context, params) => IniciarSesionFigmaWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

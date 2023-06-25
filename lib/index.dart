@@ -6,4 +6,6 @@ export '/contrasena_olvidada/contrasena_olvidada_widget.dart'
 export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/courses/courses_widget.dart' show CoursesWidget;
 export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
-export '/bienvenida/bienvenida_widget.dart' show BienvenidaWidget;
+export '/pagina_inicial/pagina_inicial_widget.dart' show PaginaInicialWidget;
+export '/iniciar_sesion_figma/iniciar_sesion_figma_widget.dart'
+    show IniciarSesionFigmaWidget;
