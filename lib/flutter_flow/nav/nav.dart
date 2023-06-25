@@ -125,6 +125,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'IniciarSesionFigma',
               path: 'iniciarSesionFigma',
               builder: (context, params) => IniciarSesionFigmaWidget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy',
+              path: 'iniciarSesionFigmaCopy',
+              builder: (context, params) => IniciarSesionFigmaCopyWidget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy2',
+              path: 'iniciarSesionFigmaCopy2',
+              builder: (context, params) => IniciarSesionFigmaCopy2Widget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy2Copy',
+              path: 'iniciarSesionFigmaCopy2Copy',
+              builder: (context, params) => IniciarSesionFigmaCopy2CopyWidget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy2Copy2',
+              path: 'iniciarSesionFigmaCopy2Copy2',
+              builder: (context, params) =>
+                  IniciarSesionFigmaCopy2Copy2Widget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy2Copy2Copy',
+              path: 'iniciarSesionFigmaCopy2Copy2Copy',
+              builder: (context, params) =>
+                  IniciarSesionFigmaCopy2Copy2CopyWidget(),
+            ),
+            FFRoute(
+              name: 'IniciarSesionFigmaCopy2Copy2Copy2',
+              path: 'iniciarSesionFigmaCopy2Copy2Copy2',
+              builder: (context, params) =>
+                  IniciarSesionFigmaCopy2Copy2Copy2Widget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
