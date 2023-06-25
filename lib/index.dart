@@ -1,7 +1,9 @@
 // Export pages
-export '/sign_in/sign_in_widget.dart' show SignInWidget;
+export '/iniciar_sesion/iniciar_sesion_widget.dart' show IniciarSesionWidget;
 export '/create_profile/create_profile_widget.dart' show CreateProfileWidget;
-export '/forgot_password/forgot_password_widget.dart' show ForgotPasswordWidget;
+export '/contrasena_olvidada/contrasena_olvidada_widget.dart'
+    show ContrasenaOlvidadaWidget;
 export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/courses/courses_widget.dart' show CoursesWidget;
 export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export '/bienvenida/bienvenida_widget.dart' show BienvenidaWidget;

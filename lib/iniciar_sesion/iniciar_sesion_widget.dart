@@ -5,25 +5,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'sign_in_model.dart';
-export 'sign_in_model.dart';
+import 'iniciar_sesion_model.dart';
+export 'iniciar_sesion_model.dart';
 
-class SignInWidget extends StatefulWidget {
-  const SignInWidget({Key? key}) : super(key: key);
+class IniciarSesionWidget extends StatefulWidget {
+  const IniciarSesionWidget({Key? key}) : super(key: key);
 
   @override
-  _SignInWidgetState createState() => _SignInWidgetState();
+  _IniciarSesionWidgetState createState() => _IniciarSesionWidgetState();
 }
 
-class _SignInWidgetState extends State<SignInWidget> {
-  late SignInModel _model;
+class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
+  late IniciarSesionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SignInModel());
+    _model = createModel(context, () => IniciarSesionModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();

@@ -318,62 +318,8 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: FlutterFlowDropDown<String>(
                         controller: _model.stateValueController ??=
-                            FormFieldController<String>(
-                          _model.stateValue ??= 'Estado',
-                        ),
-                        options: [
-                          'State',
-                          'Alabama',
-                          'Alaska',
-                          'Arizona',
-                          'Arkansas',
-                          'California',
-                          'Colorado',
-                          'Connecticut',
-                          'Delaware',
-                          'Florida',
-                          'Georgia',
-                          'Hawaii',
-                          'Idaho',
-                          'Illinoi',
-                          'Indiana',
-                          'Iowa',
-                          'Kansas',
-                          'Kentucky',
-                          'Louisiana',
-                          'Maine',
-                          'Maryland',
-                          'Massachusetts',
-                          'Michigan',
-                          'Minnesota',
-                          'Mississippi',
-                          'Missouri',
-                          'Monta',
-                          'Nebraska',
-                          'Nevada',
-                          'New Hampshire',
-                          'New Jersey',
-                          'New Mexico',
-                          'New York',
-                          'North Carolina',
-                          'North Dak',
-                          'Ohio',
-                          'Oklahoma',
-                          'Oregon',
-                          'Pennsylvani',
-                          'Rhode Island',
-                          'South Caroli',
-                          'South Dakota',
-                          'Tennessee',
-                          'Texas',
-                          'Utah',
-                          'Vermont',
-                          'Virginia',
-                          'Washingto',
-                          'West Virginia',
-                          'Wisconsin',
-                          'Wyoming'
-                        ],
+                            FormFieldController<String>(null),
+                        options: ['Wisconsin', 'Wyoming'],
                         onChanged: (val) =>
                             setState(() => _model.stateValue = val),
                         width: double.infinity,
@@ -457,14 +403,14 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            final usersUpdateData = createUsersRecordData(
+                            await currentUserReference!
+                                .update(createUsersRecordData(
                               displayName: _model.yourNameController.text,
                               photoUrl: _model.uploadedFileUrl,
                               state: _model.stateValue,
                               bio: _model.myBioController.text,
                               city: _model.cityController.text,
-                            );
-                            await currentUserReference!.update(usersUpdateData);
+                            ));
 
                             context.pushNamed('homePage');
                           },

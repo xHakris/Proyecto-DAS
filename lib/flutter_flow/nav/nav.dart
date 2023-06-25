@@ -52,10 +52,13 @@ class AppStateNotifier extends ChangeNotifier {
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
   void update(BaseAuthUser newUser) {
+    final shouldUpdate =
+        user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
-    if (notifyOnAuthChange) {
+    // No need to update unless the user has changed.
+    if (notifyOnAuthChange && shouldUpdate) {
       notifyListeners();
     }
     // Once again mark the notifier as needing to update on auth change
@@ -74,18 +77,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : IniciarSesionWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : SignInWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? HomePageWidget()
+              : IniciarSesionWidget(),
           routes: [
             FFRoute(
-              name: 'signIn',
-              path: 'signIn',
-              builder: (context, params) => SignInWidget(),
+              name: 'IniciarSesion',
+              path: 'iniciarSesion',
+              builder: (context, params) => IniciarSesionWidget(),
             ),
             FFRoute(
               name: 'createProfile',
@@ -93,9 +97,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateProfileWidget(),
             ),
             FFRoute(
-              name: 'forgotPassword',
-              path: 'forgotPassword',
-              builder: (context, params) => ForgotPasswordWidget(),
+              name: 'contrasenaOlvidada',
+              path: 'contrasenaOlvidada',
+              builder: (context, params) => ContrasenaOlvidadaWidget(),
             ),
             FFRoute(
               name: 'homePage',
@@ -111,6 +115,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'profilePage',
               path: 'profilePage',
               builder: (context, params) => ProfilePageWidget(),
+            ),
+            FFRoute(
+              name: 'Bienvenida',
+              path: 'bienvenida',
+              builder: (context, params) => BienvenidaWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -279,7 +288,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/signIn';
+            return '/iniciarSesion';
           }
           return null;
         },

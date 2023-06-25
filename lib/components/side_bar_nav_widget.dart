@@ -1,3 +1,4 @@
+import '/components/logo_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -78,28 +79,10 @@ class _SideBarNavWidgetState extends State<SideBarNavWidget> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  if (Theme.of(context).brightness == Brightness.light)
-                    Image.asset(
-                      'assets/images/LogoNew-03.png',
-                      width: 130.0,
-                      height: 40.0,
-                      fit: BoxFit.fitWidth,
-                    ),
-                  if (Theme.of(context).brightness == Brightness.dark)
-                    Image.asset(
-                      'assets/images/Imagen1.png',
-                      width: 130.0,
-                      height: 40.0,
-                      fit: BoxFit.fitWidth,
-                    ),
-                ],
-              ),
+            wrapWithModel(
+              model: _model.logoModel,
+              updateCallback: () => setState(() {}),
+              child: LogoWidget(),
             ),
             Text(
               'Menu',

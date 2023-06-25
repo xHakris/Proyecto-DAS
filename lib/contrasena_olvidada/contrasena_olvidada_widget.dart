@@ -9,19 +9,20 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'forgot_password_model.dart';
-export 'forgot_password_model.dart';
+import 'contrasena_olvidada_model.dart';
+export 'contrasena_olvidada_model.dart';
 
-class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({Key? key}) : super(key: key);
+class ContrasenaOlvidadaWidget extends StatefulWidget {
+  const ContrasenaOlvidadaWidget({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordWidgetState createState() => _ForgotPasswordWidgetState();
+  _ContrasenaOlvidadaWidgetState createState() =>
+      _ContrasenaOlvidadaWidgetState();
 }
 
-class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
+class _ContrasenaOlvidadaWidgetState extends State<ContrasenaOlvidadaWidget>
     with TickerProviderStateMixin {
-  late ForgotPasswordModel _model;
+  late ContrasenaOlvidadaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -50,7 +51,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ForgotPasswordModel());
+    _model = createModel(context, () => ContrasenaOlvidadaModel());
 
     _model.emailAddressController ??= TextEditingController();
     setupAnimations(
