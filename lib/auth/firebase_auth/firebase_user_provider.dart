@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class ProyectoDASFirebaseUser extends BaseAuthUser {
-  ProyectoDASFirebaseUser(this.user);
+class ProyectoWebDasFirebaseUser extends BaseAuthUser {
+  ProyectoWebDasFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -40,17 +40,17 @@ class ProyectoDASFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      ProyectoDASFirebaseUser(user);
+      ProyectoWebDasFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> proyectoDASFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> proyectoWebDasFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = ProyectoDASFirebaseUser(user);
+        currentUser = ProyectoWebDasFirebaseUser(user);
         return currentUser!;
       },
     );

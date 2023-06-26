@@ -44,20 +44,35 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
-  // "state" field.
-  String? _state;
-  String get state => _state ?? '';
-  bool hasState() => _state != null;
+  // "status" field.
+  String? _status;
+  String get status => _status ?? '';
+  bool hasStatus() => _status != null;
 
-  // "bio" field.
-  String? _bio;
-  String get bio => _bio ?? '';
-  bool hasBio() => _bio != null;
+  // "userRole" field.
+  String? _userRole;
+  String get userRole => _userRole ?? '';
+  bool hasUserRole() => _userRole != null;
 
-  // "city" field.
-  String? _city;
-  String get city => _city ?? '';
-  bool hasCity() => _city != null;
+  // "userBio" field.
+  String? _userBio;
+  String get userBio => _userBio ?? '';
+  bool hasUserBio() => _userBio != null;
+
+  // "tasks" field.
+  List<DocumentReference>? _tasks;
+  List<DocumentReference> get tasks => _tasks ?? const [];
+  bool hasTasks() => _tasks != null;
+
+  // "OrgRef" field.
+  DocumentReference? _orgRef;
+  DocumentReference? get orgRef => _orgRef;
+  bool hasOrgRef() => _orgRef != null;
+
+  // "isAdmin" field.
+  bool? _isAdmin;
+  bool get isAdmin => _isAdmin ?? false;
+  bool hasIsAdmin() => _isAdmin != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -66,9 +81,12 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
-    _state = snapshotData['state'] as String?;
-    _bio = snapshotData['bio'] as String?;
-    _city = snapshotData['city'] as String?;
+    _status = snapshotData['status'] as String?;
+    _userRole = snapshotData['userRole'] as String?;
+    _userBio = snapshotData['userBio'] as String?;
+    _tasks = getDataList(snapshotData['tasks']);
+    _orgRef = snapshotData['OrgRef'] as DocumentReference?;
+    _isAdmin = snapshotData['isAdmin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -111,9 +129,11 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
-  String? state,
-  String? bio,
-  String? city,
+  String? status,
+  String? userRole,
+  String? userBio,
+  DocumentReference? orgRef,
+  bool? isAdmin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -123,9 +143,11 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
-      'state': state,
-      'bio': bio,
-      'city': city,
+      'status': status,
+      'userRole': userRole,
+      'userBio': userBio,
+      'OrgRef': orgRef,
+      'isAdmin': isAdmin,
     }.withoutNulls,
   );
 

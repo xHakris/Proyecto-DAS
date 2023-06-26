@@ -77,87 +77,174 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : IniciarSesionWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? HomePageWidget()
-              : IniciarSesionWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
           routes: [
             FFRoute(
-              name: 'IniciarSesion',
-              path: 'iniciarSesion',
-              builder: (context, params) => IniciarSesionWidget(),
+              name: 'InicioSesion',
+              path: 'inicioSesion',
+              builder: (context, params) => InicioSesionWidget(),
+            ),
+            FFRoute(
+              name: 'CambioContrasena',
+              path: 'cambioContrasena',
+              builder: (context, params) => CambioContrasenaWidget(),
             ),
             FFRoute(
               name: 'createProfile',
               path: 'createProfile',
+              requireAuth: true,
               builder: (context, params) => CreateProfileWidget(),
             ),
             FFRoute(
-              name: 'contrasenaOlvidada',
-              path: 'contrasenaOlvidada',
-              builder: (context, params) => ContrasenaOlvidadaWidget(),
+              name: 'Main_tracker',
+              path: 'mainTracker',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_tracker')
+                  : MainTrackerWidget(),
             ),
             FFRoute(
-              name: 'homePage',
-              path: 'homePage',
-              builder: (context, params) => HomePageWidget(),
+              name: 'createTask_1_SelectProject',
+              path: 'createTask1SelectProject',
+              requireAuth: true,
+              builder: (context, params) => CreateTask1SelectProjectWidget(),
             ),
             FFRoute(
-              name: 'courses',
-              path: 'courses',
-              builder: (context, params) => CoursesWidget(),
+              name: 'createTask',
+              path: 'createTask',
+              requireAuth: true,
+              asyncParams: {
+                'projectParameter':
+                    getDoc(['projects'], ProjectsRecord.fromSnapshot),
+              },
+              builder: (context, params) => CreateTaskWidget(
+                projectParameter:
+                    params.getParam('projectParameter', ParamType.Document),
+              ),
             ),
             FFRoute(
-              name: 'profilePage',
-              path: 'profilePage',
-              builder: (context, params) => ProfilePageWidget(),
+              name: 'taskDetails',
+              path: 'taskDetails',
+              requireAuth: true,
+              asyncParams: {
+                'taskRef': getDoc(['allTasks'], AllTasksRecord.fromSnapshot),
+              },
+              builder: (context, params) => TaskDetailsWidget(
+                taskRef: params.getParam('taskRef', ParamType.Document),
+              ),
             ),
             FFRoute(
-              name: 'PaginaInicial',
-              path: 'paginaInicial',
-              builder: (context, params) => PaginaInicialWidget(),
+              name: 'addTeamMembers',
+              path: 'addTeamMembers',
+              requireAuth: true,
+              builder: (context, params) => AddTeamMembersWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigma',
-              path: 'iniciarSesionFigma',
-              builder: (context, params) => IniciarSesionFigmaWidget(),
+              name: 'teamMemberDetails',
+              path: 'teamMemberDetails',
+              requireAuth: true,
+              asyncParams: {
+                'userRef': getDoc(['users'], UsersRecord.fromSnapshot),
+              },
+              builder: (context, params) => TeamMemberDetailsWidget(
+                userRef: params.getParam('userRef', ParamType.Document),
+              ),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy',
-              path: 'iniciarSesionFigmaCopy',
-              builder: (context, params) => IniciarSesionFigmaCopyWidget(),
+              name: 'Main_projectsWeb',
+              path: 'mainProjectsWeb',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_projectsWeb')
+                  : MainProjectsWebWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy2',
-              path: 'iniciarSesionFigmaCopy2',
-              builder: (context, params) => IniciarSesionFigmaCopy2Widget(),
+              name: 'Main_teamPage',
+              path: 'mainTeamPage',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Main_teamPage')
+                  : MainTeamPageWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy2Copy',
-              path: 'iniciarSesionFigmaCopy2Copy',
-              builder: (context, params) => IniciarSesionFigmaCopy2CopyWidget(),
+              name: 'Main_projects',
+              path: 'mainProjects',
+              builder: (context, params) => MainProjectsWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy2Copy2',
-              path: 'iniciarSesionFigmaCopy2Copy2',
-              builder: (context, params) =>
-                  IniciarSesionFigmaCopy2Copy2Widget(),
+              name: 'Perfil',
+              path: 'perfil',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Perfil')
+                  : PerfilWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy2Copy2Copy',
-              path: 'iniciarSesionFigmaCopy2Copy2Copy',
-              builder: (context, params) =>
-                  IniciarSesionFigmaCopy2Copy2CopyWidget(),
+              name: 'createProject',
+              path: 'createProject',
+              requireAuth: true,
+              builder: (context, params) => CreateProjectWidget(),
             ),
             FFRoute(
-              name: 'IniciarSesionFigmaCopy2Copy2Copy2',
-              path: 'iniciarSesionFigmaCopy2Copy2Copy2',
-              builder: (context, params) =>
-                  IniciarSesionFigmaCopy2Copy2Copy2Widget(),
+              name: 'projectDetailsPage',
+              path: 'projectDetailsPage',
+              requireAuth: true,
+              asyncParams: {
+                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
+              },
+              builder: (context, params) => ProjectDetailsPageWidget(
+                projectRef: params.getParam('projectRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'searchMembers',
+              path: 'searchMembers',
+              requireAuth: true,
+              asyncParams: {
+                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
+              },
+              builder: (context, params) => SearchMembersWidget(
+                projectRef: params.getParam('projectRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'EditarPerfil',
+              path: 'editarPerfil',
+              requireAuth: true,
+              builder: (context, params) => EditarPerfilWidget(),
+            ),
+            FFRoute(
+              name: 'teamMembers',
+              path: 'teamMembers',
+              requireAuth: true,
+              asyncParams: {
+                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
+              },
+              builder: (context, params) => TeamMembersWidget(
+                projectRef: params.getParam('projectRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'editProject',
+              path: 'editProject',
+              requireAuth: true,
+              asyncParams: {
+                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
+              },
+              builder: (context, params) => EditProjectWidget(
+                projectRef: params.getParam('projectRef', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'asignarResponsables',
+              path: 'asignarResponsables',
+              builder: (context, params) => AsignarResponsablesWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -326,7 +413,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/iniciarSesion';
+            return '/inicioSesion';
           }
           return null;
         },
@@ -340,9 +427,9 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Color(0xFF121926),
+                  color: FlutterFlowTheme.of(context).primary,
                   child: Image.asset(
-                    'assets/images/splash_dashboard_02@3x.png',
+                    'assets/images/splash_app_Tracker@2x.png',
                     fit: BoxFit.fitHeight,
                   ),
                 )

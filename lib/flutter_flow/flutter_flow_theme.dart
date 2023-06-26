@@ -65,8 +65,11 @@ abstract class FlutterFlowTheme {
 
   late Color primaryBtnText;
   late Color lineColor;
-  late Color white70;
-  late Color primary600;
+  late Color tertiary30;
+  late Color secondary30;
+  late Color primary30;
+  late Color error30;
+  late Color overlay;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -154,27 +157,30 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFFFF1A5B);
-  late Color secondary = const Color(0xFFFFBB0D);
-  late Color tertiary = const Color(0xFF4741FF);
-  late Color alternate = const Color(0xFFF19642);
-  late Color primaryText = const Color(0xFF0D121D);
+  late Color primary = const Color(0xFF897DEE);
+  late Color secondary = const Color(0xFFF478DD);
+  late Color tertiary = const Color(0xFF39D2C0);
+  late Color alternate = const Color(0xFFE0E3E7);
+  late Color primaryText = const Color(0xFF14181B);
   late Color secondaryText = const Color(0xFF57636C);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0xFF616161);
-  late Color accent2 = const Color(0xFF757575);
-  late Color accent3 = const Color(0xFFE0E0E0);
-  late Color accent4 = const Color(0xFFEEEEEE);
-  late Color success = const Color(0xFF04A24C);
-  late Color warning = const Color(0xFFFCDC0C);
-  late Color error = const Color(0xFFE21C3D);
-  late Color info = const Color(0xFF1C4494);
+  late Color accent1 = const Color(0x4C897DEE);
+  late Color accent2 = const Color(0x4BF478DD);
+  late Color accent3 = const Color(0x4D39D2C0);
+  late Color accent4 = const Color(0xB2E9E9EE);
+  late Color success = const Color(0xFF2DAC9D);
+  late Color warning = const Color(0xFFF49F77);
+  late Color error = const Color(0xFFEE6281);
+  late Color info = const Color(0xFFFFFFFF);
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
   late Color lineColor = Color(0xFFE0E3E7);
-  late Color white70 = Color(0xB3FFFFFF);
-  late Color primary600 = Color(0xFFCB0A41);
+  late Color tertiary30 = Color(0x4D39D2C0);
+  late Color secondary30 = Color(0x4BF478DD);
+  late Color primary30 = Color(0x4C897DEE);
+  late Color error30 = Color(0x4BEE6281);
+  late Color overlay = Color(0xB2E9E9EE);
 }
 
 abstract class Typography {
@@ -215,109 +221,109 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Outfit';
+  String get displayLargeFamily => 'Montserrat';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Outfit';
+  String get displayMediumFamily => 'Montserrat';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Outfit';
+  String get displaySmallFamily => 'Montserrat';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 30.0,
       );
-  String get headlineLargeFamily => 'Outfit';
+  String get headlineLargeFamily => 'Montserrat';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Outfit';
+  String get headlineMediumFamily => 'Montserrat';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Outfit';
+  String get headlineSmallFamily => 'Montserrat';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
-  String get titleLargeFamily => 'Outfit';
+  String get titleLargeFamily => 'Montserrat';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Outfit';
+  String get titleMediumFamily => 'Montserrat';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Montserrat',
+        color: Colors.white,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Outfit';
+  String get titleSmallFamily => 'Montserrat';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Montserrat',
+        color: theme.info,
+        fontWeight: FontWeight.bold,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Outfit';
+  String get labelLargeFamily => 'Montserrat';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+        'Montserrat',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Montserrat';
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelMediumFamily => 'Outfit';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
+  String get labelSmallFamily => 'Montserrat';
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Montserrat',
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get labelSmallFamily => 'Outfit';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 11.0,
-      );
-  String get bodyLargeFamily => 'Outfit';
+  String get bodyLargeFamily => 'Montserrat';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Outfit';
+  String get bodyMediumFamily => 'Montserrat';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Outfit',
+        'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Outfit';
+  String get bodySmallFamily => 'Montserrat';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Montserrat',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
 }
@@ -345,8 +351,8 @@ class TabletTypography extends Typography {
   TextStyle get displaySmall => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 32.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 34.0,
       );
   String get headlineLargeFamily => 'Outfit';
   TextStyle get headlineLarge => GoogleFonts.getFont(
@@ -359,15 +365,15 @@ class TabletTypography extends Typography {
   TextStyle get headlineMedium => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
   String get headlineSmallFamily => 'Outfit';
   TextStyle get headlineSmall => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 20.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
       );
   String get titleLargeFamily => 'Outfit';
   TextStyle get titleLarge => GoogleFonts.getFont(
@@ -379,57 +385,57 @@ class TabletTypography extends Typography {
   String get titleMediumFamily => 'Outfit';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: Colors.white,
         fontWeight: FontWeight.normal,
-        fontSize: 18.0,
+        fontSize: 20.0,
       );
-  String get titleSmallFamily => 'Outfit';
+  String get titleSmallFamily => 'Urbanist';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        'Urbanist',
+        color: theme.info,
+        fontWeight: FontWeight.bold,
+        fontSize: 18.0,
       );
   String get labelLargeFamily => 'Outfit';
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 18.0,
       );
   String get labelMediumFamily => 'Outfit';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 12.0,
+        fontSize: 16.0,
       );
   String get labelSmallFamily => 'Outfit';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 11.0,
+        fontSize: 14.0,
       );
   String get bodyLargeFamily => 'Outfit';
   TextStyle get bodyLarge => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
+        fontSize: 18.0,
+      );
+  String get bodyMediumFamily => 'Urbanist';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Urbanist',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Outfit';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
-      );
-  String get bodySmallFamily => 'Outfit';
+  String get bodySmallFamily => 'Urbanist';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Urbanist',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
 }
@@ -457,8 +463,8 @@ class DesktopTypography extends Typography {
   TextStyle get displaySmall => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 36.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 34.0,
       );
   String get headlineLargeFamily => 'Outfit';
   TextStyle get headlineLarge => GoogleFonts.getFont(
@@ -471,77 +477,77 @@ class DesktopTypography extends Typography {
   TextStyle get headlineMedium => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 28.0,
       );
   String get headlineSmallFamily => 'Outfit';
   TextStyle get headlineSmall => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Outfit';
   TextStyle get titleLarge => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 20.0,
       );
   String get titleMediumFamily => 'Outfit';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Outfit';
+  String get titleSmallFamily => 'Urbanist';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Urbanist',
+        color: theme.info,
+        fontWeight: FontWeight.bold,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Outfit';
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 18.0,
       );
   String get labelMediumFamily => 'Outfit';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 12.0,
+        fontSize: 16.0,
       );
   String get labelSmallFamily => 'Outfit';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Outfit',
-        color: theme.primaryText,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 11.0,
-      );
-  String get bodyLargeFamily => 'Outfit';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
-      );
-  String get bodyMediumFamily => 'Outfit';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Outfit';
+  String get bodyLargeFamily => 'Urbanist';
+  TextStyle get bodyLarge => GoogleFonts.getFont(
+        'Urbanist',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 18.0,
+      );
+  String get bodyMediumFamily => 'Urbanist';
+  TextStyle get bodyMedium => GoogleFonts.getFont(
+        'Urbanist',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get bodySmallFamily => 'Urbanist';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Outfit',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        'Urbanist',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
 }
@@ -554,27 +560,30 @@ class DarkModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFFFF1A5B);
-  late Color secondary = const Color(0xFFFFBB0D);
-  late Color tertiary = const Color(0xFF4741FF);
-  late Color alternate = const Color(0xFFF19642);
+  late Color primary = const Color(0xFF897DEE);
+  late Color secondary = const Color(0xFFF478DD);
+  late Color tertiary = const Color(0xFF39D2C0);
+  late Color alternate = const Color(0xFF22282F);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
-  late Color primaryBackground = const Color(0xFF121926);
-  late Color secondaryBackground = const Color(0xFF0D121D);
-  late Color accent1 = const Color(0xFFEEEEEE);
-  late Color accent2 = const Color(0xFFE0E0E0);
-  late Color accent3 = const Color(0xFF757575);
-  late Color accent4 = const Color(0xFF616161);
-  late Color success = const Color(0xFF04A24C);
-  late Color warning = const Color(0xFFFCDC0C);
-  late Color error = const Color(0xFFE21C3D);
-  late Color info = const Color(0xFF1C4494);
+  late Color primaryBackground = const Color(0xFF1A1F24);
+  late Color secondaryBackground = const Color(0xFF0F1316);
+  late Color accent1 = const Color(0x4C897DEE);
+  late Color accent2 = const Color(0x4BF478DD);
+  late Color accent3 = const Color(0x4D39D2C0);
+  late Color accent4 = const Color(0xB2262D34);
+  late Color success = const Color(0xFF2DAC9D);
+  late Color warning = const Color(0xFFF49F77);
+  late Color error = const Color(0xFFEE6281);
+  late Color info = const Color(0xFFFFFFFF);
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFF212C36);
-  late Color white70 = Color(0xB3FFFFFF);
-  late Color primary600 = Color(0xFFCB0A41);
+  late Color lineColor = Color(0xFF22282F);
+  late Color tertiary30 = Color(0x4D39D2C0);
+  late Color secondary30 = Color(0x4BF478DD);
+  late Color primary30 = Color(0x4C897DEE);
+  late Color error30 = Color(0x4BEE6281);
+  late Color overlay = Color(0xB2262D34);
 }
 
 extension TextStyleHelper on TextStyle {

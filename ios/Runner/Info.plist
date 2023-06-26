@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Proyecto-DAS</string>
+	<string>ProyectoWebDas</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,16 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Proyecto-DAS</string>
+	<string>ProyectoWebDas</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>hi</string>
+		<string>ta</string>
+		<string>ur</string>
+	</array>
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
@@ -28,7 +35,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.578639121291-43ejtjpuokocjdvctjoctgbuf458iu9e</string>
+                <string>com.googleusercontent.apps.112296289374-pvu8s3dmtt39vrae5q0jjgl3q4fv3rm1</string>
                 
             </array>
         </dict>
@@ -37,10 +44,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>proyectodas.com</string>
+        <string>proyectowebdas.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>proyectodas</string>
+        <string>proyectowebdas</string>
         </array>
         </dict>
     </array>
