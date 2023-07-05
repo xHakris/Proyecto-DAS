@@ -102,8 +102,8 @@ const LoginScreens = () => {
             <View style={styles.brandView}>
               {/* <Text style={styles.brandViewText}>GESTIN</Text> */}
               <Image 
-               source={require("../assets/GESTIN/GESTIN.png")}
-               style={{height: 250, width: 250}}
+               source={require("../assets/Bite/Logo.png")}
+               style={{height: 50, width: 300}}
                />
               
             </View>
@@ -168,12 +168,7 @@ const LoginScreens = () => {
                     >
                       <Text style={styles.buttonText}>Iniciar Sesion</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      onPress={() => navigation.replace("RegisterScreen")}
-                      style={[styles.button, styles.buttonOutline]}
-                    >
-                      <Text style={styles.buttonOutlineText}>Registrate</Text>
-                    </TouchableOpacity>
+                   
                   </View>
                 </KeyboardAvoidingView>
               </View>
