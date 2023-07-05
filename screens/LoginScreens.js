@@ -251,4 +251,33 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 5,
   },
+  buttonPrincipal: {
+    backgroundColor: "#4632A1",
+    width: "100%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    borderColor: "#4632A1",
+    borderWidth: 2,
+  },
+  buttonOutlinePrincipal: {
+    backgroundColor: "white",
+    marginTop: 5,
+  },
+  buttonTextPrincipa: {
+    color: "white",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+  buttonOutlineText: {
+    color: "#4632A1",
+    fontWeight: "700",
+    fontSize: 16,
+  },
+  errors: {
+    fontSize: 14,
+    color: "red",
+    fontWeight: "bold",
+    marginTop: 5,
+  },
 });
