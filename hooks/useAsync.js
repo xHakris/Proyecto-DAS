@@ -10,3 +10,21 @@ export const useAsync = (asyncFn, onSuccess)=> {
       return () => { isActive = false };
     }, [asyncFn, onSuccess]);
   }
+
+
+  export const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+  
+      return () => {
+        clearTimeout(timer);
+      };
+    }, [value, delay]);
+  
+    return debouncedValue;
+  };
+  
