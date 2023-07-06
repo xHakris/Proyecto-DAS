@@ -7,7 +7,7 @@ const FindScreen = () => {
 
   return (
     <Text>
-      Nueva Pagina
+      Nueva Pagina Para la logica de los registros
     </Text>
   );
 };
