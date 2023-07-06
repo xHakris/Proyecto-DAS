@@ -11,14 +11,10 @@ import {
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { doc, getDoc } from "firebase/firestore/lite";
 import { auth, db } from "../firebase";
-import ActivityContainer from "../components/ActivityContainer";
-import { useIsFocused } from "@react-navigation/native";
+// import { useIsFocused } from "@react-navigration/native";
 
 const FindScreen = () => {
  
-
-
-
   return (
     <Text>
       Nueva Pagina

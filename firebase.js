@@ -10,14 +10,13 @@ import { getFirestore } from 'firebase/firestore/lite';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAdMWClifyb3--Xh7luoNB9k5V0SPGP9OY",
-  authDomain: "taskmanageruta.firebaseapp.com",
-  projectId: "taskmanageruta",
-  storageBucket: "taskmanageruta.appspot.com",
-  messagingSenderId: "681898322158",
-  appId: "1:681898322158:web:972dbe3d9c4a53c9aa6bff"
+  apiKey: "AIzaSyBNfpHyiZCAp7aKyCqMMRLVwalnt75bl28",
+  authDomain: "proyectodas-8ae3e.firebaseapp.com",
+  projectId: "proyectodas-8ae3e",
+  storageBucket: "proyectodas-8ae3e.appspot.com",
+  messagingSenderId: "112296289374",
+  appId: "1:112296289374:web:8158c8cbf008e0eb2a40cf"
 };
 
 let app;
