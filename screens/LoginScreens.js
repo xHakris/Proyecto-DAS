@@ -59,11 +59,14 @@ const LoginScreens = () => {
 
   //Iniciar session
   const handleLogin = () => {
+    console.log('aquii 1')
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("Usuario : ", user.email);
+        console.log('aquii 1')
+        
         showMessage({
           message: "Correcto",
           description: "La sesión se ha iniciado correctamente",
