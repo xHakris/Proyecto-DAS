@@ -29,6 +29,7 @@ const LoginScreens = () => {
   const {isAuthent, setIsAuthent} = useContext(UserContext);
 
   //Validaciones
+
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -49,6 +50,7 @@ const LoginScreens = () => {
       ),
   });
 
+
   const navigation = useNavigation();
   // console.log(alert(isAuthent+'En Login'));
   useEffect(() => {
@@ -58,6 +60,7 @@ const LoginScreens = () => {
     console.log("Login");
     return unsubscribe;
   }, []);
+
 
   const handleLogin = () => {
     console.log('aquii 1');
@@ -76,6 +79,7 @@ const LoginScreens = () => {
           const userData = userDocSnap.data();
           const userRole = userData.userRole;
           console.log("Rol: ", userRole);
+    console.log('aquii 1');
   
           if (userRole === "docente") {
             console.log('aquii 1');
@@ -88,16 +92,19 @@ const LoginScreens = () => {
             setIsAuthent(true);
           } else {
             console.log("El usuario no tiene permisos de docente");
+    console.log('aquii 1');
+
             // Realizar cualquier acción adicional en caso de no tener permisos
             showMessage({
               message: "Error",
-              description: "El usuario no tiene permisos de docente",
+              description: "El usuario no tiene permisos de docente, intentelo con otro usuario",
               type: "error",
               icon: "error",
             });
           }
         } else {
           console.log("No se encontró información de usuario");
+          
         }
       })
       .catch((error) => {
