@@ -170,6 +170,7 @@ export default function App() {
               />
           </Stack.Navigator>
         ) : (
+          
           <Tabs />
         )}
       <FlashMessage position="bottom" />
