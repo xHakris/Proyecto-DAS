@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View, Modal, Image, TextInput } from "react-native";
+import { StyleSheet, Text, View, Modal, Image, TextInput, ScrollView, Dimensions } from "react-native";
+import AttendanceContainer from "../components/AttendanceContainer";
 
 
 const AttendanceStudentsScreen = ({ 
@@ -10,12 +11,38 @@ const AttendanceStudentsScreen = ({
   const { diasDuracion } = route.params;
   const { notaFinal } = route.params;
 
+  let width = Dimensions.get("window").width;
+
   return (
-    <View>
-        <Text>{nombre}</Text>
-    <Text>
-      Pagina Asistencia dura {diasDuracion}
-    </Text>
+    <View
+    style={{
+      alignItems: "center",
+      flex: .8,
+      backgroundColor: "#F8F3FF",
+    }}
+    >
+       <Text>{nombre}</Text>
+          <Text>{"Días de asistencia: " + diasDuracion}</Text>
+
+          <ScrollView
+          style={{
+            paddingHorizontal: width/45,
+            flex: 0.9,
+            width: "100%",
+            backgroundColor: "#F8F3FF",
+            borderRadius: width/24,
+            marginTop: width/48,
+          }}
+        >    
+          {
+            diasDuracion > 0 ? (
+              Array.from({ length: diasDuracion }).map((_, index) => (
+                <AttendanceContainer key={index} dia={index+1}/>
+              ))
+            ) : null
+          }
+          </ScrollView>
+
     </View>
   );
 };
