@@ -18,6 +18,8 @@ import { Image } from "react-native-animatable";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 import { showMessage } from "react-native-flash-message";
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
+
 
 
 const LoginScreens = () => {
@@ -27,6 +29,7 @@ const LoginScreens = () => {
   const {isAuthent, setIsAuthent} = useContext(UserContext);
 
   //Validaciones
+
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -47,6 +50,7 @@ const LoginScreens = () => {
       ),
   });
 
+
   const navigation = useNavigation();
   // console.log(alert(isAuthent+'En Login'));
   useEffect(() => {
@@ -57,23 +61,115 @@ const LoginScreens = () => {
     return unsubscribe;
   }, []);
 
-  //Iniciar session
+
   const handleLogin = () => {
+    console.log('aquii 1');
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
+      .then(async (userCredentials) => {
         const user = userCredentials.user;
-        console.log("Usuario : ", user.email);
-        showMessage({
-          message: "Correcto",
-          description: "La sesión se ha iniciado correctamente",
-          type: "success",
-          icon: "success",
-        });
-        setIsAuthent(true);
+        console.log("Usuario: ", user.email);
+  
+        // Consulta para obtener el documento del usuario
+        const db = getFirestore();
+        const userDocRef = doc(collection(db, 'users'), user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+  
+        if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          const userRole = userData.userRole;
+          console.log("Rol: ", userRole);
+    console.log('aquii 1');
+  
+          if (userRole === "docente") {
+            console.log('aquii 1');
+            showMessage({
+              message: "Correcto",
+              description: "La sesión se ha iniciado correctamente",
+              type: "success",
+              icon: "success",
+            });
+            setIsAuthent(true);
+          } else {
+            console.log("El usuario no tiene permisos de docente");
+    console.log('aquii 1');
+
+            // Realizar cualquier acción adicional en caso de no tener permisos
+            showMessage({
+              message: "Error",
+              description: "El usuario no tiene permisos de docente, intentelo con otro usuario",
+              type: "error",
+              icon: "error",
+            });
+          }
+        } else {
+          console.log("No se encontró información de usuario");
+          
+        }
       })
-      .catch((error) => alert("Credenciales incorrectas"));
+      .catch((error) => {
+        console.log("Credenciales incorrectas");
+      });
   };
+  
+
+  //Iniciar session
+  // const handleLogin = () => {
+  //   console.log('aquii 1')
+  //   auth
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then((userCredentials) => {
+  //   console.log('aquii 2')
+
+  //       const user = userCredentials.user;
+  //   console.log('aquii 3',user.uid)
+    
+  
+  //       // Consulta adicional para obtener userRole
+  //       firebase
+  //         .firestore()
+  //         .collection('users')
+  //         .doc(user.uid)
+  //         .get()
+  //         .then((doc) => {
+  //           console.log('aquii 3.5')
+
+  //           if (doc.exists) {
+  //             const userData = doc.data();
+  //             const userRole = userData.userRole;
+  
+  //             console.log("Usuario: ", user.email);
+  //             console.log("Rol: ", userRole);
+              
+  //             if (userRole === "docente") {
+  //               console.log('aquii 1');
+                
+  //               showMessage({
+  //                 message: "Correcto",
+  //                 description: "La sesión se ha iniciado correctamente",
+  //                 type: "success",
+  //                 icon: "success",
+  //               });
+  //           console.log('aquii 4')
+                
+  //               setIsAuthent(true);
+  //             } else {
+  //               console.log("El usuario no tiene permisos de docente");
+  //               // Realizar cualquier acción adicional en caso de no tener permisos
+  //             }
+  //           } else {
+  //             console.log("No se encontró información de usuario");
+  //           }
+  //         })
+  //         .catch((error) => {
+  //           console.log("Error al obtener información de usuario:", error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.log("Credenciales incorrectas");
+  //     });
+  // };
+  
   return (
     //Form
     <Formik
