@@ -19,6 +19,7 @@ import { ListUserContext } from "./context/ListUserContext";
 import FlashMessage from "react-native-flash-message";
 import { Dimensions } from 'react-native'
 import ActivityDetailsScreen from "./screens/ActivityDetailsScreen"
+import AttendanceStudentsScreen from "./screens/AttendanceStudentsScreen";
 
 const Stack = createNativeStackNavigator();
 let width = Dimensions.get('window').width;
@@ -153,6 +154,18 @@ export default function App() {
         <Tab.Screen
           name="Actividad"
           component={ActivityDetailsScreen}
+          options={{
+            tabBarButton: (props) => (
+              <View style={styles.hiddenTab}>
+                <CustomTabBarButton {...props} />
+              </View>
+            ),
+          }}
+        />
+
+      <Tab.Screen
+          name="Asistencia"
+          component={AttendanceStudentsScreen}
           options={{
             tabBarButton: (props) => (
               <View style={styles.hiddenTab}>
