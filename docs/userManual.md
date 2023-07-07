@@ -66,3 +66,25 @@ El sistema ofrece las siguientes funcionalidades principales desde el punto de v
 3. **Registro de asistencia y notas:** Dependiendo del tipo de evento académico, el sistema permite registrar la asistencia de los participantes. Además, en el caso de cursos, se registra también una nota final. Para el registro de asistencia, se utiliza una interacción entre las dos aplicaciones móviles, donde una muestra el componente para el registro y la otra registra la asistencia.
 
 4. **Generación de reportes:** El sistema puede generar diversos reportes, como órdenes de pago, reportes de asistencia y notas por evento, certificados de aprobación o asistencia, entre otros. Estos reportes son útiles para el seguimiento y la evaluación de los eventos académicos.
+
+#### 2. Mapa del Sistema
+##### 2.1. Modelo Lógico
+El diagrama muestra la estructura general del sistema y su relación con el entorno. Se identifican los módulos principales del sistema, que incluyen la aplicación web de administración, las aplicaciones móviles de búsqueda y registro de asistencia y notas, y las funcionalidades relacionadas con la gestión de cursos/eventos, inscripciones, pagos, y generación de reportes.
+
+[![N|Solid](https://i.imgur.com/c24TCXY.png)](https://nodesource.com/products/nsolid)
+##### 2.2. Navegación
+El diagrama representa las ventanas del sistema y las flechas indican las navegaciones entre ellas. Se representarán los caminos más significativos para guiar al usuario a través de las diferentes funcionalidades del sistema.
+
+La aplicación web de administración:
+[![N|Solid](https://i.imgur.com/FhLImqM.png)](https://nodesource.com/products/nsolid)
+
+La aplicación móvil de búsqueda, registro de asistencia y notas:
+[![N|Solid](https://i.imgur.com/h3cl20r.png)](https://nodesource.com/products/nsolid)
+
+La aplicación móvil de las funcionalidades relacionadas con la gestión de cursos/eventos, inscripciones, pagos, y generación de reportes:
+[![N|Solid](https://i.imgur.com/BHeXfSZ.png)](https://nodesource.com/products/nsolid)
+
+#### 3. Descripción del Sistema Web
+La aplicación web es una parte fundamental del sistema de gestión y venta de cursos/eventos académicos. Proporciona funcionalidades de administración de la información, inscripción de eventos/cursos y generación de reportes.
+
+La aplicación web proporciona una interfaz intuitiva y amigable para que los usuarios realicen estas tareas de manera eficiente. Se proporcionarán instrucciones detalladas en el manual de usuarios sobre cómo utilizar cada funcionalidad de la aplicación web.
