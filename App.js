@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image} from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 // import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreens from "./screens/LoginScreens";
@@ -12,12 +12,14 @@ import ProfileScreen from "./screens/ProfileScreen";
 import { UserContext } from "./context/UserContext";
 import { TouchableOpacity } from "react-native";
 import { ConfigContext } from "./context/ConfigContext";
-import { db } from './firebase';	
+import { db } from './firebase';
 
 import { collection, getDocs, doc, setDoc } from "firebase/firestore/lite";
 import { ListUserContext } from "./context/ListUserContext";
 import FlashMessage from "react-native-flash-message";
 import { Dimensions } from 'react-native'
+import ActivityDetailsScreen from "./screens/ActivityDetailsScreen"
+import AttendanceStudentsScreen from "./screens/AttendanceStudentsScreen";
 
 const Stack = createNativeStackNavigator();
 let width = Dimensions.get('window').width;
@@ -31,19 +33,19 @@ export default function App() {
 
   const getData = async () => {
     console.log('se ejecuto')
-    const confs = collection(db,'configuraciones');
+    const confs = collection(db, 'configuraciones');
     const confsSnap = await getDocs(confs);
-    const data = confsSnap.docs.map(doc=>doc.data());
-    setData(data[0].tipos.map(conf=>conf));
+    const data = confsSnap.docs.map(doc => doc.data());
+    setData(data[0].tipos.map(conf => conf));
   }
   const getDataUsers = async () => {
     console.log('se ejecuto usuarios lista')
-    const confs = collection(db,'users');
+    const confs = collection(db, 'users');
     const confsSnap = await getDocs(confs);
-    const data = confsSnap.docs.map(doc=>doc.data());
+    const data = confsSnap.docs.map(doc => doc.data());
     setDataUsers(data);
   }
-  
+
   React.useEffect(() => {
     getDataUsers();
   }, []);
@@ -52,13 +54,13 @@ export default function App() {
     getData();
   }, []);
 
-  const CustomTabBarButton = ({children, onPress})=>(
+  const CustomTabBarButton = ({ children, onPress }) => (
     <TouchableOpacity
       style={{
-        top:-20,
+        top: -20,
         justifyContent: 'center',
         alignItems: 'center',
-        ... styles.shadow
+        ...styles.shadow
       }}
       onPress={onPress}
     >
@@ -67,9 +69,9 @@ export default function App() {
         style={{
           // width: 65,
           // height: 65,
-          width: width/7,
-          height: width/7,
-          borderRadius: width/7,
+          width: width / 7,
+          height: width / 7,
+          borderRadius: width / 7,
           backgroundColor: '#e32f45',
         }}
       >{children}</View>
@@ -78,63 +80,64 @@ export default function App() {
   const Tabs = () => {
     return (
       <Tab.Navigator
-      screenOptions={{ 
-        tabBarShowLabel: false,
-        tabBarStyle: {
-         position: "absolute",
-          bottom: width/19.2,
-          left: width/24,
-          right: width/24,
-          elevation: 0,
-          borderRadius: width/32,
-          height: "7%",
-         backgroundColor: '#fff',
-         ... styles.shadow
-          
-        } }}
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            position: "absolute",
+            bottom: width / 19.2,
+            left: width / 24,
+            right: width / 24,
+            elevation: 0,
+            borderRadius: width / 32,
+            height: "7%",
+            backgroundColor: '#fff',
+            ...styles.shadow
+
+          }
+        }}
       >
-        <Tab.Screen name="Buscar" component={FindScreen} 
+        <Tab.Screen name="Buscar" component={FindScreen}
           backgroundColor={'red'}
           options={{
             tabBarIcon: ({ focused, color, size }) => (
-                <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
-                  <Image
-                    source={require("./assets/icons/find.png")}
-                    resizeMode='contain'
-                    style={{
-                      width: 25,
-                      height: 25,
-                      tintColor: focused ? "#332f45" : "#748c94"
-                    }}
-                  />
-                  <Text></Text>
-                </View>
-              ),
+              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+                <Image
+                  source={require("./assets/icons/find.png")}
+                  resizeMode='contain'
+                  style={{
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? "#332f45" : "#748c94"
+                  }}
+                />
+                <Text></Text>
+              </View>
+            ),
           }}
         />
-        <Tab.Screen name="Registro de Actividades" component={ActivityRegisterScreen} 
-          onPress={{getData, getDataUsers}}
+        <Tab.Screen name="Registro de Actividades" component={ActivityRegisterScreen}
+          onPress={{ getData, getDataUsers }}
           options={{
             tabBarIcon: ({ focused }) => (
-            <Image
-              source={require("./assets/icons/plus.png")}
-              resizeMode='contain'
-              style={{
-                width: 30,
-                height: 30,
-                tintColor:'#fff' 
-              }}
-            />
-              ),
-              tabBarButton: (props) => (
-                <CustomTabBarButton {...props} />
-              )
+              <Image
+                source={require("./assets/icons/plus.png")}
+                resizeMode='contain'
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: '#fff'
+                }}
+              />
+            ),
+            tabBarButton: (props) => (
+              <CustomTabBarButton {...props} />
+            )
           }}
         />
-        <Tab.Screen name="Administrar Cuenta" component={ProfileScreen} 
-        options={{
-          tabBarIcon: ({ focused, color, size }) => (
-              <View style={{alignItems: 'center', justifyContent: 'center', top: 10}}>
+        <Tab.Screen name="Administrar Cuenta" component={ProfileScreen}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => (
+              <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
                 <Image
                   source={require("./assets/icons/account.png")}
                   resizeMode='contain'
@@ -147,39 +150,66 @@ export default function App() {
                 <Text></Text>
               </View>
             ),
-        }}/>
+          }} />
+        <Tab.Screen
+          name="Actividad"
+          component={ActivityDetailsScreen}
+          options={{
+            tabBarButton: (props) => (
+              <View style={styles.hiddenTab}>
+                <CustomTabBarButton {...props} />
+              </View>
+            ),
+          }}
+        />
+
+      <Tab.Screen
+          name="Asistencia"
+          component={AttendanceStudentsScreen}
+          options={{
+            tabBarButton: (props) => (
+              <View style={styles.hiddenTab}>
+                <CustomTabBarButton {...props} />
+              </View>
+            ),
+          }}
+        />
+
+
       </Tab.Navigator>
     );
   };
-  
-  return (
-    
-    <UserContext.Provider value={{isAuthent, setIsAuthent}}>
-        <ConfigContext.Provider value={{data,setData}}>
-        <ListUserContext.Provider value={{dataUser,setDataUsers}}>
-      <NavigationContainer>
-        {isAuthent === false ? (
-          <Stack.Navigator>
-              <Stack.Screen
-                screenOptions={{
-                  headerStyle: { height: 100, backgroundColor: "black" },
-                }}
-                options={{ headerShown: false }}
-                name="Login"
-                component={LoginScreens}
-              />
-          </Stack.Navigator>
-        ) : (
-          
-          <Tabs />
-        )}
-      <FlashMessage position="bottom" />
 
-      </NavigationContainer>
-      </ListUserContext.Provider>
+  return (
+
+    <UserContext.Provider value={{ isAuthent, setIsAuthent }}>
+      <ConfigContext.Provider value={{ data, setData }}>
+        <ListUserContext.Provider value={{ dataUser, setDataUsers }}>
+          <NavigationContainer>
+            {isAuthent === false ? (
+              <Stack.Navigator>
+                <Stack.Screen
+                  screenOptions={{
+                    headerStyle: { height: 100, backgroundColor: "black" },
+                  }}
+                  options={{ headerShown: false }}
+                  name="Login"
+                  component={LoginScreens}
+                />
+              </Stack.Navigator>
+
+            ) : (
+
+              <Tabs />
+
+            )}
+            <FlashMessage position="bottom" />
+
+          </NavigationContainer>
+        </ListUserContext.Provider>
       </ConfigContext.Provider>
     </UserContext.Provider>
-    
+
   );
 }
 
@@ -199,5 +229,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
+  }, hiddenTab: {
+    display: 'none',
   }
+
 });

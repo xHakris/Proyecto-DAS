@@ -98,8 +98,8 @@ const LoginScreens = () => {
             showMessage({
               message: "Error",
               description: "El usuario no tiene permisos de docente, intentelo con otro usuario",
-              type: "error",
-              icon: "error",
+              type: "danger",
+              icon: "danger",
             });
           }
         } else {
@@ -109,6 +109,12 @@ const LoginScreens = () => {
       })
       .catch((error) => {
         console.log("Credenciales incorrectas");
+        showMessage({
+          message: "Error",
+          description: "Credenciales Incorrectas",
+          type: "danger",
+          icon: "danger",
+        });
       });
   };
   
