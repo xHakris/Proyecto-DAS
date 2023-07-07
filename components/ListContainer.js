@@ -405,6 +405,7 @@ const ListContainer = ({
   diasDuracion,
   organizador,
   notaFinal,
+  correo,
   integrantes
 }) => {
   const [viewModal, setViewModal] = useState(false);
@@ -448,7 +449,8 @@ const ListContainer = ({
     navigation.navigate("Asistencia", {
       nombre,
       diasDuracion,
-      notaFinal
+      notaFinal,
+      correo
     });
   };
 
@@ -472,38 +474,13 @@ const ListContainer = ({
           backgroundColor: "white",
           ...styles.shadow,
         }}
-        height={100}
+        height={60}
         
         
       >
-        <View width="35%" alignItems="center">
-          <View>
-            <Text
-              style={{
-                fontSize: width / 32,
-              }}
-              // numberOfLines={1}
-              // adjustsFontSizeToFit
-              // style={{textAlign:'center',fontSize:14}}
-            >
-              {"Dias: "+diasDuracion}
-            </Text>
-          </View>
-          <View>
-            <Text
-              style={{
-                fontSize: width / 32,
-              }}
-              // numberOfLines={1}
-              // adjustsFontSizeToFit
-              // style={{textAlign:'center',fontSize:14}}
-            >
-              {"Nota Final: "+notaFinal}
-            </Text>
-          </View>
-        </View>
+ 
 
-        <View width="35%" alignItems="center">
+        <View width="50%" alignItems="center">
           <View>
             <Text
               style={{
@@ -516,7 +493,11 @@ const ListContainer = ({
               {"Nombre: "+nombre}
             </Text>
           </View>
-          <View>
+  
+        </View>
+
+        <View width="50%" alignItems="center">
+        <View>
             <Text
               style={{
                 fontSize: width / 32,
@@ -525,22 +506,7 @@ const ListContainer = ({
               //  adjustsFontSizeToFit
               //  style={{fontSize:14}}
             >
-              {"Duracion: "+ diasDuracion+ " dias"}
-            </Text>
-          </View>
-        </View>
-
-        <View width="30%" alignItems="center">
-          <View>
-            <Text
-              style={{
-                fontSize: width / 32,
-              }}
-              // numberOfLines={1}
-              // adjustsFontSizeToFit
-              // style={{fontSize:14}}
-            >
-              {"Tipo: "+tipo}
+              {"Correo: "+ correo}
             </Text>
           </View>
         </View>
