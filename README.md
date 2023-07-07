@@ -36,10 +36,18 @@ Instala las dependencias
 ```sh
 flutter pub get
 ```
-Configura las credenciales de Firebase: 
+Configura las credenciales de Firebase
 ```sh
-Agrega el archivo `google-services.json` proporcionado por Firebase en la carpeta `android/app/` y el archivo `GoogleService-Info.plist` en la carpeta `ios/Runner/`
+Agrega el archivo
+google-services.json
+proporcionado por Firebase en la carpeta 
+android/app/
+y el archivo 
+GoogleService-Info.plist
+en la carpeta 
+ios/Runner/
 ```
+
 
 ### Aplicación móvil del docente
 Clona este repositorio en tu máquina local
@@ -105,3 +113,5 @@ git push origin feature/nueva-caracteristica
 ## Información adicional
 
 Para obtener más detalles sobre la arquitectura, los flujos de la aplicación y otras consideraciones técnicas, consulta la documentación en la carpeta `docs/`.
+
+
