@@ -18,8 +18,14 @@ const ActivityDetailsScreen = ({route}) => {
   });
 
     return(
-      <View>
-         <Text>{"TIpom "+tipo}</Text>
+      <View
+        style={{
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+          <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Lista De Estudiantes</Text>
+
 
         {/* {integrantes.length > 0 ?
      (

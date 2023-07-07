@@ -20,9 +20,12 @@ const AttendanceStudentsScreen = ({
       flex: .8,
       backgroundColor: "#F8F3FF",
     }}
-    >
-       <Text>{nombre}</Text>
-          <Text>{"Días de asistencia: " + diasDuracion}</Text>
+  
+  >
+  <Text style={{ fontWeight: 'bold', fontSize: 23 }}>REGISTRO DE ASISTENCIA</Text>
+    
+  <Text style={{ fontWeight: 'bold', fontSize: 16 }}>Estudiante: {nombre}</Text>
+<Text style={{ fontStyle: 'italic', color: 'black' }}>{"Días de asistencia: " + diasDuracion}</Text>
 
           <ScrollView
           style={{

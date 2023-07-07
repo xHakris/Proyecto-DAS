@@ -118,7 +118,7 @@ import {
             backgroundColor: "white",
             ...styles.shadow,
           }}
-          height={100}
+          height={70}
           
           
         >
@@ -126,7 +126,7 @@ import {
             <View>
               <Text
                 style={{
-                  fontSize: width / 32,
+                  fontSize: width / 40,
                 }}
                 // numberOfLines={1}
                 // adjustsFontSizeToFit
@@ -138,7 +138,7 @@ import {
             <View>
               <Text
                 style={{
-                  fontSize: width / 32,
+                  fontSize: width / 40,
                 }}
                 // numberOfLines={1}
                 // adjustsFontSizeToFit
@@ -153,7 +153,7 @@ import {
             <View>
               <Text
                 style={{
-                  fontSize: width / 32,
+                  fontSize: width / 40,
                 }}
                 // numberOfLines={1}
                 // adjustsFontSizeToFit
@@ -165,7 +165,7 @@ import {
             <View>
               <Text
                 style={{
-                  fontSize: width / 32,
+                  fontSize: width / 40,
                 }}
                 //  numberOfLines={1}
                 //  adjustsFontSizeToFit
@@ -180,7 +180,7 @@ import {
             <View>
               <Text
                 style={{
-                  fontSize: width / 32,
+                  fontSize: width / 40,
                 }}
                 // numberOfLines={1}
                 // adjustsFontSizeToFit
