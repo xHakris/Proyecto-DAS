@@ -45,6 +45,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Eventos',
+          path: '/movilEventos',
+          builder: (context, params) => MovilEventosWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Cursos',
+          path: '/movilCursos',
+          builder: (context, params) => MovilCursosWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Evento_Informacion',
+          path: '/movilEventoInformacion',
+          builder: (context, params) => MovilEventoInformacionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
