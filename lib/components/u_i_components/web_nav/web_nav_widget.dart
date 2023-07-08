@@ -170,7 +170,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'Eventos_Estudiante',
+                    'EventosAdmin',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,

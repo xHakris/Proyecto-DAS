@@ -135,7 +135,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Inicio_Estudiantes': InicioEstudiantesWidget(),
-      'Eventos_Estudiante': EventosEstudianteWidget(),
+      'EventosAdmin': EventosAdminWidget(),
       'MisCursos_Estudiantes': MisCursosEstudiantesWidget(),
       'Perfil': PerfilWidget(),
       'EventosTelefono': EventosTelefonoWidget(),

@@ -218,7 +218,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: FFLocalizations.of(context).getText(
-                                'cnc5fmbk' /* Full Name */,
+                                'cnc5fmbk' /* Nombre Completo */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: OutlineInputBorder(
@@ -266,7 +266,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: FFLocalizations.of(context).getText(
-                                'cjyo6ik7' /* Title or Role */,
+                                'cjyo6ik7' /* Titulo o Rol */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: OutlineInputBorder(
@@ -314,7 +314,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: FFLocalizations.of(context).getText(
-                                'h398jj2j' /* Enter description here.. */,
+                                'h398jj2j' /* Ingrese la descripción aquí.. */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context).bodySmall,
                               enabledBorder: OutlineInputBorder(
@@ -379,7 +379,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           context.pushNamed('Inicio_Estudiantes');
                         },
                         text: FFLocalizations.of(context).getText(
-                          '7ve36dhv' /* Create & Invite User */,
+                          '7ve36dhv' /* Crear e invitar Usuarios */,
                         ),
                         options: FFButtonOptions(
                           width: 270.0,

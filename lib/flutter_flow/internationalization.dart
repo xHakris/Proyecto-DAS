@@ -258,25 +258,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'پروفائل بنائیں',
     },
     'cnc5fmbk': {
-      'en': 'Full Name',
+      'en': 'Nombre Completo',
       'hi': 'पूरा नाम',
       'ta': 'முழு பெயர்',
       'ur': 'پورا نام',
     },
     'cjyo6ik7': {
-      'en': 'Title or Role',
+      'en': 'Titulo o Rol',
       'hi': 'शीर्षक या भूमिका',
       'ta': 'தலைப்பு அல்லது பாத்திரம்',
       'ur': 'عنوان یا کردار',
     },
     'h398jj2j': {
-      'en': 'Enter description here..',
+      'en': 'Ingrese la descripción aquí..',
       'hi': 'यहां विवरण दर्ज करें..',
       'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்..',
       'ur': 'یہاں تفصیل درج کریں..',
     },
     '7ve36dhv': {
-      'en': 'Create & Invite User',
+      'en': 'Crear e invitar Usuarios',
       'hi': 'उपयोगकर्ता बनाएं और आमंत्रित करें',
       'ta': 'பயனரை உருவாக்கி அழைக்கவும்',
       'ur': 'صارف بنائیں اور مدعو کریں۔',
@@ -942,7 +942,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'گھر',
     },
   },
-  // Eventos_Estudiante
+  // EventosAdmin
   {
     'qcd4z131': {
       'en': 'Eventos',

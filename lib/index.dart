@@ -15,8 +15,8 @@ export '/pages/add_team_members/add_team_members_widget.dart'
     show AddTeamMembersWidget;
 export '/pages/team_member_details/team_member_details_widget.dart'
     show TeamMemberDetailsWidget;
-export '/pages/eventos_estudiante/eventos_estudiante_widget.dart'
-    show EventosEstudianteWidget;
+export '/pages/create_edit_pages/eventos_admin/eventos_admin_widget.dart'
+    show EventosAdminWidget;
 export '/pages/mis_cursos_estudiantes/mis_cursos_estudiantes_widget.dart'
     show MisCursosEstudiantesWidget;
 export '/pages/archive/main_projects/main_projects_widget.dart'

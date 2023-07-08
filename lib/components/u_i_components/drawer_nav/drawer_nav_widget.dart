@@ -255,7 +255,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                             Navigator.pop(context);
                           }
 
-                          context.pushNamed('Eventos_Estudiante');
+                          context.pushNamed('EventosAdmin');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

@@ -157,12 +157,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Eventos_Estudiante',
+              name: 'EventosAdmin',
               path: 'eventosEstudiante',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Eventos_Estudiante')
-                  : EventosEstudianteWidget(),
+                  ? NavBarPage(initialPage: 'EventosAdmin')
+                  : EventosAdminWidget(),
             ),
             FFRoute(
               name: 'MisCursos_Estudiantes',
