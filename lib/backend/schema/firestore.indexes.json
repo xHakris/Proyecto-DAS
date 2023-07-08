@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "tareas",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "usuario",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "fecha_inicio",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}
