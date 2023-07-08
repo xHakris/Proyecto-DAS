@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -82,10 +83,23 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Bienvenido a la aplicación de Eventos',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineLarge,
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.network(
+                                      'https://camo.githubusercontent.com/40fa0dcaff6786b961a7ab7f3831b001ce8d9a52f88f050723a986a0c1a5207f/68747470733a2f2f692e696d6775722e636f6d2f326f7a473565412e706e67',
+                                      width: double.infinity,
+                                      height: 62.0,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 50.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Bienvenido a la aplicación para estudiantes',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineLarge,
+                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -276,7 +290,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                           }
 
                                           context.goNamedAuth(
-                                              'HomePage', context.mounted);
+                                              'Movil_Eventos', context.mounted);
                                         },
                                         text: 'Iniciar Sesión',
                                         options: FFButtonOptions(
@@ -315,29 +329,41 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 12.0),
-                                      child: RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'No tienes cuenta? ',
-                                              style: TextStyle(),
-                                            ),
-                                            TextSpan(
-                                              text: 'Registrate ahora',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                            )
-                                          ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context
+                                              .pushNamed('Movil_Crear_Cuenta');
+                                        },
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'No tienes cuenta? ',
+                                                style: TextStyle(),
+                                              ),
+                                              TextSpan(
+                                                text: 'Registrate ahora',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              )
+                                            ],
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
                                         ),
                                       ),
                                     ),
