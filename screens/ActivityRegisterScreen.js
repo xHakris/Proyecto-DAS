@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Formik } from "formik";
 import { TextInput } from "react-native";
 import { KeyboardAvoidingView } from "react-native";
@@ -23,6 +18,7 @@ import { ConfigContext } from "../context/ConfigContext";
 import { ListUserContext } from "../context/ListUserContext";
 import { showMessage } from "react-native-flash-message";
 import { Dimensions } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 const ActivityRegisterScreen = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -31,6 +27,9 @@ const ActivityRegisterScreen = () => {
   const [lists, setLists] = useState([]);
   const [mostrar, setMostrar] = useState(true);
   const [current, setCurrent] = useState("");
+  const [members, setMembers] = useState([]);
+  const [student, setStudent] = useState("");
+
   let width = Dimensions.get("window").width;
 
   // Obtener datos del usuario
@@ -42,7 +41,7 @@ const ActivityRegisterScreen = () => {
     console.log(dataUser);
   };
 
-  //Formulario 
+  //Formulario
   const resetComponent = () => {
     setMostrar(false);
     setTimeout(() => {
@@ -58,7 +57,7 @@ const ActivityRegisterScreen = () => {
     setDatePickerVisibility(false);
   };
 
-  //Establecer actividad
+  // Establecer actividad
   const SetData = async (activity) => {
     console.log("Aqui activity", activity);
     if (activity.typeOfActivity == 0) {
@@ -94,7 +93,7 @@ const ActivityRegisterScreen = () => {
       return;
     }
 
-    //Compureba que las horas sea mayor a 0 y menor a 24
+    // Compureba que las horas sea mayor a 0 y menor a 24
     if (activity.hours <= 0 || activity.hours >= 24) {
       alert("Ingrese una cantidad de horas valida");
       // resetComponent();
@@ -156,16 +155,85 @@ const ActivityRegisterScreen = () => {
     setLists(data);
   };
 
-  
   useEffect(() => {
-    getListsUser();
-    getDataUser();
+    // getListsUser();
+    // getDataUser();
+    getCourses();
   }, []);
 
-  const { data, setData } = useContext(ConfigContext);
-  const { dataUser } = useContext(ListUserContext);
+  useEffect(() => {
+    getMembers();
+  }, [TActivity]);
+
+  // const { data, setData } = useContext(ConfigContext);
+  // const { dataUser } = useContext(ListUserContext);
   // const tipos = data.map((conf) => conf.actividades);
+  // console.log('TIPOOOOS')
   // const subTipos = tipos.map((tipo) => tipo.map((subTipo) => subTipo));
+
+  const [courses, setCoruses] = useState([]);
+
+  const getCourses = async () => {
+    console.log("COURSEEEES");
+    const querySnapshot = await getDocs(collection(db, "evento"));
+    console.log("queryyy", querySnapshot);
+    const data = [];
+    console.log("aaaaaaaaoooo");
+
+    querySnapshot.forEach((doc) => {
+      console.log("aaaaaaaaoooo2");
+
+      data.push(doc.data());
+      console.log("DATAAAAA ===", doc.data());
+    });
+
+    setCoruses(data);
+  };
+
+  const getMembers = () => {
+    const data = [];
+    if (TActivity !== 0) {
+      const selectedEvent = courses.find(
+        (event) => event.nombre === TActivity.toString()
+      );
+      // console.log("SIU"+ selectedEvent.integrantes[0].nombre)
+      selectedEvent.integrantes.map((estudiante) => {
+        data.push(estudiante.nombre);
+      });
+      setMembers(data);
+      console.log(members + "MIEM");
+    }
+  };
+
+  // const getCourses = async () => {
+  //   const eventsSnapshot = await getDocs(collection(db, "evento"));
+  //   const eventsData = eventsSnapshot.docs.map((doc) => doc.data());
+
+  //   // Obtener los integrantes del evento seleccionado
+  //   if (TActivity !== 0) {
+  //     console.log("UNOOO")
+  //     const selectedEvent = eventsData.find(
+  //       (event) => event.nombre === TActivity.toString()
+
+  //     );
+  //     console.log("DOOOS");
+
+  //     if (selectedEvent && selectedEvent.integrantes) {
+  //     console.log("DOS TRES");
+
+  //       const membersData = selectedEvent.integrantes.map((integrante) => ({
+  //         nombre: integrante.nombre
+  //       }));
+  //     console.log("TREEES");
+
+  //       console.log(membersData);
+
+  //       setMembers(membersData);
+  //     }
+  //   }
+
+  //   setCoruses(eventsData);
+  // };
 
   if (!mostrar) {
     return <View></View>;
@@ -206,8 +274,8 @@ const ActivityRegisterScreen = () => {
           }}
         >
           <KeyboardAvoidingView
-          enabled={true}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'padding'}
+            enabled={true}
+            behavior={Platform.OS === "ios" ? "padding" : "padding"}
             style={{
               backgroundColor: "#4632A1",
               // borderWidth: width / 24,
@@ -234,11 +302,11 @@ const ActivityRegisterScreen = () => {
                 marginBottom: width / 48,
               }}
             >
-              {/* <Picker
+              <Picker
                 mode="dropdown"
                 onValueChange={(itemValue, itemIndex) => {
                   values.typeOfActivity = itemValue;
-                  setTActivity(itemIndex);
+                  setTActivity(itemValue); // Cambio realizado aquí
                 }}
                 onBlur={handleBlur}
                 selectedValue={TActivity.toString()}
@@ -248,21 +316,22 @@ const ActivityRegisterScreen = () => {
               >
                 <Picker.Item
                   color="#898989"
-                  label="Seleccione un tipo de actividad"
+                  label="Seleccione un evento"
                   value="0"
                 />
 
-                {data.map((act) => (
-                  <Picker.Item
-                    label={
-                      act.nombre.charAt(0).toUpperCase() + act.nombre.slice(1)
-                    }
-                    key={act.nombre}
-                    value={act.nombre}
-                  />
-                ))}
-              </Picker> */}
+                {courses.length > 0
+                  ? courses.map((act) => (
+                      <Picker.Item
+                        label={act.nombre}
+                        key={act.nombre}
+                        value={act.nombre}
+                      />
+                    ))
+                  : null}
+              </Picker>
             </TouchableOpacity>
+
             {/* {errors.typeOfActivity && <Text style={styles.errors}>{errors.typeOfActivity}</Text>} */}
 
             {/* Picker actividad */}
@@ -298,6 +367,25 @@ const ActivityRegisterScreen = () => {
                     ))
                   : null}
               </Picker> */}
+              {console.log("AQUI LOS MIEMBROS " + members)}
+              <Picker
+                mode="dropdown"
+                onValueChange={(itemValue, itemIndex) => {
+                  handleChange("activity")(itemValue); // Actualizar el valor seleccionado en el estado del formulario
+                }}
+                selectedValue={values.activity}
+                onBlur={handleBlur("activity")}
+              >
+                <Picker.Item
+                  color="#898989"
+                  label="Seleccione un integrante"
+                  value="0"
+                />
+                {members.length > 0 &&
+                  members.map((member) => (
+                    <Picker.Item label={member} key={member} value={member} />
+                  ))}
+              </Picker>
             </TouchableOpacity>
             {/* {errors.activity && <Text style={styles.errors}>{errors.activity}</Text>} */}
 
@@ -310,11 +398,11 @@ const ActivityRegisterScreen = () => {
                 width: "100%",
                 ...styles.input,
                 height: width / 10.5,
-                paddingHorizontal: width/32,
-                paddingVertical: width/48,
-                borderRadius: width/48,
-                marginTop: width/48,
-                marginBottom: width/48,
+                paddingHorizontal: width / 32,
+                paddingVertical: width / 48,
+                borderRadius: width / 48,
+                marginTop: width / 48,
+                marginBottom: width / 48,
               }}
             >
               {datePicker === "Fecha" ? (
@@ -465,7 +553,6 @@ const ActivityRegisterScreen = () => {
               style={{
                 ...styles.buttonContainer,
                 marginTop: width / 48,
-              
               }}
             >
               <TouchableOpacity
@@ -488,10 +575,14 @@ const ActivityRegisterScreen = () => {
                 }}
                 // style={[styles.button, styles.buttonOutline]}
               >
-                <Text style={{
-                  ...styles.buttonOutlineText,
-                  fontSize: width / 30,
-                }}>Crear</Text>
+                <Text
+                  style={{
+                    ...styles.buttonOutlineText,
+                    fontSize: width / 30,
+                  }}
+                >
+                  Crear
+                </Text>
               </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
