@@ -138,7 +138,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'EventosAdmin': EventosAdminWidget(),
       'MisCursos_Estudiantes': MisCursosEstudiantesWidget(),
       'Perfil': PerfilWidget(),
-      'EventosTelefono': EventosTelefonoWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -216,20 +215,6 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 '3e1n01mf' /* Home */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.folder_open,
-                size: 24.0,
-              ),
-              activeIcon: Icon(
-                Icons.folder_rounded,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'vnxaw4uc' /* Home */,
               ),
               tooltip: '',
             )

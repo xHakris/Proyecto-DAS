@@ -35,16 +35,7 @@ export '/pages/create_edit_pages/edit_project/edit_project_widget.dart'
     show EditProjectWidget;
 export '/pages/asignar_responsables/asignar_responsables_widget.dart'
     show AsignarResponsablesWidget;
-export '/pages/eventos_telefono/eventos_telefono_widget.dart'
-    show EventosTelefonoWidget;
-export '/registro_usuario/registro_usuario_widget.dart'
-    show RegistroUsuarioWidget;
-export '/movil_eventos/movil_eventos_widget.dart' show MovilEventosWidget;
 export '/principal/principal_widget.dart' show PrincipalWidget;
-export '/movil_estudiantes_cursos/movil_estudiantes_cursos_widget.dart'
-    show MovilEstudiantesCursosWidget;
-export '/movil_estudiantes_informacion_evento/movil_estudiantes_informacion_evento_widget.dart'
-    show MovilEstudiantesInformacionEventoWidget;
 export '/pages/ingresar_usuarios/ingresar_usuarios_widget.dart'
     show IngresarUsuariosWidget;
 export '/pages/registro/registro_widget.dart' show RegistroWidget;

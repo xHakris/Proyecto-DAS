@@ -248,38 +248,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AsignarResponsablesWidget(),
             ),
             FFRoute(
-              name: 'EventosTelefono',
-              path: 'eventosTelefono',
-              requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'EventosTelefono')
-                  : EventosTelefonoWidget(),
-            ),
-            FFRoute(
-              name: 'RegistroUsuario',
-              path: 'registroUsuario',
-              builder: (context, params) => RegistroUsuarioWidget(),
-            ),
-            FFRoute(
-              name: 'Movil_Eventos',
-              path: 'movilEventos',
-              builder: (context, params) => MovilEventosWidget(),
-            ),
-            FFRoute(
               name: 'Principal',
               path: 'principal',
               builder: (context, params) => PrincipalWidget(),
-            ),
-            FFRoute(
-              name: 'Movil_Estudiantes_Cursos',
-              path: 'movilEstudiantesCursos',
-              builder: (context, params) => MovilEstudiantesCursosWidget(),
-            ),
-            FFRoute(
-              name: 'Movil_Estudiantes_InformacionEvento',
-              path: 'movilEstudiantesInformacionEvento',
-              builder: (context, params) =>
-                  MovilEstudiantesInformacionEventoWidget(),
             ),
             FFRoute(
               name: 'IngresarUsuarios',
