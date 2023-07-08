@@ -1,6 +1,6 @@
 # ProyectoWebDas
 
-A new Flutter project [1].
+A new Flutter project.
 
 ## Getting Started
 

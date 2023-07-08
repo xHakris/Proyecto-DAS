@@ -280,6 +280,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'movilEstudiantesInformacionEvento',
               builder: (context, params) =>
                   MovilEstudiantesInformacionEventoWidget(),
+            ),
+            FFRoute(
+              name: 'IngresarUsuarios',
+              path: 'IngresarUusarios',
+              requireAuth: true,
+              builder: (context, params) => IngresarUsuariosWidget(),
+            ),
+            FFRoute(
+              name: 'Registro',
+              path: 'registro',
+              builder: (context, params) => RegistroWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
