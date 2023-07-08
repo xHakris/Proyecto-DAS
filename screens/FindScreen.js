@@ -62,7 +62,6 @@ const FindScreen = () => {
 
   const userActivitys = async () => {
     const querySnapshot = await getDocs(collection(db, "evento"));
-    console.log("queryyy", querySnapshot)
     const data = [];
     querySnapshot.forEach((doc) => {
       data.push(doc.data());
