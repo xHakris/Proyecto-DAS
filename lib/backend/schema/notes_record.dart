@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
@@ -90,4 +92,23 @@ Map<String, dynamic> createNotesRecordData({
   );
 
   return firestoreData;
+}
+
+class NotesRecordDocumentEquality implements Equality<NotesRecord> {
+  const NotesRecordDocumentEquality();
+
+  @override
+  bool equals(NotesRecord? e1, NotesRecord? e2) {
+    return e1?.owner == e2?.owner &&
+        e1?.taskRef == e2?.taskRef &&
+        e1?.note == e2?.note &&
+        e1?.timePosted == e2?.timePosted;
+  }
+
+  @override
+  int hash(NotesRecord? e) =>
+      const ListEquality().hash([e?.owner, e?.taskRef, e?.note, e?.timePosted]);
+
+  @override
+  bool isValidKey(Object? o) => o is NotesRecord;
 }

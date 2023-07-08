@@ -15,25 +15,27 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
-import 'main_team_page_model.dart';
-export 'main_team_page_model.dart';
+import 'mis_cursos_estudiantes_model.dart';
+export 'mis_cursos_estudiantes_model.dart';
 
-class MainTeamPageWidget extends StatefulWidget {
-  const MainTeamPageWidget({Key? key}) : super(key: key);
+class MisCursosEstudiantesWidget extends StatefulWidget {
+  const MisCursosEstudiantesWidget({Key? key}) : super(key: key);
 
   @override
-  _MainTeamPageWidgetState createState() => _MainTeamPageWidgetState();
+  _MisCursosEstudiantesWidgetState createState() =>
+      _MisCursosEstudiantesWidgetState();
 }
 
-class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
-  late MainTeamPageModel _model;
+class _MisCursosEstudiantesWidgetState
+    extends State<MisCursosEstudiantesWidget> {
+  late MisCursosEstudiantesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MainTeamPageModel());
+    _model = createModel(context, () => MisCursosEstudiantesModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -63,7 +65,7 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: Visibility(
-          visible: MediaQuery.of(context).size.width <= 764.0,
+          visible: MediaQuery.sizeOf(context).width <= 764.0,
           child: FloatingActionButton(
             onPressed: () async {
               context.pushNamed(
@@ -231,7 +233,7 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                         Expanded(
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'cqt7v5sb' /* My Team */,
+                                              'cqt7v5sb' /* Mi Curso */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium,
@@ -266,7 +268,7 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                             labelText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'mop2evm0' /* Search members... */,
+                                              'mop2evm0' /* Buscar Miembros */,
                                             ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -379,7 +381,7 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                             24.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            '63wkxdr4' /* Find Members */,
+                                            '63wkxdr4' /* Buscar miembros */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall,
@@ -392,7 +394,7 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'nyb9lczy' /* Created on */,
+                                            'nyb9lczy' /* Creado en */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall,
@@ -405,8 +407,8 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 70.0),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.8,
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.8,
                                     decoration: BoxDecoration(),
                                     child: Visibility(
                                       visible: _model.searchActive ?? true,
@@ -442,8 +444,8 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      if (MediaQuery.of(context)
-                                                              .size
+                                                      if (MediaQuery.sizeOf(
+                                                                  context)
                                                               .width >=
                                                           728.0) {
                                                         await showModalBottomSheet(
@@ -464,9 +466,9 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                                                       _model
                                                                           .unfocusNode),
                                                               child: Padding(
-                                                                padding: MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
                                                                 child:
                                                                     Container(
                                                                   height: double
@@ -649,8 +651,8 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 70.0),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.8,
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.8,
                                     decoration: BoxDecoration(),
                                     child: Visibility(
                                       visible: !_model.searchActive!,
@@ -687,8 +689,8 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      if (MediaQuery.of(context)
-                                                              .size
+                                                      if (MediaQuery.sizeOf(
+                                                                  context)
                                                               .width >=
                                                           728.0) {
                                                         await showModalBottomSheet(
@@ -709,9 +711,9 @@ class _MainTeamPageWidgetState extends State<MainTeamPageWidget> {
                                                                       _model
                                                                           .unfocusNode),
                                                               child: Padding(
-                                                                padding: MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
                                                                 child:
                                                                     Container(
                                                                   height: double

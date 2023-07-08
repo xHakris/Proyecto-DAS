@@ -123,6 +123,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                       m.storagePath, context))) {
                                 setState(() => _model.isDataUploading = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
+
                                 var downloadUrls = <String>[];
                                 try {
                                   showUploadMessage(
@@ -375,7 +376,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                             userBio: _model.shortBioController.text,
                           ));
 
-                          context.pushNamed('Main_tracker');
+                          context.pushNamed('Inicio_Estudiantes');
                         },
                         text: FFLocalizations.of(context).getText(
                           '7ve36dhv' /* Create & Invite User */,

@@ -252,9 +252,9 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                                   context: context,
                                                   builder: (context) {
                                                     return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
                                                       child: Container(
                                                         height: double.infinity,
                                                         child:
@@ -281,7 +281,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                     decoration: InputDecoration(
                                       labelText:
                                           FFLocalizations.of(context).getText(
-                                        'fkb8cli1' /* Task Name */,
+                                        'fkb8cli1' /* Nombre de la tarea */,
                                       ),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .headlineSmall
@@ -351,7 +351,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                     decoration: InputDecoration(
                                       hintText:
                                           FFLocalizations.of(context).getText(
-                                        '5qwd78rp' /* Enter description here... */,
+                                        '5qwd78rp' /* Introduce la descripción aquí.... */,
                                       ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall,
@@ -428,7 +428,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'c2dtsnbb' /* Select Status */,
+                                      'c2dtsnbb' /* Seleccionar estado */,
                                     ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
@@ -489,8 +489,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                               }
                                             },
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.44,
                                               height: 50.0,
@@ -578,10 +577,9 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                           }
                                         },
                                         child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.44,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.44,
                                           height: 50.0,
                                           constraints: BoxConstraints(
                                             maxWidth: 265.0,
@@ -751,7 +749,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                   );
 
                                   context.pushNamed(
-                                    'Main_tracker',
+                                    'Inicio_Estudiantes',
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,

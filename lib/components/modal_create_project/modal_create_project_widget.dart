@@ -332,8 +332,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                                         if (userListUsersRecordList.isEmpty) {
                                           return Center(
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
                                               height: 230.0,
@@ -376,9 +375,9 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                                                     context: context,
                                                     builder: (context) {
                                                       return Padding(
-                                                        padding: MediaQuery.of(
-                                                                context)
-                                                            .viewInsets,
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
                                                         child: Container(
                                                           height:
                                                               double.infinity,
@@ -739,7 +738,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                               context: context,
                               builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
+                                  padding: MediaQuery.viewInsetsOf(context),
                                   child: Container(
                                     height: double.infinity,
                                     child: ModalTaskCreate2Widget(

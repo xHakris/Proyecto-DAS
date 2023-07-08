@@ -213,7 +213,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                             Navigator.pop(context);
                           }
 
-                          context.pushNamed('Main_tracker');
+                          context.pushNamed('Inicio_Estudiantes');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -255,7 +255,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                             Navigator.pop(context);
                           }
 
-                          context.pushNamed('Main_projectsWeb');
+                          context.pushNamed('Eventos_Estudiante');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -297,7 +297,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                             Navigator.pop(context);
                           }
 
-                          context.pushNamed('Main_teamPage');
+                          context.pushNamed('MisCursos_Estudiantes');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

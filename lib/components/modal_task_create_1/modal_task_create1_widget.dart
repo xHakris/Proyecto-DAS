@@ -149,7 +149,7 @@ class _ModalTaskCreate1WidgetState extends State<ModalTaskCreate1Widget> {
                               context: context,
                               builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
+                                  padding: MediaQuery.viewInsetsOf(context),
                                   child: Container(
                                     height: double.infinity,
                                     child: ModalCreateProjectWidget(),
@@ -261,7 +261,7 @@ class _ModalTaskCreate1WidgetState extends State<ModalTaskCreate1Widget> {
                                       builder: (context) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(context).viewInsets,
+                                              MediaQuery.viewInsetsOf(context),
                                           child: Container(
                                             height: double.infinity,
                                             child: ModalTaskCreate2Widget(

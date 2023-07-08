@@ -150,7 +150,7 @@ class _ModalActivityWidgetState extends State<ModalActivityWidget> {
                           if (listViewActivityRecordList.isEmpty) {
                             return Center(
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
+                                width: MediaQuery.sizeOf(context).width * 0.5,
                                 child: EmptyNotificationsWidget(
                                   title: 'No Activity',
                                   bodyText:

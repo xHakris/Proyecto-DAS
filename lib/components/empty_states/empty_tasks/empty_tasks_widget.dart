@@ -64,7 +64,9 @@ class _EmptyTasksWidgetState extends State<EmptyTasksWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                widget.title!,
+                FFLocalizations.of(context).getText(
+                  'sgsn2bcw' /* No hay cursos */,
+                ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily:
@@ -87,7 +89,9 @@ class _EmptyTasksWidgetState extends State<EmptyTasksWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: Text(
-                    widget.bodyText!,
+                    FFLocalizations.of(context).getText(
+                      'j1t4bzzx' /* Parece que aún no tienes ningu... */,
+                    ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).labelMedium,
                   ),

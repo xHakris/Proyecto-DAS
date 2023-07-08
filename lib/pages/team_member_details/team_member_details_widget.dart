@@ -266,7 +266,7 @@ class _TeamMemberDetailsWidgetState extends State<TeamMemberDetailsWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 4.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'j2ieipip' /* Team Bio */,
+                      'j2ieipip' /* Biografía del equipo */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium,
                   ),
@@ -285,7 +285,7 @@ class _TeamMemberDetailsWidgetState extends State<TeamMemberDetailsWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      '9s048496' /* Tasks */,
+                      '9s048496' /* Eventos */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium,
                   ),
@@ -316,7 +316,7 @@ class _TeamMemberDetailsWidgetState extends State<TeamMemberDetailsWidget>
                       if (listViewAllTasksRecordList.isEmpty) {
                         return Center(
                           child: Container(
-                            width: MediaQuery.of(context).size.width * 0.8,
+                            width: MediaQuery.sizeOf(context).width * 0.8,
                             height: 300.0,
                             child: EmptyTasksWidget(
                               title: 'No Tasks Assigned',

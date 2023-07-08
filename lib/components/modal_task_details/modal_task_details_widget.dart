@@ -589,7 +589,7 @@ class _ModalTaskDetailsWidgetState extends State<ModalTaskDetailsWidget>
                                                                       notesRecordReference);
 
                                                               context.pushNamed(
-                                                                'Main_tracker',
+                                                                'Inicio_Estudiantes',
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
@@ -833,7 +833,7 @@ class _ModalTaskDetailsWidgetState extends State<ModalTaskDetailsWidget>
                                                                       notesRecordReference);
 
                                                               context.pushNamed(
-                                                                'Main_tracker',
+                                                                'Inicio_Estudiantes',
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
@@ -1026,9 +1026,9 @@ class _ModalTaskDetailsWidgetState extends State<ModalTaskDetailsWidget>
                                                   context: context,
                                                   builder: (context) {
                                                     return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
                                                       child: Container(
                                                         height: double.infinity,
                                                         child:
@@ -1283,9 +1283,9 @@ class _ModalTaskDetailsWidgetState extends State<ModalTaskDetailsWidget>
                                                   context: context,
                                                   builder: (context) {
                                                     return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
                                                       child: Container(
                                                         height: double.infinity,
                                                         child: AddTeamWidget(
@@ -1373,10 +1373,9 @@ class _ModalTaskDetailsWidgetState extends State<ModalTaskDetailsWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return Padding(
-                                                            padding:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .viewInsets,
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
                                                             child:
                                                                 ModalUserProfileWidget(
                                                               userRef:

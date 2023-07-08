@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
@@ -137,4 +139,40 @@ Map<String, dynamic> createAllTasksRecordData({
   );
 
   return firestoreData;
+}
+
+class AllTasksRecordDocumentEquality implements Equality<AllTasksRecord> {
+  const AllTasksRecordDocumentEquality();
+
+  @override
+  bool equals(AllTasksRecord? e1, AllTasksRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.taskName == e2?.taskName &&
+        e1?.dueDate == e2?.dueDate &&
+        listEquality.equals(e1?.members, e2?.members) &&
+        e1?.description == e2?.description &&
+        e1?.completed == e2?.completed &&
+        e1?.owner == e2?.owner &&
+        e1?.status == e2?.status &&
+        e1?.projectRef == e2?.projectRef &&
+        e1?.completedAt == e2?.completedAt &&
+        e1?.grade == e2?.grade;
+  }
+
+  @override
+  int hash(AllTasksRecord? e) => const ListEquality().hash([
+        e?.taskName,
+        e?.dueDate,
+        e?.members,
+        e?.description,
+        e?.completed,
+        e?.owner,
+        e?.status,
+        e?.projectRef,
+        e?.completedAt,
+        e?.grade
+      ]);
+
+  @override
+  bool isValidKey(Object? o) => o is AllTasksRecord;
 }

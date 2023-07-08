@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
@@ -143,4 +145,42 @@ Map<String, dynamic> createActivityRecordData({
   );
 
   return firestoreData;
+}
+
+class ActivityRecordDocumentEquality implements Equality<ActivityRecord> {
+  const ActivityRecordDocumentEquality();
+
+  @override
+  bool equals(ActivityRecord? e1, ActivityRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.activityName == e2?.activityName &&
+        e1?.activityTime == e2?.activityTime &&
+        e1?.activityDescription == e2?.activityDescription &&
+        e1?.activityType == e2?.activityType &&
+        e1?.projectRef == e2?.projectRef &&
+        e1?.otherUser == e2?.otherUser &&
+        e1?.readState == e2?.readState &&
+        e1?.activitySubText == e2?.activitySubText &&
+        e1?.taskRef == e2?.taskRef &&
+        listEquality.equals(e1?.targetUserRef, e2?.targetUserRef) &&
+        listEquality.equals(e1?.unreadByUser, e2?.unreadByUser);
+  }
+
+  @override
+  int hash(ActivityRecord? e) => const ListEquality().hash([
+        e?.activityName,
+        e?.activityTime,
+        e?.activityDescription,
+        e?.activityType,
+        e?.projectRef,
+        e?.otherUser,
+        e?.readState,
+        e?.activitySubText,
+        e?.taskRef,
+        e?.targetUserRef,
+        e?.unreadByUser
+      ]);
+
+  @override
+  bool isValidKey(Object? o) => o is ActivityRecord;
 }

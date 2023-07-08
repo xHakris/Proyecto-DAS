@@ -102,12 +102,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateProfileWidget(),
             ),
             FFRoute(
-              name: 'Main_tracker',
-              path: 'mainTracker',
+              name: 'Inicio_Estudiantes',
+              path: 'inicioEstudiantes',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Main_tracker')
-                  : MainTrackerWidget(),
+                  ? NavBarPage(initialPage: 'Inicio_Estudiantes')
+                  : InicioEstudiantesWidget(),
             ),
             FFRoute(
               name: 'createTask_1_SelectProject',
@@ -157,20 +157,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Main_projectsWeb',
-              path: 'mainProjectsWeb',
+              name: 'Eventos_Estudiante',
+              path: 'eventosEstudiante',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Main_projectsWeb')
-                  : MainProjectsWebWidget(),
+                  ? NavBarPage(initialPage: 'Eventos_Estudiante')
+                  : EventosEstudianteWidget(),
             ),
             FFRoute(
-              name: 'Main_teamPage',
-              path: 'mainTeamPage',
+              name: 'MisCursos_Estudiantes',
+              path: 'misCursosEstudiantes',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Main_teamPage')
-                  : MainTeamPageWidget(),
+                  ? NavBarPage(initialPage: 'MisCursos_Estudiantes')
+                  : MisCursosEstudiantesWidget(),
             ),
             FFRoute(
               name: 'Main_projects',
@@ -242,9 +242,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'asignarResponsables',
+              name: 'AsignarResponsables',
               path: 'asignarResponsables',
+              requireAuth: true,
               builder: (context, params) => AsignarResponsablesWidget(),
+            ),
+            FFRoute(
+              name: 'EventosTelefono',
+              path: 'eventosTelefono',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'EventosTelefono')
+                  : EventosTelefonoWidget(),
+            ),
+            FFRoute(
+              name: 'RegistroUsuario',
+              path: 'registroUsuario',
+              builder: (context, params) => RegistroUsuarioWidget(),
+            ),
+            FFRoute(
+              name: 'Movil_Eventos',
+              path: 'movilEventos',
+              builder: (context, params) => MovilEventosWidget(),
+            ),
+            FFRoute(
+              name: 'Principal',
+              path: 'principal',
+              builder: (context, params) => PrincipalWidget(),
+            ),
+            FFRoute(
+              name: 'Movil_Estudiantes_Cursos',
+              path: 'movilEstudiantesCursos',
+              builder: (context, params) => MovilEstudiantesCursosWidget(),
+            ),
+            FFRoute(
+              name: 'Movil_Estudiantes_InformacionEvento',
+              path: 'movilEstudiantesInformacionEvento',
+              builder: (context, params) =>
+                  MovilEstudiantesInformacionEventoWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -49,7 +49,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width * 1.0,
+      width: MediaQuery.sizeOf(context).width * 1.0,
       height: 350.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -207,6 +207,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                   setState(() => _model.isDataUploading = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
+
                                   var downloadUrls = <String>[];
                                   try {
                                     showUploadMessage(

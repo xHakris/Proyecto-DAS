@@ -477,7 +477,7 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget>
                             )),
                         0.0,
                       ),
-                      width: MediaQuery.of(context).size.width * 1.0,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       lineHeight: 12.0,
                       animation: true,
                       progressColor: FlutterFlowTheme.of(context).primary,
@@ -711,10 +711,9 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget>
                                     if (listViewAllTasksRecordList.isEmpty) {
                                       return Center(
                                         child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.8,
                                           height: 300.0,
                                           child: EmptyTasksWidget(
                                             title: 'No In Progress Tasks',
@@ -1140,10 +1139,9 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget>
                                     if (listViewAllTasksRecordList.isEmpty) {
                                       return Center(
                                         child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.8,
                                           height: 300.0,
                                           child: CompletedTasksWidget(
                                             title: 'No Completed Tasks',
@@ -1530,8 +1528,7 @@ class _ProjectDetailsPageWidgetState extends State<ProjectDetailsPageWidget>
                                             .isEmpty) {
                                           return Center(
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.5,
                                               child: EmptyNotificationsWidget(

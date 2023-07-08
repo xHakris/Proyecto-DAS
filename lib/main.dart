@@ -121,7 +121,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Main_tracker';
+  String _currentPageName = 'Inicio_Estudiantes';
   late Widget? _currentPage;
 
   @override
@@ -134,10 +134,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Main_projectsWeb': MainProjectsWebWidget(),
-      'Main_tracker': MainTrackerWidget(),
-      'Main_teamPage': MainTeamPageWidget(),
+      'Inicio_Estudiantes': InicioEstudiantesWidget(),
+      'Eventos_Estudiante': EventosEstudianteWidget(),
+      'MisCursos_Estudiantes': MisCursosEstudiantesWidget(),
       'Perfil': PerfilWidget(),
+      'EventosTelefono': EventosTelefonoWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -164,20 +165,6 @@ class _NavBarPageState extends State<NavBarPage> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.folder_open,
-                size: 24.0,
-              ),
-              activeIcon: Icon(
-                Icons.folder_rounded,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'hmxr55qt' /* Home */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
                 Icons.view_week_outlined,
                 size: 24.0,
               ),
@@ -187,6 +174,20 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 '6mv3j0ec' /* Tracker */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.folder_open,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.folder_rounded,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'hmxr55qt' /* Home */,
               ),
               tooltip: '',
             ),
@@ -215,6 +216,20 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 '3e1n01mf' /* Home */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.folder_open,
+                size: 24.0,
+              ),
+              activeIcon: Icon(
+                Icons.folder_rounded,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'vnxaw4uc' /* Home */,
               ),
               tooltip: '',
             )

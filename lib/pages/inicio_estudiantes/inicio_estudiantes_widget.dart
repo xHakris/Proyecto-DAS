@@ -22,19 +22,20 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'main_tracker_model.dart';
-export 'main_tracker_model.dart';
+import 'inicio_estudiantes_model.dart';
+export 'inicio_estudiantes_model.dart';
 
-class MainTrackerWidget extends StatefulWidget {
-  const MainTrackerWidget({Key? key}) : super(key: key);
+class InicioEstudiantesWidget extends StatefulWidget {
+  const InicioEstudiantesWidget({Key? key}) : super(key: key);
 
   @override
-  _MainTrackerWidgetState createState() => _MainTrackerWidgetState();
+  _InicioEstudiantesWidgetState createState() =>
+      _InicioEstudiantesWidgetState();
 }
 
-class _MainTrackerWidgetState extends State<MainTrackerWidget>
+class _InicioEstudiantesWidgetState extends State<InicioEstudiantesWidget>
     with TickerProviderStateMixin {
-  late MainTrackerModel _model;
+  late InicioEstudiantesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -253,7 +254,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MainTrackerModel());
+    _model = createModel(context, () => InicioEstudiantesModel());
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -282,7 +283,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: Visibility(
-          visible: MediaQuery.of(context).size.width <= 764.0,
+          visible: MediaQuery.sizeOf(context).width <= 764.0,
           child: FloatingActionButton(
             onPressed: () async {
               // Really enjoy this, would love to see this in code.
@@ -432,7 +433,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                           .requestFocus(_model.unfocusNode),
                                       child: Padding(
                                         padding:
-                                            MediaQuery.of(context).viewInsets,
+                                            MediaQuery.viewInsetsOf(context),
                                         child: Container(
                                           height: double.infinity,
                                           child: ModalTaskCreate1Widget(),
@@ -443,7 +444,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                 ).then((value) => setState(() {}));
                               },
                               text: FFLocalizations.of(context).getText(
-                                'j0lx26qq' /* Añadir Curso */,
+                                'j0lx26qq' /* Añadir Evento */,
                               ),
                               icon: Icon(
                                 Icons.add_rounded,
@@ -521,7 +522,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                   tabs: [
                                     Tab(
                                       text: FFLocalizations.of(context).getText(
-                                        'qivbgraj' /* My Tasks */,
+                                        'qivbgraj' /* Mis Eventos */,
                                       ),
                                     ),
                                     Tab(
@@ -662,8 +663,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                           noItemsFoundIndicatorBuilder: (_) =>
                                               Center(
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
                                               height: 300.0,
@@ -1393,10 +1393,10 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                               .isEmpty) {
                                             return Center(
                                               child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.8,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.8,
                                                 height: 300.0,
                                                 child: EmptyTasksWidget(
                                                   title: 'No In Progress Tasks',
@@ -1735,10 +1735,10 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                               .isEmpty) {
                                             return Center(
                                               child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.8,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.8,
                                                 height: 300.0,
                                                 child: CompletedTasksWidget(
                                                   title: 'No Completed Tasks',
@@ -2190,9 +2190,9 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                             .isEmpty) {
                                                           return Center(
                                                             child: Container(
-                                                              width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
                                                                       .width *
                                                                   0.8,
                                                               height: 300.0,
@@ -2446,7 +2446,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                     24.0, 8.0, 0.0, 12.0),
                                 child: Container(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.25,
+                                      MediaQuery.sizeOf(context).width * 0.25,
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -2476,7 +2476,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'rktf6kep' /* Cursos no Iniciados */,
+                                                'rktf6kep' /* Eventos no Iniciados */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2604,9 +2604,9 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                                               .unfocusNode),
                                                                   child:
                                                                       Padding(
-                                                                    padding: MediaQuery.of(
-                                                                            context)
-                                                                        .viewInsets,
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
                                                                         Container(
                                                                       height: double
@@ -2721,7 +2721,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                                               ));
 
                                                                               context.pushNamed(
-                                                                                'Main_tracker',
+                                                                                'Inicio_Estudiantes',
                                                                                 extra: <String, dynamic>{
                                                                                   kTransitionInfoKey: TransitionInfo(
                                                                                     hasTransition: true,
@@ -2787,7 +2787,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                                         children: [
                                                                           Text(
                                                                             FFLocalizations.of(context).getText(
-                                                                              'i1j0llq5' /* Due */,
+                                                                              'i1j0llq5' /* Pendiente */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -2845,7 +2845,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                     24.0, 8.0, 0.0, 12.0),
                                 child: Container(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.25,
+                                      MediaQuery.sizeOf(context).width * 0.25,
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -2875,7 +2875,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '89oepmke' /* Cursos en Progreso */,
+                                                '89oepmke' /* Eventos en Progreso */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2937,11 +2937,10 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                     .isEmpty) {
                                                   return Center(
                                                     child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.8,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.8,
                                                       height: 300.0,
                                                       child: EmptyTasksWidget(
                                                         title:
@@ -3011,9 +3010,9 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                                               .unfocusNode),
                                                                   child:
                                                                       Padding(
-                                                                    padding: MediaQuery.of(
-                                                                            context)
-                                                                        .viewInsets,
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
                                                                         Container(
                                                                       height: double
@@ -3144,7 +3143,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                                         children: [
                                                                           Text(
                                                                             FFLocalizations.of(context).getText(
-                                                                              'b8974iek' /* Due */,
+                                                                              'b8974iek' /* Pendiente */,
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -3220,7 +3219,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                     24.0, 8.0, 24.0, 12.0),
                                 child: Container(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.25,
+                                      MediaQuery.sizeOf(context).width * 0.25,
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -3250,7 +3249,7 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '310ik08p' /* Cursos Completados */,
+                                                '310ik08p' /* Eventos Completados */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -3309,11 +3308,10 @@ class _MainTrackerWidgetState extends State<MainTrackerWidget>
                                                     .isEmpty) {
                                                   return Center(
                                                     child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.8,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.8,
                                                       height: 300.0,
                                                       child:
                                                           CompletedTasksWidget(

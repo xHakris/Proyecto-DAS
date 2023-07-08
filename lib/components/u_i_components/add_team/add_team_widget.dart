@@ -136,7 +136,7 @@ class _AddTeamWidgetState extends State<AddTeamWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'uap9xd08' /* Assign Member */,
+                                        'uap9xd08' /* Asignar miembro */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium,
@@ -160,7 +160,7 @@ class _AddTeamWidgetState extends State<AddTeamWidget> {
                                                   16.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'v3df17c1' /* Find members by searching belo... */,
+                                              'v3df17c1' /* Encuentre miembros buscando a ... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall,
@@ -191,7 +191,7 @@ class _AddTeamWidgetState extends State<AddTeamWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      '4gubn0rd' /* Search members... */,
+                                                      '4gubn0rd' /* Buscar miembros... */,
                                                     ),
                                                     labelStyle:
                                                         FlutterFlowTheme.of(
@@ -322,11 +322,10 @@ class _AddTeamWidgetState extends State<AddTeamWidget> {
                                               if (serachResults.isEmpty) {
                                                 return Center(
                                                   child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.8,
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.8,
                                                     height: 230.0,
                                                     child: EmptyMembersWidget(
                                                       title: 'No Users Found',

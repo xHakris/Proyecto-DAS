@@ -62,7 +62,7 @@ class _CreateTask1SelectProjectWidgetState
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              '1evyvanx' /* Create Task */,
+              '1evyvanx' /* Crear tarea */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),

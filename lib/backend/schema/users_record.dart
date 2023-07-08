@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
@@ -152,4 +154,44 @@ Map<String, dynamic> createUsersRecordData({
   );
 
   return firestoreData;
+}
+
+class UsersRecordDocumentEquality implements Equality<UsersRecord> {
+  const UsersRecordDocumentEquality();
+
+  @override
+  bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.email == e2?.email &&
+        e1?.displayName == e2?.displayName &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.uid == e2?.uid &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.status == e2?.status &&
+        e1?.userRole == e2?.userRole &&
+        e1?.userBio == e2?.userBio &&
+        listEquality.equals(e1?.tasks, e2?.tasks) &&
+        e1?.orgRef == e2?.orgRef &&
+        e1?.isAdmin == e2?.isAdmin;
+  }
+
+  @override
+  int hash(UsersRecord? e) => const ListEquality().hash([
+        e?.email,
+        e?.displayName,
+        e?.photoUrl,
+        e?.uid,
+        e?.createdTime,
+        e?.phoneNumber,
+        e?.status,
+        e?.userRole,
+        e?.userBio,
+        e?.tasks,
+        e?.orgRef,
+        e?.isAdmin
+      ]);
+
+  @override
+  bool isValidKey(Object? o) => o is UsersRecord;
 }

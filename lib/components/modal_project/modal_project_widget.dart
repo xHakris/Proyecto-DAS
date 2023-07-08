@@ -309,7 +309,7 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                               context: context,
                               builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
+                                  padding: MediaQuery.viewInsetsOf(context),
                                   child: Container(
                                     height: double.infinity,
                                     child: ModalAddMembersWidget(
@@ -663,8 +663,7 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                                       if (listViewAllTasksRecordList.isEmpty) {
                                         return Center(
                                           child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
+                                            width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 300.0,
@@ -706,9 +705,9 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                                                   context: context,
                                                   builder: (context) {
                                                     return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
                                                       child: Container(
                                                         height: double.infinity,
                                                         child:
@@ -1091,8 +1090,7 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                                       if (listViewAllTasksRecordList.isEmpty) {
                                         return Center(
                                           child: Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
+                                            width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 300.0,
@@ -1134,9 +1132,9 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                                                   context: context,
                                                   builder: (context) {
                                                     return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
                                                       child: Container(
                                                         height: double.infinity,
                                                         child:
@@ -1496,10 +1494,10 @@ class _ModalProjectWidgetState extends State<ModalProjectWidget>
                                               .isEmpty) {
                                             return Center(
                                               child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.5,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.5,
                                                 child: EmptyNotificationsWidget(
                                                   title: 'No Activity',
                                                   bodyText:

@@ -19,19 +19,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'main_projects_web_model.dart';
-export 'main_projects_web_model.dart';
+import 'eventos_telefono_model.dart';
+export 'eventos_telefono_model.dart';
 
-class MainProjectsWebWidget extends StatefulWidget {
-  const MainProjectsWebWidget({Key? key}) : super(key: key);
+class EventosTelefonoWidget extends StatefulWidget {
+  const EventosTelefonoWidget({Key? key}) : super(key: key);
 
   @override
-  _MainProjectsWebWidgetState createState() => _MainProjectsWebWidgetState();
+  _EventosTelefonoWidgetState createState() => _EventosTelefonoWidgetState();
 }
 
-class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
+class _EventosTelefonoWidgetState extends State<EventosTelefonoWidget>
     with TickerProviderStateMixin {
-  late MainProjectsWebModel _model;
+  late EventosTelefonoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -79,7 +79,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MainProjectsWebModel());
+    _model = createModel(context, () => EventosTelefonoModel());
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -108,7 +108,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: Visibility(
-          visible: MediaQuery.of(context).size.width <= 764.0,
+          visible: MediaQuery.sizeOf(context).width <= 764.0,
           child: FloatingActionButton(
             onPressed: () async {
               context.pushNamed(
@@ -220,7 +220,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'qcd4z131' /* Eventos */,
+                                    '454vzsnu' /* Eventos */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium,
@@ -230,7 +230,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '0e5jbrkh' /* Una lista de sus eventos a con... */,
+                                      'o9mmz36m' /* Una lista de sus eventos a con... */,
                                     ),
                                     style:
                                         FlutterFlowTheme.of(context).labelSmall,
@@ -269,7 +269,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                             .requestFocus(_model.unfocusNode),
                                         child: Padding(
                                           padding:
-                                              MediaQuery.of(context).viewInsets,
+                                              MediaQuery.viewInsetsOf(context),
                                           child: Container(
                                             height: double.infinity,
                                             child: ModalCreateProjectWidget(),
@@ -284,7 +284,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                   });
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  '5mru78lw' /* Crear Evento */,
+                                  'ixe93bur' /* Crear Evento */,
                                 ),
                                 icon: Icon(
                                   Icons.create_new_folder_rounded,
@@ -403,7 +403,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        if (MediaQuery.of(context).size.width >=
+                                        if (MediaQuery.sizeOf(context).width >=
                                             768.0) {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
@@ -418,8 +418,8 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                                             _model.unfocusNode),
                                                 child: Padding(
                                                   padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
                                                   child: ModalProjectWidget(
                                                     projectRef:
                                                         desktopViewProjectsRecord,
@@ -724,8 +724,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                             if (listViewProjectsRecordList.isEmpty) {
                               return Center(
                                 child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.8,
+                                  width: MediaQuery.sizeOf(context).width * 0.8,
                                   height: 500.0,
                                   child: EmptyProjectsWidget(
                                     title: 'No Projects',
@@ -1002,8 +1001,7 @@ class _MainProjectsWebWidgetState extends State<MainProjectsWebWidget>
                                                         .completedTasks),
                                                 0.0,
                                               ),
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.85,
                                               lineHeight: 16.0,

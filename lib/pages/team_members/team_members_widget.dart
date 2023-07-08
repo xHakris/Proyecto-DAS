@@ -74,7 +74,7 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
           ),
           title: Text(
             FFLocalizations.of(context).getText(
-              'cr7ls6ar' /* Add Members */,
+              'cr7ls6ar' /* Agregar Miembros */,
             ),
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
@@ -120,7 +120,7 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'gxfshi24' /* Members in Project */,
+                    'gxfshi24' /* Miembros en el Evento */,
                   ),
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
@@ -381,7 +381,7 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    '78fdfkdh' /* Add Members */,
+                    '78fdfkdh' /* Agregar Miembros */,
                   ),
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),

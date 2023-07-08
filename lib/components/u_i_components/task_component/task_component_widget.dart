@@ -89,7 +89,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget>
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () async {
-          if (MediaQuery.of(context).size.width >= 728.0) {
+          if (MediaQuery.sizeOf(context).width >= 728.0) {
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
@@ -97,7 +97,7 @@ class _TaskComponentWidgetState extends State<TaskComponentWidget>
               context: context,
               builder: (context) {
                 return Padding(
-                  padding: MediaQuery.of(context).viewInsets,
+                  padding: MediaQuery.viewInsetsOf(context),
                   child: Container(
                     height: double.infinity,
                     child: ModalTaskDetailsWidget(

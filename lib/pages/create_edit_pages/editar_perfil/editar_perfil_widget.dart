@@ -144,7 +144,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                             context: context,
                             builder: (context) {
                               return Padding(
-                                padding: MediaQuery.of(context).viewInsets,
+                                padding: MediaQuery.viewInsetsOf(context),
                                 child: Container(
                                   height: 370.0,
                                   child: ChangePhotoWidget(),
@@ -183,6 +183,9 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                       controller: _model.yourNameController,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: FFLocalizations.of(context).getText(
+                          't7tz85hw' /* Nombre Completo */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
@@ -235,6 +238,9 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                       readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelText: FFLocalizations.of(context).getText(
+                          'p7ef0qd8' /* Rol */,
+                        ),
                         labelStyle: FlutterFlowTheme.of(context).labelMedium,
                         hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(

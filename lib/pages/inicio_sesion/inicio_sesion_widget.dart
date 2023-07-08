@@ -56,8 +56,8 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 1.0,
-                    height: MediaQuery.of(context).size.height * 1.0,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 1.0,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
@@ -68,7 +68,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          70.0, 70.0, 70.0, 70.0),
+                          15.0, 15.0, 15.0, 15.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -100,29 +100,39 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                           children: [
                                             Image.asset(
                                               'assets/images/Imagen1.png',
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
-                                                  0.388,
-                                              height: MediaQuery.of(context)
-                                                      .size
+                                                  0.344,
+                                              height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.06,
-                                              fit: BoxFit.fitHeight,
+                                              fit: BoxFit.contain,
                                             ),
                                           ],
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            60.0, 0.0, 60.0, 0.0),
+                                            20.0, 0.0, 20.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'awn1ttmh' /* Ingrese sus credenciales para ... */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
-                                              .titleMedium,
+                                              .titleMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMediumFamily,
+                                                fontSize: 14.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMediumFamily),
+                                              ),
                                         ),
                                       ),
                                       Padding(
@@ -313,7 +323,8 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                               return;
                                             }
 
-                                            context.goNamedAuth('Main_tracker',
+                                            context.goNamedAuth(
+                                                'Inicio_Estudiantes',
                                                 context.mounted);
                                           },
                                           text: FFLocalizations.of(context)
@@ -369,7 +380,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                             'x1ds5mwh' /* ¿Has olvidado tu contraseña? */,
                                           ),
                                           options: FFButtonOptions(
-                                            width: 170.0,
+                                            width: 260.0,
                                             height: 40.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -388,6 +399,9 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                                                   context)
                                                               .titleSmallFamily,
                                                       color: Colors.white,
+                                                      fontSize: 12.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
                                                           .containsKey(

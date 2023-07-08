@@ -97,7 +97,7 @@ class _NotificationTriggerWidgetState extends State<NotificationTriggerWidget> {
                 context: context,
                 builder: (context) {
                   return Padding(
-                    padding: MediaQuery.of(context).viewInsets,
+                    padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
                       height: double.infinity,
                       child: ModalActivityWidget(),

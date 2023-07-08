@@ -105,7 +105,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'Main_tracker',
+                    'Inicio_Estudiantes',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -170,7 +170,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'Main_projectsWeb',
+                    'Eventos_Estudiante',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -276,7 +276,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'Main_teamPage',
+                    'MisCursos_Estudiantes',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -343,7 +343,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'Main_teamPage',
+                        'MisCursos_Estudiantes',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,

@@ -130,6 +130,7 @@ class _AddTeamMembersWidgetState extends State<AddTeamMembersWidget> {
                                         () => _model.isDataUploading = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
+
                                     var downloadUrls = <String>[];
                                     try {
                                       showUploadMessage(

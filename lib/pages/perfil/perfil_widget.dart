@@ -308,7 +308,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       },
                                       child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width *
+                                            MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -445,7 +445,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       },
                                       child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width *
+                                            MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)

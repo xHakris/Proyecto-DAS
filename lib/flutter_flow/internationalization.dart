@@ -300,7 +300,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'فیلڈ کی ضرورت ہے',
     },
   },
-  // Main_tracker
+  // Inicio_Estudiantes
   {
     '12tkp77z': {
       'en': 'Flujo de los Cursos',
@@ -309,13 +309,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'صبح بخیر',
     },
     'j0lx26qq': {
-      'en': 'Añadir Curso',
+      'en': 'Añadir Evento',
       'hi': 'कार्य बनाएँ',
       'ta': 'பணியை உருவாக்கவும்',
       'ur': 'ٹاسک بنائیں',
     },
     'qivbgraj': {
-      'en': 'My Tasks',
+      'en': 'Mis Eventos',
       'hi': 'मेरा काम',
       'ta': 'எனது பணிகள்',
       'ur': 'میرے کام',
@@ -483,7 +483,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'منگل، صبح 10:00 بجے',
     },
     'rktf6kep': {
-      'en': 'Cursos no Iniciados',
+      'en': 'Eventos no Iniciados',
       'hi': 'शुरू नहीं',
       'ta': 'துவங்கவில்லை',
       'ur': 'شروع نہیں کیا',
@@ -495,19 +495,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'شروع کریں۔',
     },
     'i1j0llq5': {
-      'en': 'Due',
+      'en': 'Pendiente',
       'hi': 'देय',
       'ta': 'காரணமாக',
       'ur': 'واجب الادا',
     },
     '89oepmke': {
-      'en': 'Cursos en Progreso',
+      'en': 'Eventos en Progreso',
       'hi': 'चालू',
       'ta': 'செயல்பாட்டில் உள்ளது',
       'ur': 'کام جاری ہے',
     },
     'b8974iek': {
-      'en': 'Due',
+      'en': 'Pendiente',
       'hi': 'देय',
       'ta': 'காரணமாக',
       'ur': 'واجب الادا',
@@ -543,7 +543,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'منگل، صبح 10:00 بجے',
     },
     '310ik08p': {
-      'en': 'Cursos Completados',
+      'en': 'Eventos Completados',
       'hi': 'पुरा होना।',
       'ta': 'நிறைவு',
       'ur': 'مکمل',
@@ -558,7 +558,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // createTask_1_SelectProject
   {
     '1evyvanx': {
-      'en': 'Create Task',
+      'en': 'Crear tarea',
       'hi': 'कार्य बनाएँ',
       'ta': 'பணியை உருவாக்கவும்',
       'ur': 'ٹاسک بنائیں',
@@ -792,7 +792,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'مکمل کے بطور نشان زد کریں۔',
     },
     'xvvip759': {
-      'en': 'Iniciar Curso',
+      'en': 'IniciarEvento',
       'hi': 'कार्य प्रारंभ करें',
       'ta': 'பணியைத் தொடங்குங்கள்',
       'ur': 'کام شروع کریں۔',
@@ -912,13 +912,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': '12 کام',
     },
     'j2ieipip': {
-      'en': 'Team Bio',
+      'en': 'Biografía del equipo',
       'hi': 'टीम बायो',
       'ta': 'டீம் பயோ',
       'ur': 'ٹیم بائیو',
     },
     '9s048496': {
-      'en': 'Tasks',
+      'en': 'Eventos',
       'hi': 'कार्य',
       'ta': 'பணிகள்',
       'ur': 'کام',
@@ -936,7 +936,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'گھر',
     },
   },
-  // Main_projectsWeb
+  // Eventos_Estudiante
   {
     'qcd4z131': {
       'en': 'Eventos',
@@ -963,7 +963,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'گھر',
     },
   },
-  // Main_teamPage
+  // MisCursos_Estudiantes
   {
     'vf4ee69k': {
       'en': 'My Team',
@@ -972,25 +972,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'میری ٹیم',
     },
     'cqt7v5sb': {
-      'en': 'My Team',
+      'en': 'Mi Curso',
       'hi': 'मेरी टीम',
       'ta': 'என் அணி',
       'ur': 'میری ٹیم',
     },
     'mop2evm0': {
-      'en': 'Search members...',
+      'en': 'Buscar Miembros',
       'hi': 'सदस्यों को खोजें...',
       'ta': 'உறுப்பினர்களைத் தேடு...',
       'ur': 'اراکین کو تلاش کریں...',
     },
     '63wkxdr4': {
-      'en': 'Find Members',
+      'en': 'Buscar miembros',
       'hi': 'सदस्य खोजें',
       'ta': 'உறுப்பினர்களைக் கண்டறியவும்',
       'ur': 'ممبرز تلاش کریں۔',
     },
     'nyb9lczy': {
-      'en': 'Created on',
+      'en': 'Creado en',
       'hi': 'पर बनाया',
       'ta': 'அன்று உருவாக்கப்பட்ட',
       'ur': 'پر بنایا',
@@ -1362,13 +1362,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'تصویر تبدیل کریں',
     },
     't7tz85hw': {
-      'en': '',
+      'en': 'Nombre Completo',
       'hi': 'अप का नाम',
       'ta': 'உங்கள் பெயர்',
       'ur': 'تمھارا نام',
     },
     'p7ef0qd8': {
-      'en': '',
+      'en': 'Rol',
       'hi': 'शीर्षक या भूमिका',
       'ta': 'தலைப்பு அல்லது பாத்திரம்',
       'ur': 'عنوان یا کردار',
@@ -1395,13 +1395,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // teamMembers
   {
     'cr7ls6ar': {
-      'en': 'Add Members',
+      'en': 'Agregar Miembros',
       'hi': 'सदस्यों को जोड़ें',
       'ta': 'உறுப்பினர்களைச் சேர்க்கவும்',
       'ur': 'ممبرز کو شامل کریں۔',
     },
     'gxfshi24': {
-      'en': 'Members in Project',
+      'en': 'Miembros en el Evento',
       'hi': 'परियोजना में सदस्य',
       'ta': 'திட்டத்தில் உறுப்பினர்கள்',
       'ur': 'پروجیکٹ میں ممبران',
@@ -1437,7 +1437,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'دور',
     },
     '78fdfkdh': {
-      'en': 'Add Members',
+      'en': 'Agregar Miembros',
       'hi': 'सदस्यों को जोड़ें',
       'ta': 'உறுப்பினர்களைச் சேர்க்கவும்',
       'ur': 'ممبرز کو شامل کریں۔',
@@ -1674,9 +1674,485 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'فیلڈ کی ضرورت ہے',
     },
   },
-  // asignarResponsables
+  // AsignarResponsables
   {
-    'qyfqgg6v': {
+    'tv6z92fh': {
+      'en': 'Asinar responsables para un evento',
+      'hi': 'मेरी टीम',
+      'ta': 'என் அணி',
+      'ur': 'میری ٹیم',
+    },
+    '29dftuvm': {
+      'en': 'Mi Evento',
+      'hi': 'मेरी टीम',
+      'ta': 'என் அணி',
+      'ur': 'میری ٹیم',
+    },
+    '6js8p4ap': {
+      'en': 'Buscar usuario',
+      'hi': 'सदस्यों को खोजें...',
+      'ta': 'உறுப்பினர்களைத் தேடு...',
+      'ur': 'اراکین کو تلاش کریں...',
+    },
+    '7ce2tr39': {
+      'en': 'Usuarios disponibles',
+      'hi': 'सदस्य खोजें',
+      'ta': 'உறுப்பினர்களைக் கண்டறியவும்',
+      'ur': 'ممبرز تلاش کریں۔',
+    },
+    'dinoq7t9': {
+      'en': 'Created on',
+      'hi': 'पर बनाया',
+      'ta': 'அன்று உருவாக்கப்பட்ட',
+      'ur': 'پر بنایا',
+    },
+    'bz6mh5tg': {
+      'en': 'My Team',
+      'hi': 'मेरी टीम',
+      'ta': 'என் அணி',
+      'ur': 'میری ٹیم',
+    },
+  },
+  // EventosTelefono
+  {
+    '454vzsnu': {
+      'en': 'Eventos',
+      'hi': 'परियोजनाओं',
+      'ta': 'திட்டங்கள்',
+      'ur': 'پروجیکٹس',
+    },
+    'o9mmz36m': {
+      'en': 'Una lista de sus eventos a continuación.',
+      'hi': 'नीचे अपनी परियोजनाओं की एक सूची।',
+      'ta': 'உங்கள் திட்டங்களின் பட்டியல் கீழே.',
+      'ur': 'ذیل میں آپ کے منصوبوں کی فہرست۔',
+    },
+    'ixe93bur': {
+      'en': 'Crear Evento',
+      'hi': 'प्रोजेक्ट बनाएं',
+      'ta': 'திட்டத்தை உருவாக்கவும்',
+      'ur': 'پروجیکٹ بنائیں',
+    },
+    'vnxaw4uc': {
+      'en': 'Home',
+      'hi': 'घर',
+      'ta': 'வீடு',
+      'ur': 'گھر',
+    },
+  },
+  // RegistroUsuario
+  {
+    'yccoa970': {
+      'en': 'Sign In',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'no4tbeqy': {
+      'en': 'Create Account',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '8ysna1ea': {
+      'en': 'Let\'s get started by filling out the form below.',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'v0nm7yem': {
+      'en': 'Email',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'l8ci1n17': {
+      'en': 'Password',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '8z9s0i2f': {
+      'en': 'Get Started',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ypey28sp': {
+      'en': 'Or sign up with',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'k0vtjsh1': {
+      'en': 'Continue with Google',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'o2wyyxwk': {
+      'en': 'Continue with Apple',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    's1oajl2p': {
+      'en': 'Forgot Password?',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'lsl5kngm': {
+      'en': 'Sign Up',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'a8ldloni': {
+      'en': 'Welcome Back',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'z51jqqii': {
+      'en': 'Fill out the information below in order to access your account.',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'wkpsl0kp': {
+      'en': 'Email',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'is0djbtl': {
+      'en': 'Password',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'nv4s6kyu': {
+      'en': 'Sign Up',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'txt7q48z': {
+      'en': 'Or sign in with',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '4p4f1ig3': {
+      'en': 'Continue with Google',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'w3dy4603': {
+      'en': 'Continue with Apple',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'uvzxnaqe': {
+      'en': 'Home',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+  },
+  // Movil_Eventos
+  {
+    'j6hc4gem': {
+      'en': 'Buscar',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '1rysur0q': {
+      'en': 'Todos los cursos que necesitas',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'i318f9z1': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '2d14zt1x': {
+      'en': 'Categorias',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ibnbqwfl': {
+      'en': 'Ciberseguridad',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '6ia9amol': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '3at5mpqs': {
+      'en': 'Ciberseguridad',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ol7nkg0c': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'x5y2auzq': {
+      'en': 'Ciberseguridad',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'wb9cqxmu': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'qxl7v7eb': {
+      'en': 'Cursos',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'tx3zxi65': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'oev7w95w': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'xm5dmf52': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '6wcpy86q': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '35tleojq': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'rb4cdso4': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'p2ylitzd': {
+      'en': 'Eventos',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'qk4vz9vn': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '1d4ymaaj': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'wsikgtuh': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '60pej5cn': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '8h7ybm9w': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '6hlhazkr': {
+      'en': 'Hello World',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'jwu33ize': {
+      'en': 'Home',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+  },
+  // Principal
+  {
+    'v1971vw7': {
+      'en': 'Iniciar Sesion',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'z0xvzxg0': {
+      'en': 'Excelencia Educativa\nFormando Lideres',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'tm4r4ys9': {
+      'en':
+          'La educación es un proceso fundamental de la formación de las\npersonas y en el desarrollo de las sociedades. A través de la \neducación, se adquieren conocimientos, habilidades y valores que \npermiten a las personas desarrollarse personal y profesionalmente,\ncontribuir al progreso y bienestar en su entorno',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'iopkgud2': {
+      'en': 'Home',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+  },
+  // Movil_Estudiantes_Cursos
+  {
+    'e68mx22l': {
+      'en': 'Nombre Curso',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '64bxmozj': {
+      'en': 'Ciber Seguridad',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'p04swer4': {
+      'en': 'Información',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'teo18007': {
+      'en': 'Home',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+  },
+  // Movil_Estudiantes_InformacionEvento
+  {
+    '3vdz5uhi': {
+      'en': 'Nombre curso',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'tue2r5ey': {
+      'en': 'Visión general',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'x4b7f9pv': {
+      'en': '6 horas',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ph5sjn5q': {
+      'en': 'Certificado',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'cm3se491': {
+      'en': 'Para estudiantes de 7mo',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'chx62ayg': {
+      'en': '¿Qué aprenderé?',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'olqgx6uc': {
+      'en':
+          'Aprenderás los fundamentos de la IA y cómo aplicarlos en proyectos prácticos. Aprenderás los conceptos básicos de aprendizaje automático, redes neuronales, procesamiento del lenguaje natural y visión por computadora',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'q2rldlot': {
+      'en': 'Inscribirse',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'otegtdk8': {
+      'en': 'Cerficiado incluido',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'laffj8l4': {
+      'en': 'Curso gratuito',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '9u5y1dpo': {
+      'en': '40 dolares',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'nvkznnwn': {
+      'en': 'Cumples los requisitos para la inscripción',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'op2yeyij': {
+      'en': 'Inscribirse',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'tlkqm0kr': {
       'en': 'Home',
       'hi': '',
       'ta': '',
@@ -1755,20 +2231,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // addTeam
   {
     'uap9xd08': {
-      'en': 'Assign Member',
+      'en': 'Asignar miembro',
       'hi': 'सदस्य नियुक्त करें',
       'ta': 'உறுப்பினரை நியமிக்கவும்',
       'ur': 'ممبر تفویض کریں۔',
     },
     'v3df17c1': {
-      'en': 'Find members by searching below to add them to this task.',
+      'en':
+          'Encuentre miembros buscando a continuación para agregarlos a este evento.',
       'hi': 'सदस्यों को इस कार्य में जोड़ने के लिए नीचे खोज कर उन्हें खोजें।',
       'ta':
           'இந்தப் பணியில் உறுப்பினர்களைச் சேர்க்க, கீழே தேடுவதன் மூலம் உறுப்பினர்களைக் கண்டறியவும்.',
       'ur': 'ممبران کو اس کام میں شامل کرنے کے لیے نیچے تلاش کرکے تلاش کریں۔',
     },
     '4gubn0rd': {
-      'en': 'Search members...',
+      'en': 'Buscar miembros...',
       'hi': 'सदस्यों को खोजें...',
       'ta': 'உறுப்பினர்களைத் தேடு...',
       'ur': 'اراکین کو تلاش کریں...',
@@ -1865,6 +2342,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'hi': 'नोट बनाएँ',
       'ta': 'குறிப்பை உருவாக்கவும்',
       'ur': 'نوٹ بنائیں',
+    },
+  },
+  // emptyTasks
+  {
+    'sgsn2bcw': {
+      'en': 'No hay cursos',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'j1t4bzzx': {
+      'en':
+          'Parece que aún no tienes ningun curso asignado, ve hasta la seccion de cursos y registrate a uno',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
   },
   // TaskComponent
@@ -2228,13 +2721,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // modal_TaskCreate_2
   {
     'fkb8cli1': {
-      'en': 'Task Name',
+      'en': 'Nombre de la tarea',
       'hi': 'कार्य का नाम',
       'ta': 'பணியின் பெயர்',
       'ur': 'ٹاسک کا نام',
     },
     '5qwd78rp': {
-      'en': 'Enter description here...',
+      'en': 'Introduce la descripción aquí...',
       'hi': 'यहां विवरण दर्ज करें...',
       'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்...',
       'ur': 'یہاں تفصیل درج کریں...',
@@ -2258,7 +2751,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'مکمل',
     },
     'c2dtsnbb': {
-      'en': 'Select Status',
+      'en': 'Seleccionar estado',
       'hi': 'स्थिति का चयन करें',
       'ta': 'நிலையைத் தேர்ந்தெடுக்கவும்',
       'ur': 'اسٹیٹس کو منتخب کریں۔',

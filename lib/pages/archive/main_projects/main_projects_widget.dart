@@ -430,8 +430,7 @@ class _MainProjectsWidgetState extends State<MainProjectsWidget>
                                                   )),
                                               0.0,
                                             ),
-                                            width: MediaQuery.of(context)
-                                                    .size
+                                            width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.88,
                                             lineHeight: 16.0,
@@ -739,8 +738,7 @@ class _MainProjectsWidgetState extends State<MainProjectsWidget>
                                                   12.0, 12.0, 12.0, 16.0),
                                           child: LinearPercentIndicator(
                                             percent: 0.3,
-                                            width: MediaQuery.of(context)
-                                                    .size
+                                            width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.44,
                                             lineHeight: 16.0,

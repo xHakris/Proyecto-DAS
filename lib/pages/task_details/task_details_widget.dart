@@ -640,8 +640,8 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget>
                                                 .requestFocus(
                                                     _model.unfocusNode),
                                             child: Padding(
-                                              padding: MediaQuery.of(context)
-                                                  .viewInsets,
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
                                               child: Container(
                                                 height: double.infinity,
                                                 child: AddTeamWidget(
@@ -840,7 +840,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget>
                                           .requestFocus(_model.unfocusNode),
                                       child: Padding(
                                         padding:
-                                            MediaQuery.of(context).viewInsets,
+                                            MediaQuery.viewInsetsOf(context),
                                         child: Container(
                                           height: double.infinity,
                                           child: CreateNoteWidget(
@@ -1101,7 +1101,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget>
                                     });
 
                                     context.pushNamed(
-                                      'Main_tracker',
+                                      'Inicio_Estudiantes',
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -1190,7 +1190,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget>
                                     ));
 
                                     context.pushNamed(
-                                      'Main_tracker',
+                                      'Inicio_Estudiantes',
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -1230,7 +1230,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget>
                                     );
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'xvvip759' /* Iniciar Curso */,
+                                    'xvvip759' /* IniciarEvento */,
                                   ),
                                   options: FFButtonOptions(
                                     width: 270.0,

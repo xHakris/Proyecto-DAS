@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
@@ -73,4 +75,22 @@ Map<String, dynamic> createProjectListRecordData({
   );
 
   return firestoreData;
+}
+
+class ProjectListRecordDocumentEquality implements Equality<ProjectListRecord> {
+  const ProjectListRecordDocumentEquality();
+
+  @override
+  bool equals(ProjectListRecord? e1, ProjectListRecord? e2) {
+    const listEquality = ListEquality();
+    return listEquality.equals(e1?.projects, e2?.projects) &&
+        e1?.userRef == e2?.userRef;
+  }
+
+  @override
+  int hash(ProjectListRecord? e) =>
+      const ListEquality().hash([e?.projects, e?.userRef]);
+
+  @override
+  bool isValidKey(Object? o) => o is ProjectListRecord;
 }

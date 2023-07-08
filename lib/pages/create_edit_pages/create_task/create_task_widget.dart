@@ -491,8 +491,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget>
                                               }
                                             },
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
+                                              width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.44,
                                               height: 50.0,
@@ -580,10 +579,9 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget>
                                           }
                                         },
                                         child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.44,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.44,
                                           height: 50.0,
                                           constraints: BoxConstraints(
                                             maxWidth: 265.0,
@@ -774,7 +772,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget>
                                 );
 
                                 context.pushNamed(
-                                  'Main_tracker',
+                                  'Inicio_Estudiantes',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,

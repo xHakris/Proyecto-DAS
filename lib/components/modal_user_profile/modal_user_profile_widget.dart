@@ -381,7 +381,7 @@ class _ModalUserProfileWidgetState extends State<ModalUserProfileWidget>
                         if (listViewAllTasksRecordList.isEmpty) {
                           return Center(
                             child: Container(
-                              width: MediaQuery.of(context).size.width * 0.8,
+                              width: MediaQuery.sizeOf(context).width * 0.8,
                               height: 300.0,
                               child: EmptyTasksWidget(
                                 title: 'No Tasks Assigned',
@@ -416,7 +416,7 @@ class _ModalUserProfileWidgetState extends State<ModalUserProfileWidget>
                                     builder: (context) {
                                       return Padding(
                                         padding:
-                                            MediaQuery.of(context).viewInsets,
+                                            MediaQuery.viewInsetsOf(context),
                                         child: ModalTaskDetailsWidget(
                                           taskRef: listViewAllTasksRecord,
                                         ),

@@ -4,7 +4,8 @@ export '/pages/cambio_contrasena/cambio_contrasena_widget.dart'
     show CambioContrasenaWidget;
 export '/pages/create_edit_pages/create_profile/create_profile_widget.dart'
     show CreateProfileWidget;
-export '/pages/main_tracker/main_tracker_widget.dart' show MainTrackerWidget;
+export '/pages/inicio_estudiantes/inicio_estudiantes_widget.dart'
+    show InicioEstudiantesWidget;
 export '/pages/create_edit_pages/create_task_1_select_project/create_task1_select_project_widget.dart'
     show CreateTask1SelectProjectWidget;
 export '/pages/create_edit_pages/create_task/create_task_widget.dart'
@@ -14,10 +15,10 @@ export '/pages/add_team_members/add_team_members_widget.dart'
     show AddTeamMembersWidget;
 export '/pages/team_member_details/team_member_details_widget.dart'
     show TeamMemberDetailsWidget;
-export '/pages/main_projects_web/main_projects_web_widget.dart'
-    show MainProjectsWebWidget;
-export '/pages/main_team_page/main_team_page_widget.dart'
-    show MainTeamPageWidget;
+export '/pages/eventos_estudiante/eventos_estudiante_widget.dart'
+    show EventosEstudianteWidget;
+export '/pages/mis_cursos_estudiantes/mis_cursos_estudiantes_widget.dart'
+    show MisCursosEstudiantesWidget;
 export '/pages/archive/main_projects/main_projects_widget.dart'
     show MainProjectsWidget;
 export '/pages/perfil/perfil_widget.dart' show PerfilWidget;
@@ -34,3 +35,13 @@ export '/pages/create_edit_pages/edit_project/edit_project_widget.dart'
     show EditProjectWidget;
 export '/pages/asignar_responsables/asignar_responsables_widget.dart'
     show AsignarResponsablesWidget;
+export '/pages/eventos_telefono/eventos_telefono_widget.dart'
+    show EventosTelefonoWidget;
+export '/registro_usuario/registro_usuario_widget.dart'
+    show RegistroUsuarioWidget;
+export '/movil_eventos/movil_eventos_widget.dart' show MovilEventosWidget;
+export '/principal/principal_widget.dart' show PrincipalWidget;
+export '/movil_estudiantes_cursos/movil_estudiantes_cursos_widget.dart'
+    show MovilEstudiantesCursosWidget;
+export '/movil_estudiantes_informacion_evento/movil_estudiantes_informacion_evento_widget.dart'
+    show MovilEstudiantesInformacionEventoWidget;
