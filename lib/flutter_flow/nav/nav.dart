@@ -77,13 +77,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : MovilCursosWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : MovilCursosWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
         ),
         FFRoute(
           name: 'Movil_Eventos',
@@ -284,7 +284,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/movilCursos';
+            return '/inicioSesion';
           }
           return null;
         },
