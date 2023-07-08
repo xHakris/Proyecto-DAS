@@ -162,6 +162,9 @@ const ActivityRegisterScreen = () => {
   }, []);
 
   useEffect(() => {
+    if(TActivity===0){
+      setMembers([]);
+    }
     getMembers();
   }, [TActivity]);
 
@@ -196,6 +199,10 @@ const ActivityRegisterScreen = () => {
       const selectedEvent = courses.find(
         (event) => event.nombre === TActivity.toString()
       );
+      if(selectedEvent===undefined){
+        setMembers([])
+        return;
+      }
       // console.log("SIU"+ selectedEvent.integrantes[0].nombre)
       selectedEvent.integrantes.map((estudiante) => {
         data.push(estudiante.nombre);
@@ -391,7 +398,7 @@ const ActivityRegisterScreen = () => {
 
             {/* Fecha */}
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={showDatePicker}
               onBlur={handleBlur}
               style={{
@@ -426,10 +433,10 @@ const ActivityRegisterScreen = () => {
                 >
                   {datePicker}
                 </Text>
-              )}
+              )} */}
               {/* {errors.date && <Text style={styles.errors}>{errors.date}</Text>} */}
-            </TouchableOpacity>
-
+            {/* </TouchableOpacity> */}
+{/* 
             <DateTimePickerModal
               isVisible={isDatePickerVisible}
               mode="date"
@@ -439,7 +446,7 @@ const ActivityRegisterScreen = () => {
               onChange={(date) => {
                 values.date = date;
               }}
-            />
+            /> */}
 
             {/* Hora */}
 
@@ -457,14 +464,14 @@ const ActivityRegisterScreen = () => {
                   marginTop: width / 48,
                   marginBottom: width / 48,
                 }}
-                placeholder="Horas"
+                placeholder="Calificación"
                 type="password"
                 maxLength={2}
               />
             </View>
 
             {/* Picker persona que solicita */}
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={{
                 ...styles.picker,
                 height: width / 10.5,
@@ -474,7 +481,7 @@ const ActivityRegisterScreen = () => {
                 marginTop: width / 48,
                 marginBottom: width / 48,
               }}
-            >
+            > */}
               {/* <Picker
                 mode="dropdown"
                 onValueChange={(itemValue, itemIndex) => {
@@ -495,12 +502,12 @@ const ActivityRegisterScreen = () => {
                   />
                 ))}
               </Picker> */}
-            </TouchableOpacity>
+            {/* </TouchableOpacity> */}
 
             {/* {errors.personRequesting && <Text style={styles.errors}>{errors.personRequesting}</Text>} */}
 
             {/* Picker estado */}
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={{
                 ...styles.picker,
                 height: width / 10.5,
@@ -509,7 +516,7 @@ const ActivityRegisterScreen = () => {
                 marginTop: width / 48,
                 marginBottom: width / 48,
               }}
-            >
+            > */}
               {/* <Picker
                 mode="dropdown"
                 onValueChange={(itemValue, itemIndex) => {
@@ -526,11 +533,11 @@ const ActivityRegisterScreen = () => {
                 <Picker.Item label="En proceso" value="en proceso" />
                 <Picker.Item label="Terminada" value="terminada" />
               </Picker> */}
-            </TouchableOpacity>
+            {/* </TouchableOpacity> */}
             {/* {errors.state && <Text style={styles.errors}>{errors.state}</Text>} */}
 
             {/* Observaciones */}
-            <View>
+            {/* <View>
               <TextInput
                 onChangeText={handleChange("observations")}
                 onBlur={handleBlur("observations")}
@@ -547,7 +554,7 @@ const ActivityRegisterScreen = () => {
                 placeholder="Observaciones"
                 maxLength={40}
               />
-            </View>
+            </View> */}
 
             <View
               style={{
