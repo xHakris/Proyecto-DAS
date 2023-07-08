@@ -12,6 +12,9 @@ import {
   doc,
   setDoc,
   getDoc,
+  updateDoc,
+  query,
+  where
 } from "firebase/firestore/lite";
 
 import { ConfigContext } from "../context/ConfigContext";
@@ -212,35 +215,74 @@ const ActivityRegisterScreen = () => {
     }
   };
 
-  // const getCourses = async () => {
-  //   const eventsSnapshot = await getDocs(collection(db, "evento"));
-  //   const eventsData = eventsSnapshot.docs.map((doc) => doc.data());
+  const setDataStudent = async (activity) => {
+    // Validar los campos de actividad (previo al código existente)
+  
+    // Obtener el UID del evento seleccionado
+    const eventUid = await getEventUid(activity.typeOfActivity);
+    if (!eventUid) {
+      alert("Seleccione un evento válido");
+      return;
+    }
+  
+    // Obtener el estudiante seleccionado
+    const studentName = activity.activity;
+    const eventRef = doc(db, "evento", eventUid);
+    
+    try {
+      const eventSnapshot = await getDoc(eventRef);
+      if (eventSnapshot.exists()) {
+        const eventData = eventSnapshot.data();
+        const integrantes = eventData.integrantes || [];
+  
+        const studentToUpdate = integrantes.find((student) => student.nombre === studentName);
+        if (!studentToUpdate) {
+          alert("No se encontró al estudiante"); // Display an alert if the student is not found
+          return;
+        }
+  
+        const updatedStudent = { ...studentToUpdate, notaFinal: parseFloat(activity.hours) };
+        const updatedIntegrantes = integrantes.map((student) => (student.nombre === studentName ? updatedStudent : student));
+  
+        await updateDoc(eventRef, { integrantes: updatedIntegrantes });
+  
+        showMessage({
+          message: "Correcto",
+          description: "La calificación se ha guardado correctamente",
+          type: "success",
+          icon: "success",
+        });
+        setTActivity("");
+      } else {
+        alert("No se encontró el evento"); // Display an alert if the event document doesn't exist
+      }
+    } catch (error) {
+      console.error("Error al guardar la calificación:", error);
+      alert("Error al guardar la calificación. Por favor, intenta nuevamente.");
+    }
+  };
+  
 
-  //   // Obtener los integrantes del evento seleccionado
-  //   if (TActivity !== 0) {
-  //     console.log("UNOOO")
-  //     const selectedEvent = eventsData.find(
-  //       (event) => event.nombre === TActivity.toString()
-
-  //     );
-  //     console.log("DOOOS");
-
-  //     if (selectedEvent && selectedEvent.integrantes) {
-  //     console.log("DOS TRES");
-
-  //       const membersData = selectedEvent.integrantes.map((integrante) => ({
-  //         nombre: integrante.nombre
-  //       }));
-  //     console.log("TREEES");
-
-  //       console.log(membersData);
-
-  //       setMembers(membersData);
-  //     }
-  //   }
-
-  //   setCoruses(eventsData);
-  // };
+  
+  
+  // Lógica para obtener el UID del documento
+  const getEventUid = async (eventName) => {
+    const eventosRef = collection(db, "evento");
+    const q = query(eventosRef, where("nombre", "==", eventName));
+    const querySnapshot = await getDocs(q);
+  
+    if (!querySnapshot.empty) {
+      const docSnapshot = querySnapshot.docs[0];
+      const uid = docSnapshot.id;
+      console.log("UID del documento:", uid);
+      return uid;
+    } else {
+      console.log("El documento no fue encontrado");
+      return null;
+    }
+  };
+  
+  
 
   if (!mostrar) {
     return <View></View>;
@@ -262,7 +304,8 @@ const ActivityRegisterScreen = () => {
         return errors;
       }}
       onSubmit={(values, { resetForm }) => {
-        SetData(values);
+          setDataStudent(values);
+          resetForm();
       }}
     >
       {({
@@ -352,28 +395,7 @@ const ActivityRegisterScreen = () => {
                 marginBottom: width / 48,
               }}
             >
-              {/* <Picker
-                mode="dropdown"
-                onValueChange={(itemValue, itemIndex) => {
-                  values.activity = itemValue;
-                }}
-                onBlur={handleBlur}
-              >
-                <Picker.Item
-                  color="#898989"
-                  label="Seleccione una actividad"
-                  value="0"
-                />
-                {TActivity !== 0
-                  ? subTipos[TActivity - 1].map((act) => (
-                      <Picker.Item
-                        label={act.charAt(0).toUpperCase() + act.slice(1)}
-                        key={act}
-                        value={act}
-                      />
-                    ))
-                  : null}
-              </Picker> */}
+
               {console.log("AQUI LOS MIEMBROS " + members)}
               <Picker
                 mode="dropdown"
@@ -398,57 +420,9 @@ const ActivityRegisterScreen = () => {
 
             {/* Fecha */}
 
-            {/* <TouchableOpacity
-              onPress={showDatePicker}
-              onBlur={handleBlur}
-              style={{
-                width: "100%",
-                ...styles.input,
-                height: width / 10.5,
-                paddingHorizontal: width / 32,
-                paddingVertical: width / 48,
-                borderRadius: width / 48,
-                marginTop: width / 48,
-                marginBottom: width / 48,
-              }}
-            >
-              {datePicker === "Fecha" ? (
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    ...styles.buttonText,
-                    fontSize: width / 32,
-                  }}
-                >
-                  {datePicker}
-                </Text>
-              ) : (
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    ...styles.buttonText,
-                    color: "black",
-                    fontSize: width / 32,
-                  }}
-                >
-                  {datePicker}
-                </Text>
-              )} */}
-              {/* {errors.date && <Text style={styles.errors}>{errors.date}</Text>} */}
-            {/* </TouchableOpacity> */}
-{/* 
-            <DateTimePickerModal
-              isVisible={isDatePickerVisible}
-              mode="date"
-              onConfirm={handleConfirm}
-              onCancel={hideDatePicker}
-              onTouchOutside={hideDatePicker}
-              onChange={(date) => {
-                values.date = date;
-              }}
-            /> */}
 
-            {/* Hora */}
+
+            {/* Calificacion */}
 
             <View>
               <TextInput
@@ -469,92 +443,6 @@ const ActivityRegisterScreen = () => {
                 maxLength={2}
               />
             </View>
-
-            {/* Picker persona que solicita */}
-            {/* <TouchableOpacity
-              style={{
-                ...styles.picker,
-                height: width / 10.5,
-                alignContent: "center",
-                justifyContent: "center",
-                borderRadius: width / 48,
-                marginTop: width / 48,
-                marginBottom: width / 48,
-              }}
-            > */}
-              {/* <Picker
-                mode="dropdown"
-                onValueChange={(itemValue, itemIndex) => {
-                  values.personRequesting = itemValue;
-                }}
-                onBlur={handleBlur}
-              >
-                <Picker.Item
-                  color="#898989"
-                  label="Seleccione la persona que solicita"
-                  value="0"
-                />
-                {lists.map((user) => (
-                  <Picker.Item
-                    label={user.email}
-                    key={user.email}
-                    value={user.email}
-                  />
-                ))}
-              </Picker> */}
-            {/* </TouchableOpacity> */}
-
-            {/* {errors.personRequesting && <Text style={styles.errors}>{errors.personRequesting}</Text>} */}
-
-            {/* Picker estado */}
-            {/* <TouchableOpacity
-              style={{
-                ...styles.picker,
-                height: width / 10.5,
-                alignContent: "center",
-                justifyContent: "center",
-                marginTop: width / 48,
-                marginBottom: width / 48,
-              }}
-            > */}
-              {/* <Picker
-                mode="dropdown"
-                onValueChange={(itemValue, itemIndex) => {
-                  values.state = itemValue;
-                }}
-                onBlur={handleBlur}
-              >
-                <Picker.Item
-                  color="#898989"
-                  label="Seleccione un estado"
-                  value="0"
-                />
-                <Picker.Item label="No iniciada" value="no iniciada" />
-                <Picker.Item label="En proceso" value="en proceso" />
-                <Picker.Item label="Terminada" value="terminada" />
-              </Picker> */}
-            {/* </TouchableOpacity> */}
-            {/* {errors.state && <Text style={styles.errors}>{errors.state}</Text>} */}
-
-            {/* Observaciones */}
-            {/* <View>
-              <TextInput
-                onChangeText={handleChange("observations")}
-                onBlur={handleBlur("observations")}
-                value={values.observations}
-                style={{
-                  ...styles.input,
-                  height: width / 10.5,
-                  paddingHorizontal: width / 32,
-                  paddingVertical: width / 48,
-                  borderRadius: width / 48,
-                  marginTop: width / 48,
-                  marginBottom: width / 48,
-                }}
-                placeholder="Observaciones"
-                maxLength={40}
-              />
-            </View> */}
 
             <View
               style={{
@@ -588,7 +476,7 @@ const ActivityRegisterScreen = () => {
                     fontSize: width / 30,
                   }}
                 >
-                  Crear
+                  Calificar
                 </Text>
               </TouchableOpacity>
             </View>
