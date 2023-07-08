@@ -88,3 +88,41 @@ La aplicación móvil de las funcionalidades relacionadas con la gestión de cur
 La aplicación web es una parte fundamental del sistema de gestión y venta de cursos/eventos académicos. Proporciona funcionalidades de administración de la información, inscripción de eventos/cursos y generación de reportes.
 
 La aplicación web proporciona una interfaz intuitiva y amigable para que los usuarios realicen estas tareas de manera eficiente. Se proporcionarán instrucciones detalladas en el manual de usuarios sobre cómo utilizar cada funcionalidad de la aplicación web.
+##### 3.1. Subsistema 1
+##### 3.1.1. Pantalla 1
+##### 3.1.2. Mensajes de Error
+#### 4. Descripción del Sistema Móvil para Docentes
+El sistema móvil para docentes es una de las aplicaciones móviles del sistema de gestión y venta de cursos/eventos académicos. Está diseñada específicamente para los docentes y responsables de los eventos académicos.
+
+La aplicación móvil para docentes ofrece una interfaz simple y fácil de usar para realizar estas tareas. Los docentes podrán acceder a las funcionalidades relevantes y llevar a cabo el registro de asistencia y notas de manera eficiente.
+##### 4.1. Subsistema 1
+##### 4.1.1. Pantalla 1
+##### 4.1.2. Mensajes de Error
+#### 5. Descripción del Sistema Móvil para Estudiantes
+El sistema móvil para estudiantes es la otra aplicación móvil del sistema de gestión y venta de cursos/eventos académicos. Está diseñada para que los estudiantes puedan acceder a la información de los eventos académicos, realizar la inscripción y efectuar el pago.
+
+La aplicación móvil para estudiantes brinda una experiencia amigable y accesible para que los estudiantes puedan buscar, inscribirse y pagar por los eventos académicos de manera conveniente.
+##### 5.1. Subsistema 1
+##### 5.1.1. Pantalla 1
+##### 5.1.2. Mensajes de Error
+#### 6. Faq
+
+1. **¿Cómo puedo acceder a la aplicación web?**
+Puedes acceder a la aplicación web a través de un navegador web ingresando la URL proporcionada por el administrador del sistema. Asegúrate de tener una conexión a Internet estable y las credenciales de acceso correspondientes.
+
+2. **¿Qué debo hacer si olvidé mi contraseña?**
+Si olvidaste tu contraseña, puedes utilizar la opción de "Recuperar contraseña" en la página de inicio de sesión de la aplicación web. Se te enviará un enlace de recuperación a tu correo electrónico registrado, donde podrás restablecer tu contraseña.
+
+3. **¿Cómo puedo buscar eventos académicos en la aplicación móvil para estudiantes?**
+En la aplicación móvil para estudiantes, encontrarás una opción de búsqueda en la pantalla principal. Puedes ingresar criterios de búsqueda, como el nombre del evento, la categoría o la carrera, para encontrar los eventos académicos que te interesen.
+
+4. **¿Cuáles son las formas de pago aceptadas en la aplicación móvil para estudiantes?**
+La aplicación móvil para estudiantes ofrece diferentes formas de pago, como depósito, transferencia y PayPal. Durante el proceso de inscripción, podrás seleccionar la opción de pago que prefieras y seguir las instrucciones proporcionadas.
+
+5. **¿Cómo puedo registrar mi asistencia a un evento académico en la aplicación móvil para docentes?**
+En la aplicación móvil para docentes, durante el evento académico, encontrarás un componente específico para el registro de asistencia. Simplemente marca la asistencia de los participantes presentes y guarda los cambios.
+
+6. **¿Qué debo hacer si tengo problemas técnicos con alguna de las aplicaciones?**
+Si encuentras algún problema técnico con alguna de las aplicaciones, te recomendamos que contactes al administrador del sistema o al soporte técnico correspondiente. Proporciona detalles específicos sobre el problema que estás experimentando para que puedan ayudarte de manera eficiente.
+
+#### 7. Anexos
