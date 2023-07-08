@@ -1,4 +1,4 @@
-name: proyecto_movil
+name: aplicacion_estudiantes
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -49,7 +49,6 @@ dependencies:
   google_sign_in_web: 0.11.0+2
   intl: 0.18.0
   json_path: 0.4.1
-  octo_image: 1.0.2
   page_transition: 2.0.4
   path_provider: 2.0.14
   path_provider_android: 2.0.25

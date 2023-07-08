@@ -1,48 +1,48 @@
 {
   "project_info": {
-    "project_number": "168184011336",
-    "project_id": "appmovil-ce53e",
-    "storage_bucket": "appmovil-ce53e.appspot.com"
+    "project_number": "112296289374",
+    "project_id": "proyectodas-8ae3e",
+    "storage_bucket": "proyectodas-8ae3e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:168184011336:android:3ac11e01482a6294b5d67d",
+        "mobilesdk_app_id": "1:112296289374:android:5a044fa58483cce62a40cf",
         "android_client_info": {
-          "package_name": "com.example.proyecto_movil"
+          "package_name": "com.mycompany.aplicacionestudiantes"
         }
       },
       "oauth_client": [
         {
-          "client_id": "168184011336-v26nl39e8a97hb3t59gqk0m5p8vjhel6.apps.googleusercontent.com",
+          "client_id": "112296289374-vnov4jgnuobrarjjq0klk752a4qkafai.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.proyecto_movil",
+            "package_name": "com.mycompany.aplicacionestudiantes",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
         {
-          "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
+          "client_id": "112296289374-mggubu6g2u5imbp7sn105rs4jonrin4q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCRCkA2dUzMUy4TS6eXO4SJuAo2K6z8ZVI"
+          "current_key": "AIzaSyBzduB31c_jdw6dchu7y1d5QNWkqkqYZuM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
+              "client_id": "112296289374-mggubu6g2u5imbp7sn105rs4jonrin4q.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "168184011336-5i5h6dpg3og6blbh9d17v4eb1t7cjvdq.apps.googleusercontent.com",
+              "client_id": "112296289374-pvu8s3dmtt39vrae5q0jjgl3q4fv3rm1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.hakris.proyectoMovil"
+                "bundle_id": "com.mycompany.entprojecttracker"
               }
             }
           ]
@@ -51,78 +51,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:168184011336:android:4c60dc0f9f89b302b5d67d",
+        "mobilesdk_app_id": "1:112296289374:android:9e50704c49e6a8a42a40cf",
         "android_client_info": {
-          "package_name": "com.hakris.proyecto_movil"
+          "package_name": "com.mycompany.entprojecttracker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "168184011336-8131jembcofaq7u17sjhhmvlji1f8t46.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hakris.proyecto_movil",
-            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
-          }
-        },
-        {
-          "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
+          "client_id": "112296289374-mggubu6g2u5imbp7sn105rs4jonrin4q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCRCkA2dUzMUy4TS6eXO4SJuAo2K6z8ZVI"
+          "current_key": "AIzaSyBzduB31c_jdw6dchu7y1d5QNWkqkqYZuM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
+              "client_id": "112296289374-mggubu6g2u5imbp7sn105rs4jonrin4q.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "168184011336-5i5h6dpg3og6blbh9d17v4eb1t7cjvdq.apps.googleusercontent.com",
+              "client_id": "112296289374-pvu8s3dmtt39vrae5q0jjgl3q4fv3rm1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.hakris.proyectoMovil"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:168184011336:android:5086e8a8a7f910a2b5d67d",
-        "android_client_info": {
-          "package_name": "com.mycompany.proyectomovil"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCRCkA2dUzMUy4TS6eXO4SJuAo2K6z8ZVI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "168184011336-qkff68i55l2hfrecl59j3qua4lbh3sdf.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "168184011336-5i5h6dpg3og6blbh9d17v4eb1t7cjvdq.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.hakris.proyectoMovil"
+                "bundle_id": "com.mycompany.entprojecttracker"
               }
             }
           ]

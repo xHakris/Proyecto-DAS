@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class ProyectoMovilFirebaseUser extends BaseAuthUser {
-  ProyectoMovilFirebaseUser(this.user);
+class AplicacionEstudiantesFirebaseUser extends BaseAuthUser {
+  AplicacionEstudiantesFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -45,17 +45,18 @@ class ProyectoMovilFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      ProyectoMovilFirebaseUser(user);
+      AplicacionEstudiantesFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> proyectoMovilFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> aplicacionEstudiantesFirebaseUserStream() =>
+    FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = ProyectoMovilFirebaseUser(user);
+        currentUser = AplicacionEstudiantesFirebaseUser(user);
         return currentUser!;
       },
     );

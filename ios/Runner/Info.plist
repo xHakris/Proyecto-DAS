@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Proyecto-Movil</string>
+	<string>Aplicacion-estudiantes</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Proyecto-Movil</string>
+	<string>Aplicacion-estudiantes</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.168184011336-if51qt2omg00rq07mhkqsg8fodttdq0i</string>
+                <string>com.googleusercontent.apps.112296289374-u3ov1gp02qvhfqumfqu1uhpqsojs11di</string>
                 
             </array>
         </dict>
@@ -37,10 +37,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>proyectomovil.com</string>
+        <string>aplicacionestudiantes.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>proyectomovil</string>
+        <string>aplicacionestudiantes</string>
         </array>
         </dict>
     </array>

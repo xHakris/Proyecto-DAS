@@ -77,43 +77,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? InicioWidget() : InicioSesionWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : MovilCursosWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? InicioWidget() : InicioSesionWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : MovilCursosWidget(),
         ),
         FFRoute(
-          name: 'Inicio',
-          path: '/inicio',
-          builder: (context, params) => InicioWidget(),
+          name: 'Movil_Eventos',
+          path: '/movilEventos',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Movil_Eventos')
+              : MovilEventosWidget(),
         ),
         FFRoute(
-          name: 'InicioSesion',
+          name: 'Movil_Cursos',
+          path: '/movilCursos',
+          builder: (context, params) => MovilCursosWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Evento_Informacion',
+          path: '/movilEventoInformacion',
+          builder: (context, params) => MovilEventoInformacionWidget(),
+        ),
+        FFRoute(
+          name: 'Inicio_Sesion',
           path: '/inicioSesion',
           builder: (context, params) => InicioSesionWidget(),
         ),
         FFRoute(
-          name: 'Configuracion',
-          path: '/configuracion',
-          builder: (context, params) => ConfiguracionWidget(),
+          name: 'Movil_Editar_Perfil',
+          path: '/movilEditarPerfil',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Movil_Editar_Perfil')
+              : MovilEditarPerfilWidget(),
         ),
         FFRoute(
-          name: 'Informacion',
-          path: '/informacion',
-          asyncParams: {
-            'tareaRef': getDoc(['tareas'], TareasRecord.fromSnapshot),
-          },
-          builder: (context, params) => InformacionWidget(
-            tareaRef: params.getParam('tareaRef', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'Nuevo',
-          path: '/nuevo',
-          builder: (context, params) => NuevoWidget(),
+          name: 'Movil_Crear_Cuenta',
+          path: '/movilCrearCuenta',
+          builder: (context, params) => MovilCrearCuentaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -280,7 +284,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/inicioSesion';
+            return '/movilCursos';
           }
           return null;
         },

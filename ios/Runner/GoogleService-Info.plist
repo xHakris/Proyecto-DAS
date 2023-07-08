@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>168184011336-if51qt2omg00rq07mhkqsg8fodttdq0i.apps.googleusercontent.com</string>
+	<string>112296289374-u3ov1gp02qvhfqumfqu1uhpqsojs11di.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.168184011336-if51qt2omg00rq07mhkqsg8fodttdq0i</string>
+	<string>com.googleusercontent.apps.112296289374-u3ov1gp02qvhfqumfqu1uhpqsojs11di</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>168184011336-8131jembcofaq7u17sjhhmvlji1f8t46.apps.googleusercontent.com</string>
+	<string>112296289374-vnov4jgnuobrarjjq0klk752a4qkafai.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAfLcU6YbtZKbTs9GiUJHl7rGPbAxIKfO4</string>
+	<string>AIzaSyDhD94D0li9A0oCJtjTYyJC3TkEzcK7en4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>168184011336</string>
+	<string>112296289374</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.proyectomovil</string>
+	<string>com.mycompany.aplicacionestudiantes</string>
 	<key>PROJECT_ID</key>
-	<string>appmovil-ce53e</string>
+	<string>proyectodas-8ae3e</string>
 	<key>STORAGE_BUCKET</key>
-	<string>appmovil-ce53e.appspot.com</string>
+	<string>proyectodas-8ae3e.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:168184011336:ios:05f64b4287be171fb5d67d</string>
+	<string>1:112296289374:ios:86b20653e4b26e952a40cf</string>
 </dict>
 </plist>

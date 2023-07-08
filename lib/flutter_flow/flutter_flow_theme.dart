@@ -54,9 +54,6 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
-  late Color primaryBtnText;
-  late Color lineColor;
-  late Color customColor1;
   late Color grayIcon;
   late Color gray200;
   late Color gray600;
@@ -152,9 +149,6 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFFE0E3E7);
-  late Color customColor1 = Color(0xFF2FB73C);
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color gray600 = Color(0xFF262D34);
@@ -333,9 +327,6 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFF22282F);
-  late Color customColor1 = Color(0xFF452FB7);
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color gray600 = Color(0xFF262D34);
