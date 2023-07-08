@@ -45,3 +45,6 @@ export '/movil_estudiantes_cursos/movil_estudiantes_cursos_widget.dart'
     show MovilEstudiantesCursosWidget;
 export '/movil_estudiantes_informacion_evento/movil_estudiantes_informacion_evento_widget.dart'
     show MovilEstudiantesInformacionEventoWidget;
+export '/pages/ingresar_usuarios/ingresar_usuarios_widget.dart'
+    show IngresarUsuariosWidget;
+export '/pages/registro/registro_widget.dart' show RegistroWidget;

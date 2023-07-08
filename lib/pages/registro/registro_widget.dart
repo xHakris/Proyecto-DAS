@@ -5,28 +5,29 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'inicio_sesion_model.dart';
-export 'inicio_sesion_model.dart';
+import 'registro_model.dart';
+export 'registro_model.dart';
 
-class InicioSesionWidget extends StatefulWidget {
-  const InicioSesionWidget({Key? key}) : super(key: key);
+class RegistroWidget extends StatefulWidget {
+  const RegistroWidget({Key? key}) : super(key: key);
 
   @override
-  _InicioSesionWidgetState createState() => _InicioSesionWidgetState();
+  _RegistroWidgetState createState() => _RegistroWidgetState();
 }
 
-class _InicioSesionWidgetState extends State<InicioSesionWidget> {
-  late InicioSesionModel _model;
+class _RegistroWidgetState extends State<RegistroWidget> {
+  late RegistroModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InicioSesionModel());
+    _model = createModel(context, () => RegistroModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
+    _model.passwordCController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -116,7 +117,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                             20.0, 0.0, 20.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'awn1ttmh' /* Ingrese sus credenciales para ... */,
+                                            '4ora8cia' /* Ingrese sus credenciales */,
                                           ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -149,7 +150,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              '907dwafo' /* Correo */,
+                                              '8kvmi6x4' /* Correo */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -224,7 +225,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'n6dz3f56' /* Contraseña */,
+                                              'pc9qysru' /* Contraseña */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -306,14 +307,123 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 12.0, 20.0, 0.0),
+                                        child: TextFormField(
+                                          controller:
+                                              _model.passwordCController,
+                                          obscureText:
+                                              !_model.passwordCVisibility,
+                                          decoration: InputDecoration(
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium,
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'jkamw10k' /* Confirmar Contraseña */,
+                                            ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall,
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 2.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryBackground,
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 16.0, 20.0, 16.0),
+                                            suffixIcon: InkWell(
+                                              onTap: () => setState(
+                                                () => _model
+                                                        .passwordCVisibility =
+                                                    !_model.passwordCVisibility,
+                                              ),
+                                              focusNode: FocusNode(
+                                                  skipTraversal: true),
+                                              child: Icon(
+                                                _model.passwordCVisibility
+                                                    ? Icons.visibility_outlined
+                                                    : Icons
+                                                        .visibility_off_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 16.0,
+                                              ),
+                                            ),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          validator: _model
+                                              .passwordCControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             GoRouter.of(context)
                                                 .prepareAuthEvent();
+                                            if (_model
+                                                    .passwordController.text !=
+                                                _model
+                                                    .passwordCController.text) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Passwords don\'t match!',
+                                                  ),
+                                                ),
+                                              );
+                                              return;
+                                            }
 
                                             final user = await authManager
-                                                .signInWithEmail(
+                                                .createAccountWithEmail(
                                               context,
                                               _model
                                                   .emailAddressController.text,
@@ -329,7 +439,7 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'mwwgcym9' /* Inicio Sesión */,
+                                            'j2u3407q' /* Registrarse */,
                                           ),
                                           options: FFButtonOptions(
                                             width: 230.0,
@@ -364,103 +474,6 @@ class _InicioSesionWidgetState extends State<InicioSesionWidget> {
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(50.0),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 24.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            context.pushNamed('Registro');
-                                          },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'gr0au5pf' /* Registrarse */,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: 230.0,
-                                            height: 50.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Colors.white,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmallFamily,
-                                                      color: Color(0xFF01070A),
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily),
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(50.0),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 20.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            context
-                                                .pushNamed('CambioContrasena');
-                                          },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'x1ds5mwh' /* ¿Has olvidado tu contraseña? */,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: 260.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmallFamily,
-                                                      color: Colors.white,
-                                                      fontSize: 12.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily),
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
                                           ),
                                         ),
                                       ),
