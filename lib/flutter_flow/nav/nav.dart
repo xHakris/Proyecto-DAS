@@ -60,6 +60,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Movil_Evento_Informacion',
           path: '/movilEventoInformacion',
           builder: (context, params) => MovilEventoInformacionWidget(),
+        ),
+        FFRoute(
+          name: 'Inicio_Sesion',
+          path: '/inicioSesion',
+          builder: (context, params) => InicioSesionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
