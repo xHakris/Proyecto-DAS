@@ -1,8 +1,4 @@
 
-# Proyecto-DAS
-Proyecto para la gestion de eventos
-
-
 # Aplicación de Gestión y Venta de Cursos/Eventos Académicos
 [![N|Solid](https://i.imgur.com/2ozG5eA.png)](https://nodesource.com/products/nsolid)
 Esta aplicación web y móvil permite la gestión y venta de cursos/eventos académicos en la Facultad de Ingeniería en Sistemas, Electrónica e Industrial. Proporciona funcionalidades para administrar la información, inscribirse en eventos, realizar pagos y generar reportes.
