@@ -171,12 +171,6 @@ const ActivityRegisterScreen = () => {
     getMembers();
   }, [TActivity]);
 
-  // const { data, setData } = useContext(ConfigContext);
-  // const { dataUser } = useContext(ListUserContext);
-  // const tipos = data.map((conf) => conf.actividades);
-  // console.log('TIPOOOOS')
-  // const subTipos = tipos.map((tipo) => tipo.map((subTipo) => subTipo));
-
   const [courses, setCoruses] = useState([]);
 
   const getCourses = async () => {
@@ -224,7 +218,14 @@ const ActivityRegisterScreen = () => {
       alert("Seleccione un evento válido");
       return;
     }
-  
+    
+
+    if (!activity.hours) {
+      alert("Ingrese una calificacion");
+      return;
+    }
+    
+
     // Obtener el estudiante seleccionado
     const studentName = activity.activity;
     const eventRef = doc(db, "evento", eventUid);
