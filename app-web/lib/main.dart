@@ -136,7 +136,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'Inicio_Estudiantes': InicioEstudiantesWidget(),
       'EventosAdmin': EventosAdminWidget(),
-      'MisCursos_Estudiantes': MisCursosEstudiantesWidget(),
+      'Web_MiEquipo': WebMiEquipoWidget(),
       'Perfil': PerfilWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);

@@ -107,99 +107,6 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // InicioSesion
-  {
-    'awn1ttmh': {
-      'en': 'Ingrese sus credenciales para acceder a su cuenta.',
-      'hi': 'अपने खाते तक पहुँचने के लिए अपनी साख दर्ज करें।',
-      'ta': 'உங்கள் கணக்கை அணுக உங்கள் சான்றுகளை உள்ளிடவும்.',
-      'ur': 'اپنے اکاؤنٹ تک رسائی کے لیے اپنی اسناد درج کریں۔',
-    },
-    'aqy0ytzr': {
-      'en': '',
-      'hi': 'मेल पता',
-      'ta': 'மின்னஞ்சல் முகவரி',
-      'ur': 'ای میل اڈریس',
-    },
-    '907dwafo': {
-      'en': 'Correo',
-      'hi': 'मेल पता',
-      'ta': 'மின்னஞ்சல் முகவரி',
-      'ur': 'ای میل اڈریس',
-    },
-    '58d6u4ge': {
-      'en': '',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'n6dz3f56': {
-      'en': 'Contraseña',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'mwwgcym9': {
-      'en': 'Inicio Sesión',
-      'hi': 'दाखिल करना',
-      'ta': 'உள்நுழையவும்',
-      'ur': 'سائن ان',
-    },
-    'gr0au5pf': {
-      'en': 'Registrarse',
-      'hi': 'दाखिल करना',
-      'ta': 'உள்நுழையவும்',
-      'ur': 'سائن ان',
-    },
-    'x1ds5mwh': {
-      'en': '¿Has olvidado tu contraseña?',
-      'hi': 'पासवर्ड भूल गए?',
-      'ta': 'கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
-      'ur': 'پاسورڈ بھول گے؟',
-    },
-    '9ad5nczl': {
-      'en': 'requerido!',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    '1w2pldnr': {
-      'en': 'correo Invalido',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    '3zywwoxt': {
-      'en': 'correo Invalido',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'ha4mxga3': {
-      'en': 'Please choose an option from the dropdown',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'p5nxr1ta': {
-      'en': 'requerido!',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    '4uyhcchs': {
-      'en': 'clave invalida',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'kros9vd5': {
-      'en': 'Please choose an option from the dropdown',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-  },
   // CambioContrasena
   {
     's20e49ou': {
@@ -247,63 +154,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'hi': 'घर',
       'ta': 'வீடு',
       'ur': 'گھر',
-    },
-  },
-  // createProfile
-  {
-    'vyqdl7s3': {
-      'en': 'Create Profile',
-      'hi': 'प्रोफ़ाइल बनाने',
-      'ta': 'சுயவிவரத்தை உருவாக்கவும்',
-      'ur': 'پروفائل بنائیں',
-    },
-    'cnc5fmbk': {
-      'en': 'Nombre Completo',
-      'hi': 'पूरा नाम',
-      'ta': 'முழு பெயர்',
-      'ur': 'پورا نام',
-    },
-    'cjyo6ik7': {
-      'en': 'Titulo o Rol',
-      'hi': 'शीर्षक या भूमिका',
-      'ta': 'தலைப்பு அல்லது பாத்திரம்',
-      'ur': 'عنوان یا کردار',
-    },
-    'h398jj2j': {
-      'en': 'Ingrese la descripción aquí..',
-      'hi': 'यहां विवरण दर्ज करें..',
-      'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்..',
-      'ur': 'یہاں تفصیل درج کریں..',
-    },
-    '7ve36dhv': {
-      'en': 'Crear e invitar Usuarios',
-      'hi': 'उपयोगकर्ता बनाएं और आमंत्रित करें',
-      'ta': 'பயனரை உருவாக்கி அழைக்கவும்',
-      'ur': 'صارف بنائیں اور مدعو کریں۔',
-    },
-    'nyguqlya': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    '8opg51gj': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'ht71rkhg': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'bxrlgb5p': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
     },
   },
   // Inicio_Estudiantes
@@ -969,7 +819,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'گھر',
     },
   },
-  // MisCursos_Estudiantes
+  // Web_MiEquipo
   {
     'vf4ee69k': {
       'en': 'My Team',
@@ -984,10 +834,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ur': 'میری ٹیم',
     },
     'mop2evm0': {
-      'en': 'Buscar Miembros',
+      'en': 'Buscar Miembros...',
       'hi': 'सदस्यों को खोजें...',
       'ta': 'உறுப்பினர்களைத் தேடு...',
       'ur': 'اراکین کو تلاش کریں...',
+    },
+    'yncaesur': {
+      'en': '',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
     '63wkxdr4': {
       'en': 'Buscar miembros',
@@ -1727,6 +1583,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'ur': '',
     },
+    'wzz1fhz0': {
+      'en': 'Registrarse',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
     'z0xvzxg0': {
       'en': 'Excelencia Educativa\nFormando Lideres',
       'hi': '',
@@ -1742,186 +1604,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'iopkgud2': {
       'en': 'Home',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-  },
-  // IngresarUsuarios
-  {
-    'njrka5qw': {
-      'en': 'Ingresar nuevos Responsables - Apoyo',
-      'hi': 'मेरी टीम',
-      'ta': 'என் அணி',
-      'ur': 'میری ٹیم',
-    },
-    'pwab2roe': {
-      'en': 'Mi Evento',
-      'hi': 'मेरी टीम',
-      'ta': 'என் அணி',
-      'ur': 'میری ٹیم',
-    },
-    '0bulpaf4': {
-      'en': 'Nombre Completo',
-      'hi': 'पूरा नाम',
-      'ta': 'முழு பெயர்',
-      'ur': 'پورا نام',
-    },
-    'ckq6lqcp': {
-      'en': 'Rol',
-      'hi': 'शीर्षक या भूमिका',
-      'ta': 'தலைப்பு அல்லது பாத்திரம்',
-      'ur': 'عنوان یا کردار',
-    },
-    'w50hof0a': {
-      'en': 'correo',
-      'hi': 'शीर्षक या भूमिका',
-      'ta': 'தலைப்பு அல்லது பாத்திரம்',
-      'ur': 'عنوان یا کردار',
-    },
-    'eaq1nd0o': {
-      'en': 'Descripcion',
-      'hi': 'यहां विवरण दर्ज करें..',
-      'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்..',
-      'ur': 'یہاں تفصیل درج کریں..',
-    },
-    'yr1sil6d': {
-      'en': 'contrasena',
-      'hi': 'यहां विवरण दर्ज करें..',
-      'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்..',
-      'ur': 'یہاں تفصیل درج کریں..',
-    },
-    'nfxhmi1j': {
-      'en': 'Confirmar contrasena',
-      'hi': 'यहां विवरण दर्ज करें..',
-      'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்..',
-      'ur': 'یہاں تفصیل درج کریں..',
-    },
-    '6ka5axwg': {
-      'en': 'Ingresar',
-      'hi': 'उपयोगकर्ता बनाएं और आमंत्रित करें',
-      'ta': 'பயனரை உருவாக்கி அழைக்கவும்',
-      'ur': 'صارف بنائیں اور مدعو کریں۔',
-    },
-    '9ix6mj7h': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'hc1j7o86': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'g54ehya5': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'c55mmrge': {
-      'en': 'Field is required',
-      'hi': 'ये स्थान भरा जाना है',
-      'ta': 'இந்த பகுதி அவசியமானது',
-      'ur': 'فیلڈ کی ضرورت ہے',
-    },
-    'b38pn249': {
-      'en': 'My Team',
-      'hi': 'मेरी टीम',
-      'ta': 'என் அணி',
-      'ur': 'میری ٹیم',
-    },
-  },
-  // Registro
-  {
-    '4ora8cia': {
-      'en': 'Ingrese sus credenciales',
-      'hi': 'अपने खाते तक पहुँचने के लिए अपनी साख दर्ज करें।',
-      'ta': 'உங்கள் கணக்கை அணுக உங்கள் சான்றுகளை உள்ளிடவும்.',
-      'ur': 'اپنے اکاؤنٹ تک رسائی کے لیے اپنی اسناد درج کریں۔',
-    },
-    'fxkykwz7': {
-      'en': '',
-      'hi': 'मेल पता',
-      'ta': 'மின்னஞ்சல் முகவரி',
-      'ur': 'ای میل اڈریس',
-    },
-    '8kvmi6x4': {
-      'en': 'Correo',
-      'hi': 'मेल पता',
-      'ta': 'மின்னஞ்சல் முகவரி',
-      'ur': 'ای میل اڈریس',
-    },
-    'k16dbk9q': {
-      'en': '',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'pc9qysru': {
-      'en': 'Contraseña',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'eoeeo03w': {
-      'en': '',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'jkamw10k': {
-      'en': 'Confirmar Contraseña',
-      'hi': 'पासवर्ड',
-      'ta': 'கடவுச்சொல்',
-      'ur': 'پاس ورڈ',
-    },
-    'j2u3407q': {
-      'en': 'Registrarse',
-      'hi': 'दाखिल करना',
-      'ta': 'உள்நுழையவும்',
-      'ur': 'سائن ان',
-    },
-    'szx288i8': {
-      'en': 'requerido!',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'qj96ytl6': {
-      'en': 'correo Invalido',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'h10ohd2r': {
-      'en': 'correo Invalido',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'rp78zspn': {
-      'en': 'Please choose an option from the dropdown',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'jhyq5axd': {
-      'en': 'requerido!',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'il3behii': {
-      'en': 'clave invalida',
-      'hi': '',
-      'ta': '',
-      'ur': '',
-    },
-    'ix82x0xa': {
-      'en': 'Please choose an option from the dropdown',
       'hi': '',
       'ta': '',
       'ur': '',
@@ -2413,47 +2095,131 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // modal_CreateProject
   {
-    'd3zhz60s': {
-      'en': 'Create Evento',
-      'hi': 'प्रोजेक्ट बनाएं',
-      'ta': 'திட்டத்தை உருவாக்கவும்',
-      'ur': 'پروجیکٹ بنائیں',
+    'a0rw459k': {
+      'en': 'CREAR EVENTO',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
-    'ndua9r0o': {
-      'en': 'Añadir el evento y una descripción corta',
-      'hi': 'कृपया नीचे नाम और विवरण जोड़ें।',
-      'ta': 'கீழே பெயரையும் விளக்கத்தையும் சேர்க்கவும்.',
-      'ur': 'براہ کرم ذیل میں نام اور تفصیل شامل کریں۔',
-    },
-    'ijnwlsug': {
-      'en': 'Nombre del Evento',
+    'qv2q4c0h': {
+      'en': 'Nombre del proyecto',
       'hi': 'परियोजना का नाम',
       'ta': 'திட்டத்தின் பெயர்',
       'ur': 'پراجیکٹ کا نام',
     },
-    'l7qnilp2': {
-      'en': 'Ingrese una descripcion corta.....',
+    'xc81b6l7': {
+      'en': 'Introduce la descripción aquí...',
       'hi': 'यहां विवरण दर्ज करें...',
       'ta': 'விளக்கத்தை இங்கே உள்ளிடவும்...',
       'ur': 'یہاں تفصیل درج کریں...',
     },
-    'iou7k3x8': {
-      'en': 'Asignar Participantes',
-      'hi': 'उपयोगकर्ताओं को असाइन करें',
-      'ta': 'பயனர்களை ஒதுக்குங்கள்',
-      'ur': 'صارفین کو تفویض کریں۔',
+    'epxiawv7': {
+      'en': 'Cursos',
+      'hi': 'कर्सोस',
+      'ta': 'கர்சோஸ்',
+      'ur': 'کرسوس',
     },
-    'h40v3y8u': {
-      'en': 'Buscar Participantes de este evento',
-      'hi': 'नीचे खोज कर सदस्यों को खोजें',
-      'ta': 'கீழே தேடுவதன் மூலம் உறுப்பினர்களைக் கண்டறியவும்',
-      'ur': 'ذیل میں تلاش کرکے اراکین کو تلاش کریں۔',
+    'hnle8r00': {
+      'en': 'Congresos',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
-    '74kovm7t': {
-      'en': 'Asignar',
-      'hi': 'सौंपना',
-      'ta': 'ஒதுக்க',
-      'ur': 'تفویض',
+    'oxug4ued': {
+      'en': 'Webinars',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '8456eoxc': {
+      'en': 'Conferencias',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '6j17dwan': {
+      'en': 'Socializaciones',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'zqhmh8ml': {
+      'en': 'Selecciona el Tipo de Curso',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '9d7mgicb': {
+      'en': 'Search for an item...',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'd3uvtt3s': {
+      'en': 'Software',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '26a36cpo': {
+      'en': 'Telecomunicaciones',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'u7o7uh4g': {
+      'en': 'Tecnologías de la Información',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '8lv8o1s1': {
+      'en': 'FISEI',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'tvuvvkar': {
+      'en': 'Publico General',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'b48k7o2c': {
+      'en': 'Selecciona la Carrera',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'xce455b2': {
+      'en': 'Search for an item...',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'j0j5q2kh': {
+      'en': 'De Pago',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'px82n1ld': {
+      'en': 'Gratuito',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'jmej2vkt': {
+      'en': 'Selecciona el Servicio',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'rbyzh7bo': {
+      'en': 'Search for an item...',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
     'p9mvmaob': {
       'en': 'Crear Evento',
@@ -2691,6 +2457,108 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'hi': 'देखना',
       'ta': 'காண்க',
       'ur': 'دیکھیں',
+    },
+  },
+  // componenteRegistro
+  {
+    'dfky09lq': {
+      'en': 'Empezar',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'bg4zuhgs': {
+      'en': 'Cree una cuenta utilizando el siguiente formulario.',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'pwmnd6hp': {
+      'en': 'Correo electrónico',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'jodso74l': {
+      'en': 'Contraseña',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'zgp1e3qo': {
+      'en': 'Repita la contraseña',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '1cliie08': {
+      'en': 'Registrarse',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'cn6z6rxs': {
+      'en': '¿Ya tienes una cuenta?',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'uhcuimmi': {
+      'en': 'Iniciar sesión',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+  },
+  // componenteInicioSesion
+  {
+    'gwgw87mm': {
+      'en': '¡Bienvenido!',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ynyso1si': {
+      'en': 'Utilice el siguiente formulario para acceder a su cuenta.',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'mi9w2fkg': {
+      'en': 'ejemplo@gmail.com',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'ct6ifb6k': {
+      'en': 'Contraseña',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    '5ylldzlj': {
+      'en': '¿Has olvidado tu contraseña?',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'fgwdsrhq': {
+      'en': 'Iniciar sesión',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'x28theyf': {
+      'en': '¿No tienes una cuenta?',
+      'hi': '',
+      'ta': '',
+      'ur': '',
+    },
+    'csr1atya': {
+      'en': 'Crear una cuenta',
+      'hi': '',
+      'ta': '',
+      'ur': '',
     },
   },
   // Miscellaneous
