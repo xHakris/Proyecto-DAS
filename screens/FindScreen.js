@@ -175,7 +175,7 @@ const FindScreen = () => {
               padding:0,
             }}
             >x</Text>
-            </TouchableOpacity>          
+            </TouchableOpacity>        
         </View>
 
         {/* Actividades */}
