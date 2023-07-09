@@ -118,6 +118,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Movil_Crear_Cuenta',
           path: '/movilCrearCuenta',
           builder: (context, params) => MovilCrearCuentaWidget(),
+        ),
+        FFRoute(
+          name: 'Pago',
+          path: '/pago',
+          builder: (context, params) => PagoWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_EventosCopy',
+          path: '/movilEventosCopy',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Movil_EventosCopy')
+              : MovilEventosCopyWidget(),
+        ),
+        FFRoute(
+          name: 'payment',
+          path: '/payment',
+          builder: (context, params) => PaymentWidget(),
+        ),
+        FFRoute(
+          name: 'check',
+          path: '/check',
+          builder: (context, params) => CheckWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
