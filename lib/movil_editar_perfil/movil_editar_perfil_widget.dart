@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/componentes/change_photo/change_photo_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,9 +30,6 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MovilEditarPerfilModel());
-
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
   }
 
   @override
@@ -82,7 +81,7 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
               },
             ),
             title: Text(
-              'Edit Profile',
+              'Editar Perfil',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Outfit',
                     color: FlutterFlowTheme.of(context).primaryText,
@@ -124,20 +123,28 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: Color(0x1D000000),
+                              shape: BoxShape.circle,
+                            ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 20.0, 0.0, 0.0),
-                              child: Container(
-                                width: 80.0,
-                                height: 80.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/UI_avatar@2x.png',
+                                  2.0, 2.0, 2.0, 2.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Container(
+                                  width: 60.0,
+                                  height: 60.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: CachedNetworkImage(
+                                    imageUrl: currentUserPhoto,
+                                    fit: BoxFit.fitWidth,
+                                  ),
                                 ),
                               ),
                             ),
@@ -146,32 +153,41 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 12.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    await currentUserReference!
-                                        .update(createUsersRecordData(
-                                      photoUrl: 'null',
-                                    ));
-                                  },
-                                  text: 'Editar Foto',
-                                  options: FFButtonOptions(
-                                    width: 130.0,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    textStyle:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: Color(0x1D000000),
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: 370.0,
+                                          child: ChangePhotoWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+                                },
+                                text: 'Cambiar foto',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  textStyle:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  elevation: 1.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
                                   ),
                                 ),
                               ),
@@ -220,7 +236,11 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: _model.textController1,
+                                    controller: _model.textController1 ??=
+                                        TextEditingController(
+                                      text: movilEditarPerfilUsersRecord
+                                          .displayName,
+                                    ),
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: valueOrDefault<String>(
@@ -281,7 +301,11 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: _model.textController2,
+                                    controller: _model.textController2 ??=
+                                        TextEditingController(
+                                      text:
+                                          movilEditarPerfilUsersRecord.semestre,
+                                    ),
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: valueOrDefault<String>(
@@ -344,6 +368,20 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                   nombres: _model.textController1.text,
                                   semestre: _model.textController2.text,
                                 ));
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Cambios actualizados',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
                               },
                               text: 'Guardar cambios',
                               options: FFButtonOptions(
