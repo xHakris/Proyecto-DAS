@@ -588,7 +588,7 @@ class _MainProjectsWidgetState extends State<MainProjectsWidget>
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Text(
-                                                    '${gridViewProjectsRecord.numberTasks.toString()} tasks',
+                                                    ' tasks',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -711,46 +711,7 @@ class _MainProjectsWidgetState extends State<MainProjectsWidget>
                                                   );
                                                 },
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 8.0, 0.0),
-                                                child: Text(
-                                                  dateTimeFormat(
-                                                    'relative',
-                                                    gridViewProjectsRecord
-                                                        .lastEdited!,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
                                             ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 12.0, 12.0, 16.0),
-                                          child: LinearPercentIndicator(
-                                            percent: 0.3,
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.44,
-                                            lineHeight: 16.0,
-                                            animation: true,
-                                            progressColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .lineColor,
-                                            barRadius: Radius.circular(12.0),
-                                            padding: EdgeInsets.zero,
                                           ),
                                         ),
                                       ],

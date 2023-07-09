@@ -1,3 +1,5 @@
+import '/components/componente_inicio_sesion_widget.dart';
+import '/components/componente_registro_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

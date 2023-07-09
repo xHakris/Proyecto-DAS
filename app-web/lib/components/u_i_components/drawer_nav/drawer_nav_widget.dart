@@ -297,7 +297,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                             Navigator.pop(context);
                           }
 
-                          context.pushNamed('MisCursos_Estudiantes');
+                          context.pushNamed('Web_MiEquipo');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -407,7 +407,7 @@ class _DrawerNavWidgetState extends State<DrawerNavWidget> {
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
 
-                  context.goNamedAuth('InicioSesion', context.mounted);
+                  context.goNamedAuth('Principal', context.mounted);
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

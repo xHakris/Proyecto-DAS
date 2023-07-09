@@ -735,7 +735,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                               .clearRedirectLocation();
 
                                           context.goNamedAuth(
-                                              'InicioSesion', context.mounted);
+                                              'Principal', context.mounted);
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(

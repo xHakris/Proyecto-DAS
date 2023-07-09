@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -25,21 +24,6 @@ class FFAppState extends ChangeNotifier {
   set searchUsers(bool _value) {
     _searchUsers = _value;
   }
-
-  final _appUsersManager = StreamRequestManager<List<UsersRecord>>();
-  Stream<List<UsersRecord>> appUsers({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Stream<List<UsersRecord>> Function() requestFn,
-  }) =>
-      _appUsersManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearAppUsersCache() => _appUsersManager.clear();
-  void clearAppUsersCacheKey(String? uniqueKey) =>
-      _appUsersManager.clearRequest(uniqueKey);
 }
 
 LatLng? _latLngFromString(String? val) {

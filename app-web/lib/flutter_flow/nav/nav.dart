@@ -77,29 +77,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : PrincipalWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : InicioSesionWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : PrincipalWidget(),
           routes: [
-            FFRoute(
-              name: 'InicioSesion',
-              path: 'inicioSesion',
-              builder: (context, params) => InicioSesionWidget(),
-            ),
             FFRoute(
               name: 'CambioContrasena',
               path: 'cambioContrasena',
               builder: (context, params) => CambioContrasenaWidget(),
-            ),
-            FFRoute(
-              name: 'createProfile',
-              path: 'createProfile',
-              requireAuth: true,
-              builder: (context, params) => CreateProfileWidget(),
             ),
             FFRoute(
               name: 'Inicio_Estudiantes',
@@ -165,12 +154,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : EventosAdminWidget(),
             ),
             FFRoute(
-              name: 'MisCursos_Estudiantes',
-              path: 'misCursosEstudiantes',
+              name: 'Web_MiEquipo',
+              path: 'webMiEquipo',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'MisCursos_Estudiantes')
-                  : MisCursosEstudiantesWidget(),
+                  ? NavBarPage(initialPage: 'Web_MiEquipo')
+                  : WebMiEquipoWidget(),
             ),
             FFRoute(
               name: 'Main_projects',
@@ -251,17 +240,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Principal',
               path: 'principal',
               builder: (context, params) => PrincipalWidget(),
-            ),
-            FFRoute(
-              name: 'IngresarUsuarios',
-              path: 'IngresarUusarios',
-              requireAuth: true,
-              builder: (context, params) => IngresarUsuariosWidget(),
-            ),
-            FFRoute(
-              name: 'Registro',
-              path: 'registro',
-              builder: (context, params) => RegistroWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -430,7 +408,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/inicioSesion';
+            return '/principal';
           }
           return null;
         },
