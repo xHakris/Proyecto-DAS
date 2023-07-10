@@ -51,7 +51,9 @@ import {
     organizador,
     notaFinal,
     integrantes,
-    dia
+    dia,
+    responsable,
+    nombreE,
   }) => {
     const [viewModal, setViewModal] = useState(false);
     const [selected, setSelected] = useState("");
@@ -70,35 +72,33 @@ import {
         label: "Terminada",
       },
     ];
+
+
+    const getEventUid = async (eventName) => {
+      const eventosRef = collection(db, "evento");
+      const q = query(eventosRef, where("nombre", "==", eventName));
+      const querySnapshot = await getDocs(q);
+    
+      if (!querySnapshot.empty) {
+        const docSnapshot = querySnapshot.docs[0];
+        const uid = docSnapshot.id;
+        console.log("UID del documento:", uid);
+        return uid;
+      } else {
+        console.log("El documento no fue encontrado");
+        return null;
+      }
+    };
   
-    // Actualizar estado de actividad
-    // const updateActivity = async () => {
-    //   if (selected.label === undefined) {
-    //     return;
-    //   }
-    //   if (stateActivity.toUpperCase() === selected.label.toUpperCase()) {
-    //     return;
-    //   }
-    //   const docRef = doc(db, "listadoActividades", auth.currentUser.uid);
-    //   const docSnap = await getDoc(docRef);
-    //   const data = docSnap.data();
-    //   data.activities[index].state = selected.label.toLowerCase();
-    //   await setDoc(doc(db, "listadoActividades", auth.currentUser.uid), data);
-    //   setStateActivity(selected.label.toLowerCase());
-    // };
-  
-    // const navigation = useNavigation();
-  
-    // const navigateToActivityDetails = () => {
-    //   console.log("Entro a navegacion")
-    //   navigation.navigate("Asistencia", {
-    //     nombre,
-    //     diasDuracion,
-    //     notaFinal,
-    //     dia
-    //   });
-    // };
-  
+    const updateAttendance = () => {
+
+      
+
+
+      
+    }
+
+
   
     return (
       <TouchableOpacity
@@ -172,6 +172,7 @@ import {
                 marginTop: 10,
               }}
             >
+              {/* <Text>{nombreEvento}</Text> */}
               {/* Imagen Cerrar */}
               <TouchableOpacity
                 onPress={() => {
@@ -188,16 +189,7 @@ import {
               </TouchableOpacity>
             </View>
 
-            {/* CONTENIDO ESTADOS */}
-            {/* <View
-              justifyContent="center"
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
-            > */}
-
-                <QRScanner/>
+                <QRScanner  dia={dia} nombre={nombre} nombreE = {nombreE}/>
                 <Text> </Text>
             {/* </View> */}
 
@@ -227,7 +219,7 @@ import {
 
               <TouchableOpacity
                 onPress={() => {
-                  updateActivity();
+                  // updateActivity();
                   setViewModal(false);
                 }}
                 style={{ ...styles.button, marginTop: 0, padding: 10 }}

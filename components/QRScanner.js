@@ -6,7 +6,13 @@ import {
 } from "react-native";
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-const QRScanner = () => {
+const QRScanner = ({
+  dia,
+  nombre,
+  nombreCurso,
+  responsable,
+  nombreE
+}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -31,6 +37,7 @@ const QRScanner = () => {
 
   return (
     <View style={styles.container}>
+      <Text>{nombreE}</Text>
       <BarCodeScanner
         onBarCodeScanned={handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
