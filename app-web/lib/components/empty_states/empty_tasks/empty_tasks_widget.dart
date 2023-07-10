@@ -51,54 +51,12 @@ class _EmptyTasksWidgetState extends State<EmptyTasksWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Icon(
           Icons.event_note_outlined,
           color: FlutterFlowTheme.of(context).secondaryText,
           size: 90.0,
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                FFLocalizations.of(context).getText(
-                  'sgsn2bcw' /* No hay cursos */,
-                ),
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).headlineSmallFamily,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).headlineSmallFamily),
-                    ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'j1t4bzzx' /* Parece que aún no tienes ningu... */,
-                    ),
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).labelMedium,
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       ],
     );

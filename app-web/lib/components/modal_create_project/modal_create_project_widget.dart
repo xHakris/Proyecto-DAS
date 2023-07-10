@@ -109,7 +109,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                               10.0, 10.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'a0rw459k' /* CREAR EVENTO */,
+                              't2ybiuyb' /* CREAR EVENTO */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -485,31 +485,37 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                             // This creates the project for tasks to be assigned to.
                             // createProject
 
-                            var projectsRecordReference =
-                                ProjectsRecord.collection.doc();
-                            await projectsRecordReference.set({
-                              ...createProjectsRecordData(
-                                owner: currentUserReference,
-                                projectName: _model.taskNameController.text,
-                                description: _model.descriptionController.text,
-                                numberTasks: 0,
-                                completedTasks: 0,
-                                lastEdited: getCurrentTimestamp,
+                            var eventoRecordReference =
+                                EventoRecord.collection.doc();
+                            await eventoRecordReference.set({
+                              ...createEventoRecordData(
+                                areaPertenece: _model.dropDownValue2,
+                                categoria: _model.dropDownValue1,
+                                certificado: false,
+                                dePago: false,
+                                descripcion: _model.descriptionController.text,
+                                responsable: currentUserUid,
+                                comprobanteCurso:
+                                    _model.taskNameController.text,
+                                nombre: _model.taskNameController.text,
                               ),
-                              'usersAssigned': [currentUserReference],
+                              'equipo': [currentUserReference],
                             });
                             _model.createdProject =
-                                ProjectsRecord.getDocumentFromData({
-                              ...createProjectsRecordData(
-                                owner: currentUserReference,
-                                projectName: _model.taskNameController.text,
-                                description: _model.descriptionController.text,
-                                numberTasks: 0,
-                                completedTasks: 0,
-                                lastEdited: getCurrentTimestamp,
+                                EventoRecord.getDocumentFromData({
+                              ...createEventoRecordData(
+                                areaPertenece: _model.dropDownValue2,
+                                categoria: _model.dropDownValue1,
+                                certificado: false,
+                                dePago: false,
+                                descripcion: _model.descriptionController.text,
+                                responsable: currentUserUid,
+                                comprobanteCurso:
+                                    _model.taskNameController.text,
+                                nombre: _model.taskNameController.text,
                               ),
-                              'usersAssigned': [currentUserReference],
-                            }, projectsRecordReference);
+                              'equipo': [currentUserReference],
+                            }, eventoRecordReference);
                             Navigator.pop(context);
                             await showModalBottomSheet(
                               isScrollControlled: true,
@@ -522,7 +528,7 @@ class _ModalCreateProjectWidgetState extends State<ModalCreateProjectWidget> {
                                   child: Container(
                                     height: double.infinity,
                                     child: ModalTaskCreate2Widget(
-                                      projectParameter: _model.createdProject,
+                                      eventoParameter: _model.createdProject,
                                     ),
                                   ),
                                 );

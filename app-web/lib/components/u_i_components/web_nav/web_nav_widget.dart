@@ -98,65 +98,47 @@ class _WebNavWidgetState extends State<WebNavWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  context.pushNamed(
-                    'Inicio_Estudiantes',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: widget.navBGOne,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.view_week_rounded,
+                        color: widget.navColorOne,
+                        size: 24.0,
                       ),
-                    },
-                  );
-                },
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: widget.navBGOne,
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.view_week_rounded,
-                          color: widget.navColorOne,
-                          size: 24.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getVariableText(
-                              enText: 'Cursos',
-                              hiText: '',
-                              taText: '',
-                              urText: '',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodySmall
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodySmallFamily,
-                                  color: widget.navColorOne,
-                                  fontWeight: FontWeight.w600,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodySmallFamily),
-                                ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          FFLocalizations.of(context).getVariableText(
+                            enText: 'Cursos',
+                            hiText: '',
+                            taText: '',
+                            urText: '',
                           ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodySmall
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodySmallFamily,
+                                color: widget.navColorOne,
+                                fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodySmallFamily),
+                              ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -170,7 +152,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'EventosAdmin',
+                    'Eventos',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -276,7 +258,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   context.pushNamed(
-                    'Web_MiEquipo',
+                    'Personal',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
@@ -343,7 +325,7 @@ class _WebNavWidgetState extends State<WebNavWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed(
-                        'Web_MiEquipo',
+                        'Personal',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
