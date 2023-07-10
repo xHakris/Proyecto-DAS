@@ -88,19 +88,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Movil_Eventos',
           path: '/movilEventos',
+          asyncParams: {
+            'nombre': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'Movil_Eventos')
-              : MovilEventosWidget(),
+              : MovilEventosWidget(
+                  nombre: params.getParam('nombre', ParamType.Document),
+                ),
         ),
         FFRoute(
           name: 'Movil_Cursos',
           path: '/movilCursos',
-          builder: (context, params) => MovilCursosWidget(),
+          asyncParams: {
+            'categoriaRef': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => MovilCursosWidget(
+            categoriaRef: params.getParam('categoriaRef', ParamType.Document),
+          ),
         ),
         FFRoute(
           name: 'Movil_Evento_Informacion',
           path: '/movilEventoInformacion',
-          builder: (context, params) => MovilEventoInformacionWidget(),
+          asyncParams: {
+            'eventoRef': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => MovilEventoInformacionWidget(
+            eventoRef: params.getParam('eventoRef', ParamType.Document),
+          ),
         ),
         FFRoute(
           name: 'Inicio_Sesion',
@@ -125,13 +140,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PagoWidget(),
         ),
         FFRoute(
-          name: 'Movil_EventosCopy',
-          path: '/movilEventosCopy',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Movil_EventosCopy')
-              : MovilEventosCopyWidget(),
-        ),
-        FFRoute(
           name: 'payment',
           path: '/payment',
           builder: (context, params) => PaymentWidget(),
@@ -140,6 +148,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'check',
           path: '/check',
           builder: (context, params) => CheckWidget(),
+        ),
+        FFRoute(
+          name: 'GeneradorQR',
+          path: '/generadorQR',
+          builder: (context, params) => GeneradorQRWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -9,7 +9,6 @@ export '/movil_editar_perfil/movil_editar_perfil_widget.dart'
 export '/movil_crear_cuenta/movil_crear_cuenta_widget.dart'
     show MovilCrearCuentaWidget;
 export '/pago/pago_widget.dart' show PagoWidget;
-export '/movil_eventos_copy/movil_eventos_copy_widget.dart'
-    show MovilEventosCopyWidget;
 export '/payment/payment_widget.dart' show PaymentWidget;
 export '/check/check_widget.dart' show CheckWidget;
+export '/generador_q_r/generador_q_r_widget.dart' show GeneradorQRWidget;
