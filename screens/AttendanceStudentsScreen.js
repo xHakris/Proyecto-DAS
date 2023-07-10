@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, Modal, Image, TextInput, ScrollView, Dimensions
 import AttendanceContainer from "../components/AttendanceContainer";
 
 
-const AttendanceStudentsScreen = ({ 
-    route
- }) => {
+const AttendanceStudentsScreen = ({route}) => {
   
+
   const { nombre } = route.params;
   const { diasDuracion } = route.params;
-  const { notaFinal } = route.params;
+  const {responsable} = route.params;
+  const { nombreEventoa } = route.params;
 
   let width = Dimensions.get("window").width;
 
@@ -37,10 +37,11 @@ const AttendanceStudentsScreen = ({
             marginTop: width/48,
           }}
         >    
+        <Text>{ nombreEventoa }</Text>
           {
             diasDuracion > 0 ? (
               Array.from({ length: diasDuracion }).map((_, index) => (
-                <AttendanceContainer key={index} dia={index+1}/>
+                <AttendanceContainer key={index} dia={index+1} nombre={nombre} responsable={responsable} nombreE={nombreEventoa}/>
               ))
             ) : null
           }

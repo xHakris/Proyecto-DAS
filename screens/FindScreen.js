@@ -62,7 +62,6 @@ const FindScreen = () => {
 
   const userActivitys = async () => {
     const querySnapshot = await getDocs(collection(db, "evento"));
-    console.log("queryyy", querySnapshot)
     const data = [];
     querySnapshot.forEach((doc) => {
       data.push(doc.data());
@@ -105,7 +104,7 @@ const FindScreen = () => {
         }}
         viewVerticalOffset={-100}
       >
-        {/* FECHA */}
+        {/* FECHA
         <View
           display="flex"
           flexDirection="row"
@@ -176,8 +175,15 @@ const FindScreen = () => {
               padding:0,
             }}
             >x</Text>
-            </TouchableOpacity>          
-        </View>
+            </TouchableOpacity>        
+        </View> */}
+
+
+
+
+<View style={styles.containerS}>
+      <Text style={styles.texto}>Tus eventos</Text>
+    </View>
 
         {/* Actividades */}
         <ScrollView
@@ -277,4 +283,18 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: "white",
   },
+  containerS: {
+    flex: .15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  texto: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    backgroundColor: 'purple',
+    padding: 10,
+    borderRadius: 5,
+  },
+
 });
