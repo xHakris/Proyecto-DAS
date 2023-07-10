@@ -71,6 +71,26 @@ class EventoRecord extends FirestoreRecord {
   String get imgCurso => _imgCurso ?? '';
   bool hasImgCurso() => _imgCurso != null;
 
+  // "categoria" field.
+  String? _categoria;
+  String get categoria => _categoria ?? '';
+  bool hasCategoria() => _categoria != null;
+
+  // "cat" field.
+  List<String>? _cat;
+  List<String> get cat => _cat ?? const [];
+  bool hasCat() => _cat != null;
+
+  // "descripcion" field.
+  String? _descripcion;
+  String get descripcion => _descripcion ?? '';
+  bool hasDescripcion() => _descripcion != null;
+
+  // "cursoMinimo" field.
+  int? _cursoMinimo;
+  int get cursoMinimo => _cursoMinimo ?? 0;
+  bool hasCursoMinimo() => _cursoMinimo != null;
+
   void _initializeFields() {
     _diasDuracion = castToType<int>(snapshotData['diasDuracion']);
     _horas = castToType<int>(snapshotData['horas']);
@@ -83,6 +103,10 @@ class EventoRecord extends FirestoreRecord {
     _areaPertenece = snapshotData['areaPertenece'] as String?;
     _dePago = snapshotData['dePago'] as bool?;
     _imgCurso = snapshotData['imgCurso'] as String?;
+    _categoria = snapshotData['categoria'] as String?;
+    _cat = getDataList(snapshotData['cat']);
+    _descripcion = snapshotData['descripcion'] as String?;
+    _cursoMinimo = castToType<int>(snapshotData['cursoMinimo']);
   }
 
   static CollectionReference get collection =>
@@ -130,6 +154,9 @@ Map<String, dynamic> createEventoRecordData({
   String? areaPertenece,
   bool? dePago,
   String? imgCurso,
+  String? categoria,
+  String? descripcion,
+  int? cursoMinimo,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -144,6 +171,9 @@ Map<String, dynamic> createEventoRecordData({
       'areaPertenece': areaPertenece,
       'dePago': dePago,
       'imgCurso': imgCurso,
+      'categoria': categoria,
+      'descripcion': descripcion,
+      'cursoMinimo': cursoMinimo,
     }.withoutNulls,
   );
 
@@ -155,6 +185,7 @@ class EventoRecordDocumentEquality implements Equality<EventoRecord> {
 
   @override
   bool equals(EventoRecord? e1, EventoRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.diasDuracion == e2?.diasDuracion &&
         e1?.horas == e2?.horas &&
         e1?.nombre == e2?.nombre &&
@@ -165,7 +196,11 @@ class EventoRecordDocumentEquality implements Equality<EventoRecord> {
         e1?.certificado == e2?.certificado &&
         e1?.areaPertenece == e2?.areaPertenece &&
         e1?.dePago == e2?.dePago &&
-        e1?.imgCurso == e2?.imgCurso;
+        e1?.imgCurso == e2?.imgCurso &&
+        e1?.categoria == e2?.categoria &&
+        listEquality.equals(e1?.cat, e2?.cat) &&
+        e1?.descripcion == e2?.descripcion &&
+        e1?.cursoMinimo == e2?.cursoMinimo;
   }
 
   @override
@@ -180,7 +215,11 @@ class EventoRecordDocumentEquality implements Equality<EventoRecord> {
         e?.certificado,
         e?.areaPertenece,
         e?.dePago,
-        e?.imgCurso
+        e?.imgCurso,
+        e?.categoria,
+        e?.cat,
+        e?.descripcion,
+        e?.cursoMinimo
       ]);
 
   @override
