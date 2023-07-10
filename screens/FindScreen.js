@@ -104,7 +104,7 @@ const FindScreen = () => {
         }}
         viewVerticalOffset={-100}
       >
-        {/* FECHA */}
+        {/* FECHA
         <View
           display="flex"
           flexDirection="row"
@@ -176,7 +176,14 @@ const FindScreen = () => {
             }}
             >x</Text>
             </TouchableOpacity>        
-        </View>
+        </View> */}
+
+
+
+
+<View style={styles.containerS}>
+      <Text style={styles.texto}>Tus eventos</Text>
+    </View>
 
         {/* Actividades */}
         <ScrollView
@@ -276,4 +283,18 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: "white",
   },
+  containerS: {
+    flex: .15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  texto: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    backgroundColor: 'purple',
+    padding: 10,
+    borderRadius: 5,
+  },
+
 });

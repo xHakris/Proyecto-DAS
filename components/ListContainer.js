@@ -406,7 +406,10 @@ const ListContainer = ({
   organizador,
   notaFinal,
   correo,
-  integrantes
+  integrantes,
+  responsable,
+  nombreEventoa
+
 }) => {
   const [viewModal, setViewModal] = useState(false);
   const [selected, setSelected] = useState("");
@@ -450,10 +453,12 @@ const ListContainer = ({
       nombre,
       diasDuracion,
       notaFinal,
-      correo
+      correo,
+      responsable,
+      nombreEventoa
     });
   };
-
+  
 
   return (
     <TouchableOpacity

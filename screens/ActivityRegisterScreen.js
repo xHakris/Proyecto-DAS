@@ -217,15 +217,13 @@ const ActivityRegisterScreen = () => {
     if (!eventUid) {
       alert("Seleccione un evento válido");
       return;
-    }
-    
+    }    
 
     if (!activity.hours) {
       alert("Ingrese una calificacion");
       return;
     }
     
-
     // Obtener el estudiante seleccionado
     const studentName = activity.activity;
     const eventRef = doc(db, "evento", eventUid);

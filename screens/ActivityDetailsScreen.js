@@ -12,9 +12,12 @@ const ActivityDetailsScreen = ({route}) => {
 
   const { tipo } = route.params;
   const { integrantes } = route.params;
+  const { responsable } = route.params
   const {diasDuracion} = route.params;
+  const {nombre} = route.params;
+
   const mostrarIntegrantes = Object.values(integrantes).map((valor, index) => {
-    return <ListContainer key={index} {...valor} diasDuracion={diasDuracion}/>;
+    return <ListContainer key={index} {...valor} diasDuracion={diasDuracion}  responsable={responsable} nombreEventoa={nombre}/>;
   });
 
     return(

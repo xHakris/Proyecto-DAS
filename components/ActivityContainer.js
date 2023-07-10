@@ -48,7 +48,8 @@ import {
     tipo,
     diasDuracion,
     organizador,
-    integrantes
+    integrantes,
+    responsable
   }) => {
     const [viewModal, setViewModal] = useState(false);
     const [selected, setSelected] = useState("");
@@ -94,7 +95,8 @@ import {
         nombre,
         diasDuracion,
         tipo,
-        integrantes
+        integrantes,
+        responsable
       });
     };
   
