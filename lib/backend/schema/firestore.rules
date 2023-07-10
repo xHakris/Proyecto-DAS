@@ -14,5 +14,19 @@ service cloud.firestore {
       allow write: if false;
       allow delete: if false;
     }
+
+    match /estudiante/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /asistencia/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
   }
 }

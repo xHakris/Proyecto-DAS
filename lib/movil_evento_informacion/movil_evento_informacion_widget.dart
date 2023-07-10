@@ -674,7 +674,20 @@ class _MovilEventoInformacionWidgetState
                                                         0.0, 24.0, 0.0, 12.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
-                                                    context.pushNamed('Pago');
+                                                    context.pushNamed(
+                                                      'check',
+                                                      queryParameters: {
+                                                        'referencia':
+                                                            serializeParam(
+                                                          widget.eventoRef,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'referencia':
+                                                            widget.eventoRef,
+                                                      },
+                                                    );
                                                   },
                                                   text: 'Inscribirse',
                                                   icon: Icon(
