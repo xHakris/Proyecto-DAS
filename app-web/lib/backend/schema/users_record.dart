@@ -76,6 +76,16 @@ class UsersRecord extends FirestoreRecord {
   bool get isAdmin => _isAdmin ?? false;
   bool hasIsAdmin() => _isAdmin != null;
 
+  // "permitido" field.
+  bool? _permitido;
+  bool get permitido => _permitido ?? false;
+  bool hasPermitido() => _permitido != null;
+
+  // "docente_apoyo_admin" field.
+  bool? _docenteApoyoAdmin;
+  bool get docenteApoyoAdmin => _docenteApoyoAdmin ?? false;
+  bool hasDocenteApoyoAdmin() => _docenteApoyoAdmin != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -89,6 +99,8 @@ class UsersRecord extends FirestoreRecord {
     _tasks = getDataList(snapshotData['tasks']);
     _orgRef = snapshotData['OrgRef'] as DocumentReference?;
     _isAdmin = snapshotData['isAdmin'] as bool?;
+    _permitido = snapshotData['permitido'] as bool?;
+    _docenteApoyoAdmin = snapshotData['docente_apoyo_admin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -136,6 +148,8 @@ Map<String, dynamic> createUsersRecordData({
   String? userBio,
   DocumentReference? orgRef,
   bool? isAdmin,
+  bool? permitido,
+  bool? docenteApoyoAdmin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -150,6 +164,8 @@ Map<String, dynamic> createUsersRecordData({
       'userBio': userBio,
       'OrgRef': orgRef,
       'isAdmin': isAdmin,
+      'permitido': permitido,
+      'docente_apoyo_admin': docenteApoyoAdmin,
     }.withoutNulls,
   );
 
@@ -173,7 +189,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.userBio == e2?.userBio &&
         listEquality.equals(e1?.tasks, e2?.tasks) &&
         e1?.orgRef == e2?.orgRef &&
-        e1?.isAdmin == e2?.isAdmin;
+        e1?.isAdmin == e2?.isAdmin &&
+        e1?.permitido == e2?.permitido &&
+        e1?.docenteApoyoAdmin == e2?.docenteApoyoAdmin;
   }
 
   @override
@@ -189,7 +207,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.userBio,
         e?.tasks,
         e?.orgRef,
-        e?.isAdmin
+        e?.isAdmin,
+        e?.permitido,
+        e?.docenteApoyoAdmin
       ]);
 
   @override

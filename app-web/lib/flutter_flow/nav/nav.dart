@@ -77,33 +77,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : PrincipalWidget(),
+          appStateNotifier.loggedIn ? EventosWidget() : PrincipalWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : PrincipalWidget(),
+              appStateNotifier.loggedIn ? EventosWidget() : PrincipalWidget(),
           routes: [
-            FFRoute(
-              name: 'CambioContrasena',
-              path: 'cambioContrasena',
-              builder: (context, params) => CambioContrasenaWidget(),
-            ),
-            FFRoute(
-              name: 'Inicio_Estudiantes',
-              path: 'inicioEstudiantes',
-              requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Inicio_Estudiantes')
-                  : InicioEstudiantesWidget(),
-            ),
-            FFRoute(
-              name: 'createTask_1_SelectProject',
-              path: 'createTask1SelectProject',
-              requireAuth: true,
-              builder: (context, params) => CreateTask1SelectProjectWidget(),
-            ),
             FFRoute(
               name: 'createTask',
               path: 'createTask',
@@ -115,17 +96,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateTaskWidget(
                 projectParameter:
                     params.getParam('projectParameter', ParamType.Document),
-              ),
-            ),
-            FFRoute(
-              name: 'taskDetails',
-              path: 'taskDetails',
-              requireAuth: true,
-              asyncParams: {
-                'taskRef': getDoc(['allTasks'], AllTasksRecord.fromSnapshot),
-              },
-              builder: (context, params) => TaskDetailsWidget(
-                taskRef: params.getParam('taskRef', ParamType.Document),
               ),
             ),
             FFRoute(
@@ -146,50 +116,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'EventosAdmin',
+              name: 'Eventos',
               path: 'eventosEstudiante',
               requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'EventosAdmin')
-                  : EventosAdminWidget(),
+              builder: (context, params) => EventosWidget(),
             ),
             FFRoute(
-              name: 'Web_MiEquipo',
-              path: 'webMiEquipo',
+              name: 'Personal',
+              path: 'personal',
               requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Web_MiEquipo')
-                  : WebMiEquipoWidget(),
-            ),
-            FFRoute(
-              name: 'Main_projects',
-              path: 'mainProjects',
-              builder: (context, params) => MainProjectsWidget(),
+              builder: (context, params) => PersonalWidget(),
             ),
             FFRoute(
               name: 'Perfil',
               path: 'perfil',
               requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Perfil')
-                  : PerfilWidget(),
-            ),
-            FFRoute(
-              name: 'createProject',
-              path: 'createProject',
-              requireAuth: true,
-              builder: (context, params) => CreateProjectWidget(),
-            ),
-            FFRoute(
-              name: 'projectDetailsPage',
-              path: 'projectDetailsPage',
-              requireAuth: true,
-              asyncParams: {
-                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
-              },
-              builder: (context, params) => ProjectDetailsPageWidget(
-                projectRef: params.getParam('projectRef', ParamType.Document),
-              ),
+              builder: (context, params) => PerfilWidget(),
             ),
             FFRoute(
               name: 'searchMembers',
@@ -203,23 +145,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'EditarPerfil',
-              path: 'editarPerfil',
-              requireAuth: true,
-              builder: (context, params) => EditarPerfilWidget(),
-            ),
-            FFRoute(
-              name: 'teamMembers',
-              path: 'teamMembers',
-              requireAuth: true,
-              asyncParams: {
-                'projectRef': getDoc(['projects'], ProjectsRecord.fromSnapshot),
-              },
-              builder: (context, params) => TeamMembersWidget(
-                projectRef: params.getParam('projectRef', ParamType.Document),
-              ),
-            ),
-            FFRoute(
               name: 'editProject',
               path: 'editProject',
               requireAuth: true,
@@ -229,12 +154,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => EditProjectWidget(
                 projectRef: params.getParam('projectRef', ParamType.Document),
               ),
-            ),
-            FFRoute(
-              name: 'AsignarResponsables',
-              path: 'asignarResponsables',
-              requireAuth: true,
-              builder: (context, params) => AsignarResponsablesWidget(),
             ),
             FFRoute(
               name: 'Principal',

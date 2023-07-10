@@ -53,6 +53,7 @@ class _EmptyNotificationsWidgetState extends State<EmptyNotificationsWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Lottie.network(
           'https://lottie.host/7d591c38-dd02-4d16-aa1c-b488f9e68525/XC65c8QPHC.json',
@@ -61,45 +62,6 @@ class _EmptyNotificationsWidgetState extends State<EmptyNotificationsWidget> {
           fit: BoxFit.cover,
           frameRate: FrameRate(30.0),
           animate: true,
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                widget.title!,
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).headlineSmallFamily,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).headlineSmallFamily),
-                    ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                  child: Text(
-                    widget.bodyText!,
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).labelMedium,
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       ],
     );

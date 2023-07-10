@@ -51,50 +51,12 @@ class _CompletedTasksWidgetState extends State<CompletedTasksWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Icon(
           Icons.playlist_add_check_rounded,
           color: FlutterFlowTheme.of(context).primary,
           size: 90.0,
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                widget.title!,
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).headlineSmall.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).headlineSmallFamily,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).headlineSmallFamily),
-                    ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                  child: Text(
-                    widget.bodyText!,
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).labelMedium,
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       ],
     );

@@ -90,7 +90,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                   0.0, 4.0, 16.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'rveosbw6' /* Change Photo */,
+                                  'rveosbw6' /* Cambiar foto */,
                                 ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
@@ -108,7 +108,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                   0.0, 8.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'xkv4rj30' /* Upload a new photo below in or... */,
+                                  'xkv4rj30' /* Cargue una nueva foto a contin... */,
                                 ),
                                 style: FlutterFlowTheme.of(context).labelMedium,
                               ),
@@ -260,7 +260,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                 }
                               },
                               text: FFLocalizations.of(context).getText(
-                                '9jqfzztm' /* Upload Image */,
+                                '9jqfzztm' /* Cargar imagen */,
                               ),
                               options: FFButtonOptions(
                                 width: 150.0,
@@ -290,7 +290,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                 Navigator.pop(context);
                               },
                               text: FFLocalizations.of(context).getText(
-                                'tnhsrx4j' /* Save Changes */,
+                                'tnhsrx4j' /* Guardar cambios */,
                               ),
                               options: FFButtonOptions(
                                 width: 150.0,

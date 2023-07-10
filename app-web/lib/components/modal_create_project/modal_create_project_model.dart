@@ -33,7 +33,7 @@ class ModalCreateProjectModel extends FlutterFlowModel {
   String? dropDownValue3;
   FormFieldController<String>? dropDownValueController3;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  ProjectsRecord? createdProject;
+  EventoRecord? createdProject;
 
   /// Initialization and disposal methods.
 
