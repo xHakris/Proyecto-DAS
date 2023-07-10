@@ -135,19 +135,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MovilCrearCuentaWidget(),
         ),
         FFRoute(
-          name: 'Pago',
-          path: '/pago',
-          builder: (context, params) => PagoWidget(),
-        ),
-        FFRoute(
           name: 'payment',
           path: '/payment',
-          builder: (context, params) => PaymentWidget(),
+          asyncParams: {
+            'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => PaymentWidget(
+            referencia: params.getParam('referencia', ParamType.Document),
+          ),
         ),
         FFRoute(
           name: 'check',
           path: '/check',
-          builder: (context, params) => CheckWidget(),
+          asyncParams: {
+            'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => CheckWidget(
+            referencia: params.getParam('referencia', ParamType.Document),
+          ),
         ),
         FFRoute(
           name: 'GeneradorQR',

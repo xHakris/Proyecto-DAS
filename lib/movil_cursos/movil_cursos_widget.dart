@@ -178,7 +178,11 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 8.0, 0.0),
                                               child: AutoSizeText(
-                                                'Información',
+                                                widget.categoriaRef!.tipo
+                                                    .maybeHandleOverflow(
+                                                  maxChars: 70,
+                                                  replacement: '…',
+                                                ),
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -196,7 +200,7 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                         child: Image.network(
-                                          'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
+                                          '${widget.categoriaRef!.imgCurso}',
                                           width: 80.0,
                                           height: 80.0,
                                           fit: BoxFit.cover,

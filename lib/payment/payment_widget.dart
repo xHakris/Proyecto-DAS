@@ -1,4 +1,5 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,7 +10,12 @@ import 'payment_model.dart';
 export 'payment_model.dart';
 
 class PaymentWidget extends StatefulWidget {
-  const PaymentWidget({Key? key}) : super(key: key);
+  const PaymentWidget({
+    Key? key,
+    required this.referencia,
+  }) : super(key: key);
+
+  final EventoRecord? referencia;
 
   @override
   _PaymentWidgetState createState() => _PaymentWidgetState();
@@ -44,46 +50,23 @@ class _PaymentWidgetState extends State<PaymentWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 16.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: 30.0,
-                    borderWidth: 2.0,
-                    buttonSize: 44.0,
-                    icon: Icon(
-                      Icons.close_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 20.0,
-                    ),
-                    onPressed: () async {
-                      context.pop();
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 140.0,
-              height: 140.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).accent1,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: FlutterFlowTheme.of(context).primary,
-                  width: 2.0,
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+              child: Container(
+                width: 140.0,
+                height: 140.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFF3BD792),
+                  shape: BoxShape.circle,
                 ),
-              ),
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
-                child: Icon(
-                  Icons.check_rounded,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 60.0,
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 30.0, 30.0),
+                  child: Icon(
+                    Icons.check_rounded,
+                    color: FlutterFlowTheme.of(context).gray200,
+                    size: 60.0,
+                  ),
                 ),
               ),
             ),
@@ -94,22 +77,121 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                 style: FlutterFlowTheme.of(context).displaySmall.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primary,
+                      fontSize: 30.0,
                     ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-              child: Text(
-                '\$425.24',
-                style: FlutterFlowTheme.of(context).displayLarge,
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  child: Text(
+                    '\$',
+                    style: FlutterFlowTheme.of(context).displayLarge,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  child: Text(
+                    widget.referencia!.precio.toString(),
+                    style: FlutterFlowTheme.of(context).displayLarge,
+                  ),
+                ),
+              ],
+            ),
+            Flexible(
+              child: Container(
+                width: double.infinity,
+                height: 140.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Flexible(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 8.0, 24.0, 0.0),
+                        child: Text(
+                          'Su pago ha sido confirmado, puede tomar de 1 a 2 horas para que su pago se realice. Ha adquirido el curso de:',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).labelLarge,
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 25.0, 24.0, 0.0),
+                        child: Text(
+                          widget.referencia!.nombre,
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).labelLarge.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
-              child: Text(
-                'Su pago ha sido confirmado, puede tomar de 1 a 2 horas para que su pago se realice y aparezca en su lista de transacciones.',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).labelLarge,
+            Container(
+              width: double.infinity,
+              height: 100.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
+                    child: Text(
+                      'Por favor, subir el comprobante de pago',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).labelLarge.override(
+                            fontFamily: 'Readex Pro',
+                            color: Color(0xFFFF6D72),
+                          ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () {
+                        print('Button pressed ...');
+                      },
+                      text: 'Cargar imagen',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).grayIcon,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
@@ -151,16 +233,23 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 4.0),
                               child: Text(
-                                'Mastercard ',
+                                currentUserEmail,
                                 style: FlutterFlowTheme.of(context).bodyLarge,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 4.0),
-                              child: Text(
-                                '\$425.24',
-                                style: FlutterFlowTheme.of(context).labelMedium,
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  valueOrDefault<String>(
+                                    valueOrDefault(
+                                        currentUserDocument?.nombres, ''),
+                                    'Sin_nombre',
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                ),
                               ),
                             ),
                           ],
@@ -179,10 +268,10 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.pushNamed('Movil_Eventos');
                       },
-                      text: 'Go Home',
+                      text: 'Volver al inicio',
                       options: FFButtonOptions(
                         width: 230.0,
                         height: 50.0,
@@ -190,7 +279,7 @@ class _PaymentWidgetState extends State<PaymentWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).alternate,
+                        color: Color(0xFF11F591),
                         textStyle: FlutterFlowTheme.of(context).bodyLarge,
                         elevation: 0.0,
                         borderSide: BorderSide(

@@ -1,17 +1,24 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'check_model.dart';
 export 'check_model.dart';
 
 class CheckWidget extends StatefulWidget {
-  const CheckWidget({Key? key}) : super(key: key);
+  const CheckWidget({
+    Key? key,
+    required this.referencia,
+  }) : super(key: key);
+
+  final EventoRecord? referencia;
 
   @override
   _CheckWidgetState createState() => _CheckWidgetState();
@@ -57,8 +64,8 @@ class _CheckWidgetState extends State<CheckWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.safePop();
             },
           ),
           title: Text(
@@ -71,436 +78,312 @@ class _CheckWidgetState extends State<CheckWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x44111417),
-                        offset: Offset(0.0, 2.0),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 4.0, 8.0, 4.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.credit_card_rounded,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 24.0,
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue1 ??=
-                                          true,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue1 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Credit Card',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        if (_model.checkboxListTileValue1 ?? true)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 8.0, 12.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Your Name',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
-                            ),
-                          ),
-                        if (_model.checkboxListTileValue1 ?? true)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
-                            child: FlutterFlowCreditCardForm(
-                              formKey: _model.creditCardFormKey,
-                              creditCardModel: _model.creditCardInfo,
-                              obscureNumber: true,
-                              obscureCvv: false,
-                              spacing: 10.0,
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              inputDecoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                            ),
-                          ),
-                      ],
+          child: StreamBuilder<List<EventoRecord>>(
+            stream: queryEventoRecord(
+              singleRecord: true,
+            ),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x44111417),
-                        offset: Offset(0.0, 2.0),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 4.0, 8.0, 4.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
-                                child: FaIcon(
-                                  FontAwesomeIcons.ccPaypal,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 24.0,
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
+                );
+              }
+              List<EventoRecord> columnEventoRecordList = snapshot.data!;
+              // Return an empty Container when the item does not exist.
+              if (snapshot.data!.isEmpty) {
+                return Container();
+              }
+              final columnEventoRecord = columnEventoRecordList.isNotEmpty
+                  ? columnEventoRecordList.first
+                  : null;
+              return Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 120.0, 16.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x44111417),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 4.0, 8.0, 4.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 2.0, 0.0, 0.0),
+                                    child: Icon(
+                                      Icons.credit_card_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Theme(
+                                        data: ThemeData(
+                                          checkboxTheme: CheckboxThemeData(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(25),
+                                            ),
+                                          ),
+                                          unselectedWidgetColor:
+                                              Color(0xFF95A1AC),
+                                        ),
+                                        child: CheckboxListTile(
+                                          value: _model
+                                              .checkboxListTileValue ??= false,
+                                          onChanged: (newValue) async {
+                                            setState(() =>
+                                                _model.checkboxListTileValue =
+                                                    newValue!);
+                                          },
+                                          title: Text(
+                                            'Tarjeta de crédito',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          tileColor: Color(0xFFF5F5F5),
+                                          activeColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          dense: true,
+                                          controlAffinity:
+                                              ListTileControlAffinity.trailing,
                                         ),
                                       ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
                                     ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue2 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue2 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Paypal',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            if (_model.checkboxListTileValue ?? true)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 8.0, 12.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.textController,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'Ingrese su nombre',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
                                       ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  validator: _model.textControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            if (_model.checkboxListTileValue ?? true)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                child: FlutterFlowCreditCardForm(
+                                  formKey: _model.creditCardFormKey,
+                                  creditCardModel: _model.creditCardInfo,
+                                  obscureNumber: true,
+                                  obscureCvv: false,
+                                  spacing: 10.0,
+                                  textStyle:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  inputDecoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5.0,
-                        color: Color(0x44111417),
-                        offset: Offset(0.0, 2.0),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 4.0, 8.0, 4.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
-                                child: FaIcon(
-                                  FontAwesomeIcons.ccApplePay,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 24.0,
-                                ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          if (_model.checkboxListTileValue ?? true)
+                            StreamBuilder<List<EstudianteRecord>>(
+                              stream: queryEstudianteRecord(
+                                queryBuilder: (estudianteRecord) =>
+                                    estudianteRecord.where('uid',
+                                        isEqualTo: currentUserReference),
+                                singleRecord: true,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<EstudianteRecord>
+                                    buttonEstudianteRecordList = snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final buttonEstudianteRecord =
+                                    buttonEstudianteRecordList.isNotEmpty
+                                        ? buttonEstudianteRecordList.first
+                                        : null;
+                                return FFButtonWidget(
+                                  onPressed: () async {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Pago realizado con éxito!',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
                                         ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
                                       ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue3 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue3 =
-                                                newValue!);
+                                    );
+
+                                    await widget.referencia!.reference.update({
+                                      'integrantes': FieldValue.arrayUnion(
+                                          [buttonEstudianteRecord!.reference]),
+                                    });
+
+                                    context.pushNamed(
+                                      'payment',
+                                      queryParameters: {
+                                        'referencia': serializeParam(
+                                          widget.referencia,
+                                          ParamType.Document,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'referencia': widget.referencia,
                                       },
-                                      title: Text(
-                                        'Apple Pay',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
+                                    );
+                                  },
+                                  text: 'Realizar pago y Aceptar',
+                                  options: FFButtonOptions(
+                                    width: 270.0,
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
+                                    elevation: 2.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
                                     ),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                                );
+                              },
+                            ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      if (_model.checkboxListTileValue3 ?? true)
-                        FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: 'Apple Pay',
-                          icon: FaIcon(
-                            FontAwesomeIcons.apple,
-                          ),
-                          options: FFButtonOptions(
-                            width: 270.0,
-                            height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
-                      if (_model.checkboxListTileValue1 ?? true)
-                        FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: 'Pay Now',
-                          options: FFButtonOptions(
-                            width: 270.0,
-                            height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
-                      if (_model.checkboxListTileValue2 ?? true)
-                        FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          text: 'Pay w/Paypal',
-                          icon: FaIcon(
-                            FontAwesomeIcons.paypal,
-                          ),
-                          options: FFButtonOptions(
-                            width: 270.0,
-                            height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           ),
         ),
       ),

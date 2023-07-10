@@ -91,6 +91,16 @@ class EventoRecord extends FirestoreRecord {
   int get cursoMinimo => _cursoMinimo ?? 0;
   bool hasCursoMinimo() => _cursoMinimo != null;
 
+  // "estudiantes" field.
+  List<DocumentReference>? _estudiantes;
+  List<DocumentReference> get estudiantes => _estudiantes ?? const [];
+  bool hasEstudiantes() => _estudiantes != null;
+
+  // "integrantes" field.
+  List<DocumentReference>? _integrantes;
+  List<DocumentReference> get integrantes => _integrantes ?? const [];
+  bool hasIntegrantes() => _integrantes != null;
+
   void _initializeFields() {
     _diasDuracion = castToType<int>(snapshotData['diasDuracion']);
     _horas = castToType<int>(snapshotData['horas']);
@@ -107,6 +117,8 @@ class EventoRecord extends FirestoreRecord {
     _cat = getDataList(snapshotData['cat']);
     _descripcion = snapshotData['descripcion'] as String?;
     _cursoMinimo = castToType<int>(snapshotData['cursoMinimo']);
+    _estudiantes = getDataList(snapshotData['estudiantes']);
+    _integrantes = getDataList(snapshotData['integrantes']);
   }
 
   static CollectionReference get collection =>
@@ -200,7 +212,9 @@ class EventoRecordDocumentEquality implements Equality<EventoRecord> {
         e1?.categoria == e2?.categoria &&
         listEquality.equals(e1?.cat, e2?.cat) &&
         e1?.descripcion == e2?.descripcion &&
-        e1?.cursoMinimo == e2?.cursoMinimo;
+        e1?.cursoMinimo == e2?.cursoMinimo &&
+        listEquality.equals(e1?.estudiantes, e2?.estudiantes) &&
+        listEquality.equals(e1?.integrantes, e2?.integrantes);
   }
 
   @override
@@ -219,7 +233,9 @@ class EventoRecordDocumentEquality implements Equality<EventoRecord> {
         e?.categoria,
         e?.cat,
         e?.descripcion,
-        e?.cursoMinimo
+        e?.cursoMinimo,
+        e?.estudiantes,
+        e?.integrantes
       ]);
 
   @override
