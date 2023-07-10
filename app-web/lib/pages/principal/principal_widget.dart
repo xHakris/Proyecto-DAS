@@ -150,7 +150,8 @@ class _PrincipalWidgetState extends State<PrincipalWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(

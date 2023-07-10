@@ -812,7 +812,7 @@ class _ModalAddMembersWidgetState extends State<ModalAddMembersWidget> {
                                                                               .contains(serachResultsItem.reference))
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
-                                                                                await containerEventoRecord!.reference.update({
+                                                                                await widget.eventoRef!.reference.update({
                                                                                   'equipo': FieldValue.arrayUnion([
                                                                                     serachResultsItem.reference
                                                                                   ]),
