@@ -729,7 +729,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tm4r4ys9': {
       'en':
-          'La educación es un proceso fundamental de la formación de las\npersonas y en el desarrollo de las sociedades. A través de la \neducación, se adquieren conocimientos, habilidades y valores que \npermiten a las personas desarrollarse personal y profesionalmente,\ncontribuir al progreso y bienestar en su entorno',
+          'La educación es un proceso fundamental de la formación de las\npersonas y en el desarrollo de las sociedades. A través de la \neducación, se adquieren conocimientos, habilidades y valores que \npermiten a las personas desarrollarse personal y profesionalmente,\ncontribuir al progreso y bienestar en su entorno educativo',
       'hi': '',
       'ta': '',
       'ur': '',
