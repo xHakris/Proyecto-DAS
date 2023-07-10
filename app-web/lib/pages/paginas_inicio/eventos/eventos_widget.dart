@@ -347,7 +347,10 @@ class _EventosWidgetState extends State<EventosWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 8.0, 12.0, 8.0),
                                   child: Container(
-                                    width: 430.0,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.3,
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.2,
                                     constraints: BoxConstraints(
                                       maxHeight: 200.0,
                                     ),
@@ -399,7 +402,7 @@ class _EventosWidgetState extends State<EventosWidget>
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.start,
                                         children: [
                                           Container(
                                             width: double.infinity,
@@ -486,7 +489,7 @@ class _EventosWidgetState extends State<EventosWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 12.0, 12.0, 0.0),
+                                                    12.0, 0.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
