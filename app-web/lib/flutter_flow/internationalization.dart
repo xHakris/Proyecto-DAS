@@ -110,7 +110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // createTask
   {
     '5maeu8hf': {
-      'en': 'Configuración Extra de Evento',
+      'en': 'Configuración Extra del Evento',
       'hi': 'कार्य बनाएँ',
       'ta': 'பணியை உருவாக்கவும்',
       'ur': 'ٹاسک بنائیں',

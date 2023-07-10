@@ -87,7 +87,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget>
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              '5maeu8hf' /* Configuración Extra de Evento */,
+              '5maeu8hf' /* Configuración Extra del Evento */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),

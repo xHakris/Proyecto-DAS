@@ -642,6 +642,7 @@ class _ModalTaskCreate2WidgetState extends State<ModalTaskCreate2Widget>
                                   await widget.eventoParameter!.reference
                                       .update(createEventoRecordData(
                                     areaPertenece: '',
+                                    categoria: '',
                                   ));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(

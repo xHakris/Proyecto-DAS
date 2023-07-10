@@ -252,6 +252,23 @@ class _ModalAddMembersWidgetState extends State<ModalAddMembersWidget> {
                                                       ]),
                                                     });
                                                     Navigator.pop(context);
+
+                                                    context.pushNamed(
+                                                      'Eventos',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .leftToRight,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  400),
+                                                        ),
+                                                      },
+                                                    );
+
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
@@ -818,6 +835,17 @@ class _ModalAddMembersWidgetState extends State<ModalAddMembersWidget> {
                                                                                   ]),
                                                                                 });
                                                                                 Navigator.pop(context);
+
+                                                                                context.pushNamed(
+                                                                                  'Eventos',
+                                                                                  extra: <String, dynamic>{
+                                                                                    kTransitionInfoKey: TransitionInfo(
+                                                                                      hasTransition: true,
+                                                                                      transitionType: PageTransitionType.leftToRight,
+                                                                                      duration: Duration(milliseconds: 400),
+                                                                                    ),
+                                                                                  },
+                                                                                );
                                                                               },
                                                                               text: FFLocalizations.of(context).getText(
                                                                                 'g74ac7o5' /* Assign */,
