@@ -1,5 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/u_i_components/web_nav/web_nav_widget.dart';
+import '/components/editar_perfi/editar_perfi_widget.dart';
+import '/components/restablecer_contrasena/restablecer_contrasena_widget.dart';
+import '/components/web_nav/web_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -191,6 +193,10 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                               shape: BoxShape.circle,
                                             ),
                                             child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
                                               imageUrl: valueOrDefault<String>(
                                                 currentUserPhoto,
                                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/workout-design-system-0fvecj/assets/sgiftpqezy3r/addAvatarImage@2x.png',
@@ -594,7 +600,28 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('CambioContrasena');
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: double.infinity,
+                                                child:
+                                                    RestablecerContrasenaWidget(),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -661,7 +688,24 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('EditarPerfil');
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: EditarPerfiWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -735,7 +779,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                               .clearRedirectLocation();
 
                                           context.goNamedAuth(
-                                              'InicioSesion', context.mounted);
+                                              'Principal', context.mounted);
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(

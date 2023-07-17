@@ -51,11 +51,6 @@ class UsersRecord extends FirestoreRecord {
   String get status => _status ?? '';
   bool hasStatus() => _status != null;
 
-  // "userRole" field.
-  String? _userRole;
-  String get userRole => _userRole ?? '';
-  bool hasUserRole() => _userRole != null;
-
   // "userBio" field.
   String? _userBio;
   String get userBio => _userBio ?? '';
@@ -76,6 +71,21 @@ class UsersRecord extends FirestoreRecord {
   bool get isAdmin => _isAdmin ?? false;
   bool hasIsAdmin() => _isAdmin != null;
 
+  // "permitido" field.
+  bool? _permitido;
+  bool get permitido => _permitido ?? false;
+  bool hasPermitido() => _permitido != null;
+
+  // "docente_apoyo_admin" field.
+  bool? _docenteApoyoAdmin;
+  bool get docenteApoyoAdmin => _docenteApoyoAdmin ?? false;
+  bool hasDocenteApoyoAdmin() => _docenteApoyoAdmin != null;
+
+  // "isEstudiante" field.
+  bool? _isEstudiante;
+  bool get isEstudiante => _isEstudiante ?? false;
+  bool hasIsEstudiante() => _isEstudiante != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -84,11 +94,13 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _status = snapshotData['status'] as String?;
-    _userRole = snapshotData['userRole'] as String?;
     _userBio = snapshotData['userBio'] as String?;
     _tasks = getDataList(snapshotData['tasks']);
     _orgRef = snapshotData['OrgRef'] as DocumentReference?;
     _isAdmin = snapshotData['isAdmin'] as bool?;
+    _permitido = snapshotData['permitido'] as bool?;
+    _docenteApoyoAdmin = snapshotData['docente_apoyo_admin'] as bool?;
+    _isEstudiante = snapshotData['isEstudiante'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -132,10 +144,12 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   String? status,
-  String? userRole,
   String? userBio,
   DocumentReference? orgRef,
   bool? isAdmin,
+  bool? permitido,
+  bool? docenteApoyoAdmin,
+  bool? isEstudiante,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -146,10 +160,12 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'status': status,
-      'userRole': userRole,
       'userBio': userBio,
       'OrgRef': orgRef,
       'isAdmin': isAdmin,
+      'permitido': permitido,
+      'docente_apoyo_admin': docenteApoyoAdmin,
+      'isEstudiante': isEstudiante,
     }.withoutNulls,
   );
 
@@ -169,11 +185,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.status == e2?.status &&
-        e1?.userRole == e2?.userRole &&
         e1?.userBio == e2?.userBio &&
         listEquality.equals(e1?.tasks, e2?.tasks) &&
         e1?.orgRef == e2?.orgRef &&
-        e1?.isAdmin == e2?.isAdmin;
+        e1?.isAdmin == e2?.isAdmin &&
+        e1?.permitido == e2?.permitido &&
+        e1?.docenteApoyoAdmin == e2?.docenteApoyoAdmin &&
+        e1?.isEstudiante == e2?.isEstudiante;
   }
 
   @override
@@ -185,11 +203,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.status,
-        e?.userRole,
         e?.userBio,
         e?.tasks,
         e?.orgRef,
-        e?.isAdmin
+        e?.isAdmin,
+        e?.permitido,
+        e?.docenteApoyoAdmin,
+        e?.isEstudiante
       ]);
 
   @override
