@@ -201,6 +201,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'checl',
           path: '/checl',
           builder: (context, params) => CheclWidget(),
+<<<<<<< HEAD
         ),
         FFRoute(
           name: 'Movil_Curso_Gratis_Comprado',
@@ -211,6 +212,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MovilCursoGratisCompradoWidget(
             referencia: params.getParam('referencia', ParamType.Document),
           ),
+=======
+>>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

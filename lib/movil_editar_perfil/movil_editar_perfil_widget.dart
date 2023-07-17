@@ -30,6 +30,8 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MovilEditarPerfilModel());
+
+    _model.textController2 ??= TextEditingController();
   }
 
   @override
@@ -306,6 +308,7 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 8.0, 8.0, 8.0),
+<<<<<<< HEAD
                             child: StreamBuilder<List<EstudianteRecord>>(
                               stream: queryEstudianteRecord(
                                 queryBuilder: (estudianteRecord) =>
@@ -324,6 +327,24 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
                                           FlutterFlowTheme.of(context).primary,
+=======
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    controller: _model.textController2,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText: 'Semestre',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          width: 2.0,
+>>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
                                         ),
                                       ),
                                     ),
@@ -613,6 +634,7 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 12.0),
+<<<<<<< HEAD
                             child: StreamBuilder<List<EstudianteRecord>>(
                               stream: queryEstudianteRecord(
                                 queryBuilder: (estudianteRecord) =>
@@ -632,6 +654,21 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                             AlwaysStoppedAnimation<Color>(
                                           FlutterFlowTheme.of(context).primary,
                                         ),
+=======
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  nombres: _model.textController1.text,
+                                ));
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Cambios actualizados',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+>>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
                                       ),
                                     ),
                                   );
