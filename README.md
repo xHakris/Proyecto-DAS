@@ -10,6 +10,7 @@ Esta aplicación web y móvil permite la gestión y venta de cursos/eventos acad
 
 ## Configuración del entorno
 
+
 ### Aplicación web
 Clona este repositorio en tu máquina local
 ```sh
@@ -93,6 +94,7 @@ npx react-native run-android (android) - npx react-native run-ios (iOS)
 Asegúrate de tener un emulador o un dispositivo físico conectado para ejecutar la aplicación.
 
 ## Contribución
+
 
 Si deseas contribuir a este proyecto, sigue los siguientes pasos:
 
