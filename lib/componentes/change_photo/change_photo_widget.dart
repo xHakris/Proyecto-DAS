@@ -142,6 +142,10 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              Duration(milliseconds: 500),
+                                          fadeOutDuration:
+                                              Duration(milliseconds: 500),
                                           imageUrl: valueOrDefault<String>(
                                             currentUserPhoto,
                                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/workout-design-system-0fvecj/assets/sgiftpqezy3r/addAvatarImage@2x.png',
@@ -162,6 +166,10 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: CachedNetworkImage(
+                                        fadeInDuration:
+                                            Duration(milliseconds: 500),
+                                        fadeOutDuration:
+                                            Duration(milliseconds: 500),
                                         imageUrl: _model.uploadedFileUrl,
                                         fit: BoxFit.cover,
                                       ),

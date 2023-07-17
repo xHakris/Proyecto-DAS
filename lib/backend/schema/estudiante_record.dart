@@ -21,11 +21,6 @@ class EstudianteRecord extends FirestoreRecord {
   String get correo => _correo ?? '';
   bool hasCorreo() => _correo != null;
 
-  // "asistencia" field.
-  List<DocumentReference>? _asistencia;
-  List<DocumentReference> get asistencia => _asistencia ?? const [];
-  bool hasAsistencia() => _asistencia != null;
-
   // "nombre" field.
   String? _nombre;
   String get nombre => _nombre ?? '';
@@ -41,12 +36,23 @@ class EstudianteRecord extends FirestoreRecord {
   DocumentReference? get uid => _uid;
   bool hasUid() => _uid != null;
 
+  // "semestre" field.
+  int? _semestre;
+  int get semestre => _semestre ?? 0;
+  bool hasSemestre() => _semestre != null;
+
+  // "estudianteID" field.
+  DocumentReference? _estudianteID;
+  DocumentReference? get estudianteID => _estudianteID;
+  bool hasEstudianteID() => _estudianteID != null;
+
   void _initializeFields() {
     _correo = snapshotData['correo'] as String?;
-    _asistencia = getDataList(snapshotData['asistencia']);
     _nombre = snapshotData['nombre'] as String?;
     _notaFinal = castToType<int>(snapshotData['notaFinal']);
     _uid = snapshotData['uid'] as DocumentReference?;
+    _semestre = castToType<int>(snapshotData['semestre']);
+    _estudianteID = snapshotData['estudianteID'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -88,6 +94,8 @@ Map<String, dynamic> createEstudianteRecordData({
   String? nombre,
   int? notaFinal,
   DocumentReference? uid,
+  int? semestre,
+  DocumentReference? estudianteID,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -95,6 +103,8 @@ Map<String, dynamic> createEstudianteRecordData({
       'nombre': nombre,
       'notaFinal': notaFinal,
       'uid': uid,
+      'semestre': semestre,
+      'estudianteID': estudianteID,
     }.withoutNulls,
   );
 
@@ -106,17 +116,23 @@ class EstudianteRecordDocumentEquality implements Equality<EstudianteRecord> {
 
   @override
   bool equals(EstudianteRecord? e1, EstudianteRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.correo == e2?.correo &&
-        listEquality.equals(e1?.asistencia, e2?.asistencia) &&
         e1?.nombre == e2?.nombre &&
         e1?.notaFinal == e2?.notaFinal &&
-        e1?.uid == e2?.uid;
+        e1?.uid == e2?.uid &&
+        e1?.semestre == e2?.semestre &&
+        e1?.estudianteID == e2?.estudianteID;
   }
 
   @override
-  int hash(EstudianteRecord? e) => const ListEquality()
-      .hash([e?.correo, e?.asistencia, e?.nombre, e?.notaFinal, e?.uid]);
+  int hash(EstudianteRecord? e) => const ListEquality().hash([
+        e?.correo,
+        e?.nombre,
+        e?.notaFinal,
+        e?.uid,
+        e?.semestre,
+        e?.estudianteID
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is EstudianteRecord;

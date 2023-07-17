@@ -121,6 +121,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Movil_Eventos': MovilEventosWidget(),
+      'Movil_Eventos_Registados': MovilEventosRegistadosWidget(),
       'Movil_Editar_Perfil': MovilEditarPerfilWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -146,6 +147,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.checklist_rtl,
+              size: 24.0,
+            ),
+            label: '__',
             tooltip: '',
           ),
           BottomNavigationBarItem(

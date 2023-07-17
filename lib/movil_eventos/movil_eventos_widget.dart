@@ -67,63 +67,6 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
   };
 
   @override
@@ -246,11 +189,8 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                    child: FutureBuilder<List<EventoRecord>>(
-                      future: queryEventoRecordOnce(
-                        queryBuilder: (eventoRecord) =>
-                            eventoRecord.orderBy('categoria'),
-                      ),
+                    child: StreamBuilder<List<CategoriaRecord>>(
+                      stream: queryCategoriaRecord(),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
@@ -259,22 +199,24 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                               width: 50.0,
                               height: 50.0,
                               child: CircularProgressIndicator(
-                                color: FlutterFlowTheme.of(context).primary,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
                           );
                         }
-                        List<EventoRecord> listViewEventoRecordList =
+                        List<CategoriaRecord> listViewCategoriaRecordList =
                             snapshot.data!;
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: listViewEventoRecordList.length,
+                          itemCount: listViewCategoriaRecordList.length,
                           itemBuilder: (context, listViewIndex) {
-                            final listViewEventoRecord =
-                                listViewEventoRecordList[listViewIndex];
+                            final listViewCategoriaRecord =
+                                listViewCategoriaRecordList[listViewIndex];
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   5.0, 12.0, 5.0, 12.0),
@@ -288,12 +230,12 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                     'Movil_Cursos',
                                     queryParameters: {
                                       'categoriaRef': serializeParam(
-                                        listViewEventoRecord,
+                                        listViewCategoriaRecord,
                                         ParamType.Document,
                                       ),
                                     }.withoutNulls,
                                     extra: <String, dynamic>{
-                                      'categoriaRef': listViewEventoRecord,
+                                      'categoriaRef': listViewCategoriaRecord,
                                     },
                                   );
                                 },
@@ -343,8 +285,8 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 5.0),
                                                     child: Text(
-                                                      listViewEventoRecord
-                                                          .categoria,
+                                                      listViewCategoriaRecord
+                                                          .nombre,
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -400,15 +342,12 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                 ),
                 Container(
                   width: double.infinity,
-                  height: 220.0,
+                  height: 376.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   child: StreamBuilder<List<EventoRecord>>(
-                    stream: queryEventoRecord(
-                      queryBuilder: (eventoRecord) =>
-                          eventoRecord.where('tipo', isEqualTo: 'curso'),
-                    ),
+                    stream: queryEventoRecord(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -417,247 +356,34 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primary,
-                            ),
-                          ),
-                        );
-                      }
-                      List<EventoRecord> listViewEventoRecordList =
-                          snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        primary: false,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: listViewEventoRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewEventoRecord =
-                              listViewEventoRecordList[listViewIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 12.0, 12.0, 12.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Movil_Evento_Informacion',
-                                  queryParameters: {
-                                    'eventoRef': serializeParam(
-                                      listViewEventoRecord,
-                                      ParamType.Document,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'eventoRef': listViewEventoRecord,
-                                  },
-                                );
-                              },
-                              child: Container(
-                                width: 230.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x34090F13),
-                                      offset: Offset(0.0, 2.0),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: double.infinity,
-                                      height: 140.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(0.0),
-                                          topLeft: Radius.circular(12.0),
-                                          topRight: Radius.circular(12.0),
-                                        ),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(0.0),
-                                          topLeft: Radius.circular(8.0),
-                                          topRight: Radius.circular(8.0),
-                                        ),
-                                        child: Image.network(
-                                          '${listViewEventoRecord.imgCurso}',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 3.0, 0.0, 3.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  listViewEventoRecord.nombre,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 15.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Container(
-                                                      width: 146.0,
-                                                      height: 30.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Text(
-                                                            'Duración: ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                          Text(
-                                                            formatNumber(
-                                                              listViewEventoRecord
-                                                                  .horas,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .decimal,
-                                                              decimalType:
-                                                                  DecimalType
-                                                                      .periodDecimal,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                          Text(
-                                                            'hrs',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      listViewEventoRecord
-                                                              .dePago
-                                                          ? 'Pagado'
-                                                          : 'Gratuito',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
                               ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation2']!),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
-                  child: Text(
-                    'Eventos',
-                    style: FlutterFlowTheme.of(context).headlineSmall,
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 220.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                  child: StreamBuilder<List<EventoRecord>>(
-                    stream: queryEventoRecord(
-                      queryBuilder: (eventoRecord) =>
-                          eventoRecord.where('tipo', isEqualTo: 'evento'),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
                       }
-                      List<EventoRecord> listViewEventoRecordList =
+                      List<EventoRecord> gridViewEventoRecordList =
                           snapshot.data!;
-                      return ListView.builder(
+                      if (gridViewEventoRecordList.isEmpty) {
+                        return Image.network(
+                          'https://ih1.redbubble.net/image.3243769575.1059/st,small,507x507-pad,600x600,f8f8f8.jpg',
+                          fit: BoxFit.contain,
+                        );
+                      }
+                      return GridView.builder(
                         padding: EdgeInsets.zero,
-                        primary: false,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: listViewEventoRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewEventoRecord =
-                              listViewEventoRecordList[listViewIndex];
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 0.0,
+                          mainAxisSpacing: 0.0,
+                          childAspectRatio: 0.8,
+                        ),
+                        scrollDirection: Axis.vertical,
+                        itemCount: gridViewEventoRecordList.length,
+                        itemBuilder: (context, gridViewIndex) {
+                          final gridViewEventoRecord =
+                              gridViewEventoRecordList[gridViewIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 12.0, 12.0),
@@ -671,12 +397,12 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                   'Movil_Evento_Informacion',
                                   queryParameters: {
                                     'eventoRef': serializeParam(
-                                      listViewEventoRecord,
+                                      gridViewEventoRecord,
                                       ParamType.Document,
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    'eventoRef': listViewEventoRecord,
+                                    'eventoRef': gridViewEventoRecord,
                                   },
                                 );
                               },
@@ -699,7 +425,7 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                   children: [
                                     Container(
                                       width: double.infinity,
-                                      height: 140.0,
+                                      height: 120.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondary,
@@ -718,7 +444,7 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                           topRight: Radius.circular(8.0),
                                         ),
                                         child: Image.network(
-                                          '${listViewEventoRecord.imgCurso}',
+                                          '${gridViewEventoRecord.imagenCurso}',
                                           width: 300.0,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -730,47 +456,75 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                         width: double.infinity,
                                         height: double.infinity,
                                         decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 3.0, 0.0, 3.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  listViewEventoRecord.nombre,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                gridViewEventoRecord.nombre,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Color(0xFF282828),
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 15.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Row(
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                gridViewEventoRecord.dePago
+                                                    ? 'De pago'
+                                                    : 'Gratuito',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: gridViewEventoRecord
+                                                                  .dePago
+                                                              ? Color(
+                                                                  0xFFFA2687)
+                                                              : Color(
+                                                                  0xFF026E75),
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    width: 146.0,
+                                                    height: 30.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
@@ -781,36 +535,26 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                                               .bodyMedium,
                                                         ),
                                                         Text(
-                                                          listViewEventoRecord
-                                                              .horas
+                                                          gridViewEventoRecord
+                                                              .diasDuracion
                                                               .toString(),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
                                                         ),
                                                         Text(
-                                                          'hrs',
+                                                          ' dias',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
                                                         ),
                                                       ],
                                                     ),
-                                                    Text(
-                                                      listViewEventoRecord
-                                                              .dePago
-                                                          ? 'Pagado'
-                                                          : 'Gratuito',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -818,7 +562,7 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation4']!),
+                                'containerOnPageLoadAnimation2']!),
                           );
                         },
                       );

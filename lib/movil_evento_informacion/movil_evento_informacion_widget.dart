@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -73,8 +74,10 @@ class _MovilEventoInformacionWidgetState
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-            child: StreamBuilder<EventoRecord>(
-              stream: EventoRecord.getDocument(widget.eventoRef!.reference),
+            child: FutureBuilder<List<EventoRecord>>(
+              future: queryEventoRecordOnce(
+                singleRecord: true,
+              ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -83,12 +86,23 @@ class _MovilEventoInformacionWidgetState
                       width: 50.0,
                       height: 50.0,
                       child: CircularProgressIndicator(
-                        color: FlutterFlowTheme.of(context).primary,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).primary,
+                        ),
                       ),
                     ),
                   );
                 }
-                final scrollingColumnEventoRecord = snapshot.data!;
+                List<EventoRecord> scrollingColumnEventoRecordList =
+                    snapshot.data!;
+                // Return an empty Container when the item does not exist.
+                if (snapshot.data!.isEmpty) {
+                  return Container();
+                }
+                final scrollingColumnEventoRecord =
+                    scrollingColumnEventoRecordList.isNotEmpty
+                        ? scrollingColumnEventoRecordList.first
+                        : null;
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -100,7 +114,7 @@ class _MovilEventoInformacionWidgetState
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
                           child: Image.network(
-                            '${widget.eventoRef!.imgCurso}',
+                            '${widget.eventoRef?.imagenCurso}',
                             width: double.infinity,
                             height: 200.0,
                             fit: BoxFit.cover,
@@ -132,7 +146,10 @@ class _MovilEventoInformacionWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    widget.eventoRef!.categoria,
+                                    valueOrDefault<String>(
+                                      widget.eventoRef?.areaPertenece,
+                                      'A',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
@@ -158,7 +175,7 @@ class _MovilEventoInformacionWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    widget.eventoRef!.areaPertenece,
+                                    scrollingColumnEventoRecord!.tipo,
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
@@ -239,8 +256,12 @@ class _MovilEventoInformacionWidgetState
                                                       .fromSTEB(
                                                           15.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    widget.eventoRef!.horas
-                                                        .toString(),
+                                                    valueOrDefault<String>(
+                                                      widget.eventoRef
+                                                          ?.horasDiarias
+                                                          ?.toString(),
+                                                      '0',
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -256,7 +277,39 @@ class _MovilEventoInformacionWidgetState
                                                       .fromSTEB(
                                                           5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'horas',
+                                                    'horas diarias | ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 18.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    widget
+                                                        .eventoRef?.diasDuracion
+                                                        ?.toString(),
+                                                    '0',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    ' dias',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -605,52 +658,107 @@ class _MovilEventoInformacionWidgetState
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 40.0,
                                                                 0.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Icon(
-                                                            Icons.check,
-                                                            color: Color(
-                                                                0xFF11F591),
-                                                            size: 30.0,
-                                                          ),
-                                                        ),
-                                                        Flexible(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Cumples los requisitos para la inscripción',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    fontSize:
-                                                                        14.0,
-                                                                  ),
+                                                    child: StreamBuilder<
+                                                        List<EstudianteRecord>>(
+                                                      stream:
+                                                          queryEstudianteRecord(
+                                                        queryBuilder:
+                                                            (estudianteRecord) =>
+                                                                estudianteRecord
+                                                                    .where(
+                                                                        'uid',
+                                                                        isEqualTo:
+                                                                            currentUserReference),
+                                                        singleRecord: true,
+                                                      ),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                          );
+                                                        }
+                                                        List<EstudianteRecord>
+                                                            rowEstudianteRecordList =
+                                                            snapshot.data!;
+                                                        // Return an empty Container when the item does not exist.
+                                                        if (snapshot
+                                                            .data!.isEmpty) {
+                                                          return Container();
+                                                        }
+                                                        final rowEstudianteRecord =
+                                                            rowEstudianteRecordList
+                                                                    .isNotEmpty
+                                                                ? rowEstudianteRecordList
+                                                                    .first
+                                                                : null;
+                                                        return Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          15.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Icon(
+                                                                Icons.check,
+                                                                color: Color(
+                                                                    0xFF11F591),
+                                                                size: 30.0,
+                                                              ),
+                                                            ),
+                                                            Flexible(
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  rowEstudianteRecord!
+                                                                              .semestre >=
+                                                                          scrollingColumnEventoRecord!
+                                                                              .cursoMinimo
+                                                                      ? 'Cumples los requisitos para la inscripción'
+                                                                      : 'No cumples los requisitos necesarios',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
                                                     ),
                                                   ),
                                                 ],
@@ -675,7 +783,7 @@ class _MovilEventoInformacionWidgetState
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     context.pushNamed(
-                                                      'check',
+                                                      'Movil_Compra_PorCredito',
                                                       queryParameters: {
                                                         'referencia':
                                                             serializeParam(
