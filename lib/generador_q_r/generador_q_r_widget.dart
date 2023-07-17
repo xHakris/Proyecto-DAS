@@ -1,9 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'generador_q_r_model.dart';
@@ -42,19 +42,33 @@ class _GeneradorQRWidgetState extends State<GeneradorQRWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryText,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              context.safePop();
+            },
+          ),
           title: Text(
-            'Page Title',
+            'QR asistencia',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 22.0,
                 ),
           ),
           actions: [],
           centerTitle: false,
-          elevation: 2.0,
+          elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
@@ -68,15 +82,7 @@ class _GeneradorQRWidgetState extends State<GeneradorQRWidget> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xFF14181B),
-                          FlutterFlowTheme.of(context).info
-                        ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
+                      color: FlutterFlowTheme.of(context).gray600,
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Column(
@@ -106,29 +112,48 @@ class _GeneradorQRWidgetState extends State<GeneradorQRWidget> {
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(6.0),
                             ),
-                            child: BarcodeWidget(
-                              data: currentUserEmail,
-                              barcode: Barcode.code128(),
-                              width: 300.0,
-                              height: 90.0,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              backgroundColor: Colors.transparent,
-                              errorBuilder: (_context, _error) => SizedBox(
-                                width: 300.0,
-                                height: 90.0,
+                            child: StreamBuilder<List<QrRecord>>(
+                              stream: queryQrRecord(
+                                singleRecord: true,
                               ),
-                              drawText: true,
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<QrRecord> imageQrRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final imageQrRecord =
+                                    imageQrRecordList.isNotEmpty
+                                        ? imageQrRecordList.first
+                                        : null;
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    '${imageQrRecord?.link}',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                );
+                              },
                             ),
                           ),
-                        ),
-                        Text(
-                          '1234 - 5678',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Outfit',
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                  ),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -193,32 +218,15 @@ class _GeneradorQRWidgetState extends State<GeneradorQRWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 16.0, 0.0),
                                     child: Icon(
-                                      Icons.calendar_today,
-                                      color: Colors.white,
-                                      size: 24.0,
-                                    ),
-                                  ),
-                                  Text(
-                                    currentUserUid,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Colors.white,
-                                        ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.clock,
+                                      Icons.groups,
                                       color: Colors.white,
                                       size: 24.0,
                                     ),
                                   ),
                                   AuthUserStreamWidget(
                                     builder: (context) => Text(
-                                      currentPhoneNumber,
+                                      valueOrDefault(
+                                          currentUserDocument?.userRole, ''),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

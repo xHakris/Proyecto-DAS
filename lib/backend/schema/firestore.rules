@@ -8,13 +8,6 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /evento/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
     match /estudiante/{document} {
       allow create: if true;
       allow read: if true;
@@ -22,7 +15,42 @@ service cloud.firestore {
       allow delete: if true;
     }
 
+    match /qr/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
     match /asistencia/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /detalleCurso/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /categoria/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /evento/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /docente/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if true;

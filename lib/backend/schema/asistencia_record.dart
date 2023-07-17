@@ -16,19 +16,55 @@ class AsistenciaRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "asistencia1" field.
-  String? _asistencia1;
-  String get asistencia1 => _asistencia1 ?? '';
-  bool hasAsistencia1() => _asistencia1 != null;
+  // "asistenciaDia1" field.
+  String? _asistenciaDia1;
+  String get asistenciaDia1 => _asistenciaDia1 ?? '';
+  bool hasAsistenciaDia1() => _asistenciaDia1 != null;
 
-  // "asistencia2" field.
-  String? _asistencia2;
-  String get asistencia2 => _asistencia2 ?? '';
-  bool hasAsistencia2() => _asistencia2 != null;
+  // "asistenciaDia2" field.
+  String? _asistenciaDia2;
+  String get asistenciaDia2 => _asistenciaDia2 ?? '';
+  bool hasAsistenciaDia2() => _asistenciaDia2 != null;
+
+  // "asistenciaDia3" field.
+  String? _asistenciaDia3;
+  String get asistenciaDia3 => _asistenciaDia3 ?? '';
+  bool hasAsistenciaDia3() => _asistenciaDia3 != null;
+
+  // "asistenciaDia4" field.
+  String? _asistenciaDia4;
+  String get asistenciaDia4 => _asistenciaDia4 ?? '';
+  bool hasAsistenciaDia4() => _asistenciaDia4 != null;
+
+  // "asistenciaDia5" field.
+  String? _asistenciaDia5;
+  String get asistenciaDia5 => _asistenciaDia5 ?? '';
+  bool hasAsistenciaDia5() => _asistenciaDia5 != null;
+
+  // "asistenciaDia10" field.
+  String? _asistenciaDia10;
+  String get asistenciaDia10 => _asistenciaDia10 ?? '';
+  bool hasAsistenciaDia10() => _asistenciaDia10 != null;
+
+  // "asistenciaDia29" field.
+  String? _asistenciaDia29;
+  String get asistenciaDia29 => _asistenciaDia29 ?? '';
+  bool hasAsistenciaDia29() => _asistenciaDia29 != null;
+
+  // "asistenciaDia9" field.
+  String? _asistenciaDia9;
+  String get asistenciaDia9 => _asistenciaDia9 ?? '';
+  bool hasAsistenciaDia9() => _asistenciaDia9 != null;
 
   void _initializeFields() {
-    _asistencia1 = snapshotData['asistencia1'] as String?;
-    _asistencia2 = snapshotData['asistencia2'] as String?;
+    _asistenciaDia1 = snapshotData['asistenciaDia1'] as String?;
+    _asistenciaDia2 = snapshotData['asistenciaDia2'] as String?;
+    _asistenciaDia3 = snapshotData['asistenciaDia3'] as String?;
+    _asistenciaDia4 = snapshotData['asistenciaDia4'] as String?;
+    _asistenciaDia5 = snapshotData['asistenciaDia5'] as String?;
+    _asistenciaDia10 = snapshotData['asistenciaDia10'] as String?;
+    _asistenciaDia29 = snapshotData['asistenciaDia29'] as String?;
+    _asistenciaDia9 = snapshotData['asistenciaDia9'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -66,13 +102,25 @@ class AsistenciaRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createAsistenciaRecordData({
-  String? asistencia1,
-  String? asistencia2,
+  String? asistenciaDia1,
+  String? asistenciaDia2,
+  String? asistenciaDia3,
+  String? asistenciaDia4,
+  String? asistenciaDia5,
+  String? asistenciaDia10,
+  String? asistenciaDia29,
+  String? asistenciaDia9,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'asistencia1': asistencia1,
-      'asistencia2': asistencia2,
+      'asistenciaDia1': asistenciaDia1,
+      'asistenciaDia2': asistenciaDia2,
+      'asistenciaDia3': asistenciaDia3,
+      'asistenciaDia4': asistenciaDia4,
+      'asistenciaDia5': asistenciaDia5,
+      'asistenciaDia10': asistenciaDia10,
+      'asistenciaDia29': asistenciaDia29,
+      'asistenciaDia9': asistenciaDia9,
     }.withoutNulls,
   );
 
@@ -84,13 +132,27 @@ class AsistenciaRecordDocumentEquality implements Equality<AsistenciaRecord> {
 
   @override
   bool equals(AsistenciaRecord? e1, AsistenciaRecord? e2) {
-    return e1?.asistencia1 == e2?.asistencia1 &&
-        e1?.asistencia2 == e2?.asistencia2;
+    return e1?.asistenciaDia1 == e2?.asistenciaDia1 &&
+        e1?.asistenciaDia2 == e2?.asistenciaDia2 &&
+        e1?.asistenciaDia3 == e2?.asistenciaDia3 &&
+        e1?.asistenciaDia4 == e2?.asistenciaDia4 &&
+        e1?.asistenciaDia5 == e2?.asistenciaDia5 &&
+        e1?.asistenciaDia10 == e2?.asistenciaDia10 &&
+        e1?.asistenciaDia29 == e2?.asistenciaDia29 &&
+        e1?.asistenciaDia9 == e2?.asistenciaDia9;
   }
 
   @override
-  int hash(AsistenciaRecord? e) =>
-      const ListEquality().hash([e?.asistencia1, e?.asistencia2]);
+  int hash(AsistenciaRecord? e) => const ListEquality().hash([
+        e?.asistenciaDia1,
+        e?.asistenciaDia2,
+        e?.asistenciaDia3,
+        e?.asistenciaDia4,
+        e?.asistenciaDia5,
+        e?.asistenciaDia10,
+        e?.asistenciaDia29,
+        e?.asistenciaDia9
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is AsistenciaRecord;

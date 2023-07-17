@@ -15,7 +15,7 @@ class MovilCursosWidget extends StatefulWidget {
     required this.categoriaRef,
   }) : super(key: key);
 
-  final EventoRecord? categoriaRef;
+  final CategoriaRecord? categoriaRef;
 
   @override
   _MovilCursosWidgetState createState() => _MovilCursosWidgetState();
@@ -84,7 +84,10 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       15.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Nombre Curso',
+                                    valueOrDefault<String>(
+                                      widget.categoriaRef?.nombre,
+                                      'Categoria',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -107,8 +110,8 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                   child: StreamBuilder<List<EventoRecord>>(
                     stream: queryEventoRecord(
                       queryBuilder: (eventoRecord) => eventoRecord.where(
-                          'categoria',
-                          isEqualTo: widget.categoriaRef!.categoria),
+                          'categoriaID',
+                          isEqualTo: widget.categoriaRef?.reference),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -118,7 +121,9 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primary,
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
                             ),
                           ),
                         );
@@ -169,7 +174,7 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              widget.categoriaRef!.nombre,
+                                              listViewEventoRecord.nombre,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineSmall,
@@ -178,11 +183,13 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 8.0, 0.0),
                                               child: AutoSizeText(
-                                                widget.categoriaRef!.tipo
+                                                listViewEventoRecord
+                                                    .diasDuracion
+                                                    .toString()
                                                     .maybeHandleOverflow(
-                                                  maxChars: 70,
-                                                  replacement: '…',
-                                                ),
+                                                      maxChars: 70,
+                                                      replacement: '…',
+                                                    ),
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -200,7 +207,7 @@ class _MovilCursosWidgetState extends State<MovilCursosWidget> {
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                         child: Image.network(
-                                          '${widget.categoriaRef!.imgCurso}',
+                                          '${listViewEventoRecord.imagenCurso}',
                                           width: 80.0,
                                           height: 80.0,
                                           fit: BoxFit.cover,

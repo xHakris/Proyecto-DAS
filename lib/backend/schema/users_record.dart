@@ -46,25 +46,15 @@ class UsersRecord extends FirestoreRecord {
   String get displayName => _displayName ?? '';
   bool hasDisplayName() => _displayName != null;
 
-  // "phone_number" field.
-  String? _phoneNumber;
-  String get phoneNumber => _phoneNumber ?? '';
-  bool hasPhoneNumber() => _phoneNumber != null;
-
   // "userRole" field.
   String? _userRole;
   String get userRole => _userRole ?? '';
   bool hasUserRole() => _userRole != null;
 
-  // "semestre" field.
-  String? _semestre;
-  String get semestre => _semestre ?? '';
-  bool hasSemestre() => _semestre != null;
-
-  // "integrantes" field.
-  List<DocumentReference>? _integrantes;
-  List<DocumentReference> get integrantes => _integrantes ?? const [];
-  bool hasIntegrantes() => _integrantes != null;
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -73,10 +63,8 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _nombres = snapshotData['nombres'] as String?;
     _displayName = snapshotData['display_name'] as String?;
-    _phoneNumber = snapshotData['phone_number'] as String?;
     _userRole = snapshotData['userRole'] as String?;
-    _semestre = snapshotData['semestre'] as String?;
-    _integrantes = getDataList(snapshotData['integrantes']);
+    _phoneNumber = snapshotData['phone_number'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -119,9 +107,8 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? nombres,
   String? displayName,
-  String? phoneNumber,
   String? userRole,
-  String? semestre,
+  String? phoneNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -131,9 +118,8 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'nombres': nombres,
       'display_name': displayName,
-      'phone_number': phoneNumber,
       'userRole': userRole,
-      'semestre': semestre,
+      'phone_number': phoneNumber,
     }.withoutNulls,
   );
 
@@ -145,17 +131,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.nombres == e2?.nombres &&
         e1?.displayName == e2?.displayName &&
-        e1?.phoneNumber == e2?.phoneNumber &&
         e1?.userRole == e2?.userRole &&
-        e1?.semestre == e2?.semestre &&
-        listEquality.equals(e1?.integrantes, e2?.integrantes);
+        e1?.phoneNumber == e2?.phoneNumber;
   }
 
   @override
@@ -166,10 +149,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.nombres,
         e?.displayName,
-        e?.phoneNumber,
         e?.userRole,
-        e?.semestre,
-        e?.integrantes
+        e?.phoneNumber
       ]);
 
   @override

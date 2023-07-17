@@ -101,7 +101,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Movil_Cursos',
           path: '/movilCursos',
           asyncParams: {
-            'categoriaRef': getDoc(['evento'], EventoRecord.fromSnapshot),
+            'categoriaRef': getDoc(['categoria'], CategoriaRecord.fromSnapshot),
           },
           builder: (context, params) => MovilCursosWidget(
             categoriaRef: params.getParam('categoriaRef', ParamType.Document),
@@ -135,22 +135,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MovilCrearCuentaWidget(),
         ),
         FFRoute(
-          name: 'payment',
-          path: '/payment',
+          name: 'Movil_Compra_Finalizada_Credito',
+          path: '/movilCompraFinalizadaCredito',
           asyncParams: {
             'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
           },
-          builder: (context, params) => PaymentWidget(
+          builder: (context, params) => MovilCompraFinalizadaCreditoWidget(
             referencia: params.getParam('referencia', ParamType.Document),
           ),
         ),
         FFRoute(
-          name: 'check',
-          path: '/check',
+          name: 'Movil_Compra_PorCredito',
+          path: '/movilCompraPorCredito',
           asyncParams: {
             'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
           },
-          builder: (context, params) => CheckWidget(
+          builder: (context, params) => MovilCompraPorCreditoWidget(
             referencia: params.getParam('referencia', ParamType.Document),
           ),
         ),
@@ -158,6 +158,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GeneradorQR',
           path: '/generadorQR',
           builder: (context, params) => GeneradorQRWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Compra_PorTransferencia',
+          path: '/movilCompraPorTransferencia',
+          asyncParams: {
+            'evento': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => MovilCompraPorTransferenciaWidget(
+            evento: params.getParam('evento', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Movil_Compra_Finalizada_Transferencia',
+          path: '/movilCompraFinalizadaTransferencia',
+          asyncParams: {
+            'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) =>
+              MovilCompraFinalizadaTransferenciaWidget(
+            referencia: params.getParam('referencia', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Movil_Eventos_Registados',
+          path: '/movilEventosRegistados',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Movil_Eventos_Registados')
+              : MovilEventosRegistadosWidget(),
+        ),
+        FFRoute(
+          name: 'Movil_Evento_Adquirido_Info',
+          path: '/movilEventoAdquiridoInfo',
+          asyncParams: {
+            'eventoRef': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => MovilEventoAdquiridoInfoWidget(
+            eventoRef: params.getParam('eventoRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'checl',
+          path: '/checl',
+          builder: (context, params) => CheclWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -342,7 +385,9 @@ class FFRoute {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primary,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
                     ),
                   ),
                 )

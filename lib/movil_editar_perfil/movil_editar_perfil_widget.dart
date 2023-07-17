@@ -30,6 +30,8 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MovilEditarPerfilModel());
+
+    _model.textController2 ??= TextEditingController();
   }
 
   @override
@@ -53,7 +55,9 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                 width: 50.0,
                 height: 50.0,
                 child: CircularProgressIndicator(
-                  color: FlutterFlowTheme.of(context).primary,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
             ),
@@ -77,7 +81,7 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                context.safePop();
+                context.pushNamed('Movil_Eventos');
               },
             ),
             title: Text(
@@ -142,6 +146,9 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                     shape: BoxShape.circle,
                                   ),
                                   child: CachedNetworkImage(
+                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeOutDuration:
+                                        Duration(milliseconds: 500),
                                     imageUrl: currentUserPhoto,
                                     fit: BoxFit.fitWidth,
                                   ),
@@ -239,14 +246,19 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                     controller: _model.textController1 ??=
                                         TextEditingController(
                                       text: movilEditarPerfilUsersRecord
-                                          .displayName,
+                                                      .nombres ==
+                                                  null ||
+                                              movilEditarPerfilUsersRecord
+                                                      .nombres ==
+                                                  ''
+                                          ? movilEditarPerfilUsersRecord.nombres
+                                          : movilEditarPerfilUsersRecord
+                                              .nombres,
                                     ),
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: valueOrDefault<String>(
-                                        movilEditarPerfilUsersRecord.nombres,
-                                        'Nombre completo',
-                                      ),
+                                      labelText: 'Nombres completos',
+                                      hintText: 'Nombres completos',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
@@ -301,17 +313,10 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: _model.textController2 ??=
-                                        TextEditingController(
-                                      text:
-                                          movilEditarPerfilUsersRecord.semestre,
-                                    ),
+                                    controller: _model.textController2,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: valueOrDefault<String>(
-                                        movilEditarPerfilUsersRecord.semestre,
-                                        'Semestre (numero)',
-                                      ),
+                                      hintText: 'Semestre',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall,
                                       enabledBorder: OutlineInputBorder(
@@ -366,7 +371,6 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                 await currentUserReference!
                                     .update(createUsersRecordData(
                                   nombres: _model.textController1.text,
-                                  semestre: _model.textController2.text,
                                 ));
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
