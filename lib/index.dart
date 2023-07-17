@@ -22,8 +22,5 @@ export '/movil_evento_adquirido_info/movil_evento_adquirido_info_widget.dart'
 export '/movil_compra_por_credito/movil_compra_por_credito_widget.dart'
     show MovilCompraPorCreditoWidget;
 export '/checl/checl_widget.dart' show CheclWidget;
-<<<<<<< HEAD
 export '/movil_curso_gratis_comprado/movil_curso_gratis_comprado_widget.dart'
     show MovilCursoGratisCompradoWidget;
-=======
->>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
