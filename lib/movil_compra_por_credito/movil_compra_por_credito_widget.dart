@@ -279,7 +279,7 @@ class _MovilCompraPorCreditoWidgetState
                               },
                             );
                           },
-                          text: 'Realizar pago y Aceptar',
+                          text: 'Realizar pago',
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,

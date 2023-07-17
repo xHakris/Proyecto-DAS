@@ -145,16 +145,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Movil_Compra_PorCredito',
-          path: '/movilCompraPorCredito',
-          asyncParams: {
-            'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
-          },
-          builder: (context, params) => MovilCompraPorCreditoWidget(
-            referencia: params.getParam('referencia', ParamType.Document),
-          ),
-        ),
-        FFRoute(
           name: 'GeneradorQR',
           path: '/generadorQR',
           builder: (context, params) => GeneradorQRWidget(),
@@ -195,6 +185,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           },
           builder: (context, params) => MovilEventoAdquiridoInfoWidget(
             eventoRef: params.getParam('eventoRef', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'Movil_Compra_PorCredito',
+          path: '/movilCompraPorCredito',
+          asyncParams: {
+            'referencia': getDoc(['evento'], EventoRecord.fromSnapshot),
+          },
+          builder: (context, params) => MovilCompraPorCreditoWidget(
+            referencia: params.getParam('referencia', ParamType.Document),
           ),
         ),
         FFRoute(
