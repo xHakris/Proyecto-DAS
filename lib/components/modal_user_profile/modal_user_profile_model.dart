@@ -1,6 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/empty_states/empty_tasks/empty_tasks_widget.dart';
-import '/components/modal_task_details/modal_task_details_widget.dart';
+import '/components/empty_states/sin_eventos/sin_eventos_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
