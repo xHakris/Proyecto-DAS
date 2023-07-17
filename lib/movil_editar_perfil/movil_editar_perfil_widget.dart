@@ -308,6 +308,26 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 8.0, 8.0, 8.0),
+<<<<<<< HEAD
+                            child: StreamBuilder<List<EstudianteRecord>>(
+                              stream: queryEstudianteRecord(
+                                queryBuilder: (estudianteRecord) =>
+                                    estudianteRecord.where('uid',
+                                        isEqualTo: currentUserReference),
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+=======
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -324,48 +344,317 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           width: 2.0,
+>>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                    maxLines: null,
-                                    validator: _model.textController2Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                              ],
+                                  );
+                                }
+                                List<EstudianteRecord> rowEstudianteRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final rowEstudianteRecord =
+                                    rowEstudianteRecordList.isNotEmpty
+                                        ? rowEstudianteRecordList.first
+                                        : null;
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        controller:
+                                            _model.txtsemestreController ??=
+                                                TextEditingController(
+                                          text: rowEstudianteRecord?.semestre
+                                              ?.toString(),
+                                        ),
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Semestre',
+                                          hintText: 'Semestre que cursa',
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        maxLines: null,
+                                        validator: _model
+                                            .txtsemestreControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 8.0, 8.0, 8.0),
+                            child: StreamBuilder<List<EstudianteRecord>>(
+                              stream: queryEstudianteRecord(
+                                queryBuilder: (estudianteRecord) =>
+                                    estudianteRecord.where('uid',
+                                        isEqualTo: currentUserReference),
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<EstudianteRecord> rowEstudianteRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final rowEstudianteRecord =
+                                    rowEstudianteRecordList.isNotEmpty
+                                        ? rowEstudianteRecordList.first
+                                        : null;
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        controller:
+                                            _model.txttelefonoController ??=
+                                                TextEditingController(
+                                          text: rowEstudianteRecord?.telefono,
+                                        ),
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Telefono',
+                                          hintText: 'Número de teléfono',
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        maxLines: null,
+                                        validator: _model
+                                            .txttelefonoControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 8.0, 8.0, 8.0),
+                            child: StreamBuilder<List<EstudianteRecord>>(
+                              stream: queryEstudianteRecord(
+                                queryBuilder: (estudianteRecord) =>
+                                    estudianteRecord.where('uid',
+                                        isEqualTo: currentUserReference),
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<EstudianteRecord> rowEstudianteRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final rowEstudianteRecord =
+                                    rowEstudianteRecordList.isNotEmpty
+                                        ? rowEstudianteRecordList.first
+                                        : null;
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        controller:
+                                            _model.txtcarreraController ??=
+                                                TextEditingController(
+                                          text: rowEstudianteRecord?.carrera,
+                                        ),
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Carrera',
+                                          hintText: 'Carrera que cursa',
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        maxLines: null,
+                                        validator: _model
+                                            .txtcarreraControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 12.0),
+<<<<<<< HEAD
+                            child: StreamBuilder<List<EstudianteRecord>>(
+                              stream: queryEstudianteRecord(
+                                queryBuilder: (estudianteRecord) =>
+                                    estudianteRecord.where('uid',
+                                        isEqualTo: currentUserReference),
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+=======
                             child: FFButtonWidget(
                               onPressed: () async {
                                 await currentUserReference!
@@ -379,37 +668,81 @@ class _MovilEditarPerfilWidgetState extends State<MovilEditarPerfilWidget> {
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
+>>>>>>> 79c1353f4a167e0dcd3b8afe37598003e8d9f2fb
                                       ),
                                     ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                  );
+                                }
+                                List<EstudianteRecord>
+                                    buttonSecondaryEstudianteRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final buttonSecondaryEstudianteRecord =
+                                    buttonSecondaryEstudianteRecordList
+                                            .isNotEmpty
+                                        ? buttonSecondaryEstudianteRecordList
+                                            .first
+                                        : null;
+                                return FFButtonWidget(
+                                  onPressed: () async {
+                                    await currentUserReference!
+                                        .update(createUsersRecordData(
+                                      nombres: _model.textController1.text,
+                                    ));
+
+                                    await buttonSecondaryEstudianteRecord!
+                                        .reference
+                                        .update(createEstudianteRecordData(
+                                      semestre: int.tryParse(
+                                          _model.txtsemestreController.text),
+                                      telefono:
+                                          _model.txttelefonoController.text,
+                                      carrera: _model.txtcarreraController.text,
+                                    ));
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Cambios actualizados',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                  },
+                                  text: 'Guardar cambios',
+                                  options: FFButtonOptions(
+                                    width: 230.0,
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF4B39EF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
                                   ),
                                 );
                               },
-                              text: 'Guardar cambios',
-                              options: FFButtonOptions(
-                                width: 230.0,
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFF4B39EF),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 3.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                              ),
                             ),
                           ),
                         ],

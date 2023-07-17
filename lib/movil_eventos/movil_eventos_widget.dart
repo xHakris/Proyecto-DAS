@@ -177,7 +177,7 @@ class _MovilEventosWidgetState extends State<MovilEventosWidget>
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                   child: Text(
-                    'Categorias',
+                    'Categorías',
                     style: FlutterFlowTheme.of(context).headlineSmall,
                   ),
                 ),

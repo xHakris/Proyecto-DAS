@@ -17,9 +17,15 @@ class MovilEditarPerfilModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for txtsemestre widget.
+  TextEditingController? txtsemestreController;
+  String? Function(BuildContext, String?)? txtsemestreControllerValidator;
+  // State field(s) for txttelefono widget.
+  TextEditingController? txttelefonoController;
+  String? Function(BuildContext, String?)? txttelefonoControllerValidator;
+  // State field(s) for txtcarrera widget.
+  TextEditingController? txtcarreraController;
+  String? Function(BuildContext, String?)? txtcarreraControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -27,7 +33,9 @@ class MovilEditarPerfilModel extends FlutterFlowModel {
 
   void dispose() {
     textController1?.dispose();
-    textController2?.dispose();
+    txtsemestreController?.dispose();
+    txttelefonoController?.dispose();
+    txtcarreraController?.dispose();
   }
 
   /// Action blocks are added here.
