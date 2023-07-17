@@ -112,8 +112,27 @@ git push origin feature/nueva-caracteristica
 ```
 5. Abre un Pull Request en este repositorio.
 
+## Mapa del Sistema
+### Modelo Lógico
+El diagrama muestra la estructura general del sistema y su relación con el entorno. Se identifican los módulos principales del sistema, que incluyen la aplicación web de administración, las aplicaciones móviles de búsqueda y registro de asistencia y notas, y las funcionalidades relacionadas con la gestión de cursos/eventos, inscripciones, pagos, y generación de reportes.
+
+[![N|Solid](https://i.imgur.com/c24TCXY.png)](https://nodesource.com/products/nsolid)
+
+### Navegación
+El diagrama representa las ventanas del sistema y las flechas indican las navegaciones entre ellas. Se representarán los caminos más significativos para guiar al usuario a través de las diferentes funcionalidades del sistema.
+
+##### La aplicación web de administración:
+[![N|Solid](https://i.imgur.com/FhLImqM.png)](https://nodesource.com/products/nsolid)
+
+##### La aplicación móvil de docentes: búsqueda, registro de asistencia y notas:
+[![N|Solid](https://i.imgur.com/h3cl20r.png)](https://nodesource.com/products/nsolid)
+
+##### La aplicación móvil de estudiantes: gestión de cursos/eventos, inscripciones, pagos, y generación de reportes:
+[![N|Solid](https://i.imgur.com/BHeXfSZ.png)](https://nodesource.com/products/nsolid)
+
+
 ## Información adicional
 
-Para obtener más detalles sobre la arquitectura, los flujos de la aplicación y otras consideraciones técnicas, consulta la documentación en la carpeta `docs/`.
+Para obtener más detalles sobre la aplicación y otras consideraciones de la funcionalidad, consulta la documentación en la carpeta `docs/`.
 
 
