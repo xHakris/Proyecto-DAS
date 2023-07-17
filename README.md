@@ -9,6 +9,7 @@ Esta aplicación web y móvil permite la gestión y venta de cursos/eventos acad
 
 ## Configuración del entorno
 
+
 ### Aplicación web
 Clona este repositorio en tu máquina local
 ```sh
